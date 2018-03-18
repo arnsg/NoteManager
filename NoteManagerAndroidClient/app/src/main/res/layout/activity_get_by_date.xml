@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_date_dialog"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="it.libero.alessandragenca.notemanagerandroidclient.GetByDateActivity">
+
+
+    <EditText
+        android:id="@+id/usernameGET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="33dp"
+        android:hint="@string/username" />
+
+    <EditText
+        android:id="@+id/passwordGET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:inputType="textPassword"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/usernameGET"
+        android:hint="@string/password" />
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/passwordGET"
+        android:layout_marginEnd="11dp"
+        android:layout_marginRight="11dp"
+        android:layout_marginTop="32dp"
+        android:text=""
+        android:textColor="@android:color/black"
+        android:textSize="8sp" />
+
+    <Button
+        android:id="@+id/dateButton"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_alignLeft="@+id/usernameGET"
+        android:layout_alignStart="@+id/usernameGET"
+        android:layout_alignTop="@+id/buttongetnotesbydate"
+        android:layout_toLeftOf="@+id/buttongetnotesbydate"
+        android:layout_toStartOf="@+id/buttongetnotesbydate"
+        android:backgroundTint="?android:attr/colorAccent"
+        android:text="Get Date" />
+
+
+    <Button
+        android:id="@+id/buttongetnotesbydate"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+
+        android:layout_alignEnd="@+id/result"
+
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/result"
+        android:backgroundTint="@android:color/holo_blue_bright"
+        android:text="Get Note By Date" />
+
+
+</RelativeLayout>
+
+
+

@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">NoteManagerAndroidClient</string>
+
+    <!-- Risorse di tipo stringa (non "hard-coded") -->
+
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="input">Insert Title</string>
+    <string name="inputText">Insert Text </string>
+    <string name="output">Output</string>
+    <string name="register_user">Register User</string>
+    <string name="add_note">Add Note</string>
+    <string name="modify_note">Modify Note</string>
+    <string name="get_all">Get All Notes</string>
+    <string name="remove_note">Remove Note</string>
+    <string name="remove">Remove All Notes</string>
+    <string name="get_note">Get Note</string>
+    <string name="get_size">Get Size</string>
+
+</resources>
