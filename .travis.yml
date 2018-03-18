@@ -7,3 +7,5 @@ jdk:
 
 notifications:
   email: true
+  
+sudo: enabled
