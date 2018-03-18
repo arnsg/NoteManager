@@ -2,6 +2,11 @@ language: java
 
 sudo: true
 
+before_install:
+- cd NoteManager
+- chmod +x gradlew
+- ./gradlew clean
+
 jdk:
 - oraclejdk8
 
