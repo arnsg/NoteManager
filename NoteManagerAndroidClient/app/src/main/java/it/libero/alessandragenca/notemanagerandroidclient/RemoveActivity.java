@@ -1,5 +1,6 @@
 package it.libero.alessandragenca.notemanagerandroidclient;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -31,9 +32,13 @@ public class RemoveActivity extends AppCompatActivity {
         private Gson gson;
         private String baseURI = "http://10.0.2.2:8182/NoteRegApplication/";
         private EditText textIN;
-        private EditText password;
-        private EditText username;
+        //private EditText password;
+        //private EditText username;
         private TextView textOUT;
+
+
+        SharedPreferences editor;
+        public final static String prefName="Preference";
 
         public class RemoveRestTask extends AsyncTask<String, Void, String> {
 
@@ -88,14 +93,20 @@ public class RemoveActivity extends AppCompatActivity {
 
         }
 
+
+
+
+
+
+
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_remove);
 
             textIN = (EditText) findViewById(R.id.titleToRemove);
-            username = (EditText) findViewById(R.id.usernameRemoveNote);
-            password = (EditText) findViewById(R.id.passwordRemoveNote);
+            //username = (EditText) findViewById(R.id.usernameRemoveNote);
+            //password = (EditText) findViewById(R.id.passwordRemoveNote);
             textOUT = (TextView) findViewById(R.id.noteOutputR);
             textOUT.setScroller(new Scroller(getApplicationContext()));
             textOUT.setMaxLines(2);
@@ -104,22 +115,33 @@ public class RemoveActivity extends AppCompatActivity {
             textOUT.setMovementMethod(new ScrollingMovementMethod());
             textIN.setSingleLine();
             //textOUT.setSingleLine();
-            username.setSingleLine();
-            password.setSingleLine();
+            //username.setSingleLine();
+           // password.setSingleLine();
             textOUT.setTextColor(Color.BLUE);
             textOUT.setTextSize(3, 10);
             gson = new Gson();
         }
 
+
+
+
+
+
         public void goremove (View v) {
+
+            editor=getSharedPreferences(prefName,MODE_PRIVATE);
+            final String username=editor.getString("username","");
+            final String password=editor.getString("password","");
 
             if (textIN.getText().toString().equalsIgnoreCase("")) { // Nel campo input deve essere inserita la key
                 textOUT.setText("Insert Title ");
 
             }
             else {
-                new RemoveActivity.RemoveRestTask().execute(textIN.getText().toString(), username.getText().toString(), password.getText().toString());
+                new RemoveActivity.RemoveRestTask().execute(textIN.getText().toString(), username, password);
             }
 
         }
     }
+
+

@@ -1,5 +1,7 @@
 package it.libero.alessandragenca.notemanagerandroidclient;
 
+
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.google.gson.Gson;
 
 import org.restlet.resource.ClientResource;
@@ -19,6 +20,8 @@ import java.io.IOException;
 import it.libero.alessandragenca.notemanagerandroidclient.commons.ErrorCodes;
 import it.libero.alessandragenca.notemanagerandroidclient.commons.InvalidKeyException;
 
+
+
 public class RegActivity extends AppCompatActivity {
 
     private String baseURI = "http://10.0.2.2:8182/NoteRegApplication/"; // Costruisco la URI di base, costituita da IP:PORT + objectRegApplication (IP e porta riferiti al server)
@@ -28,6 +31,8 @@ public class RegActivity extends AppCompatActivity {
     private Gson gson;
     private final String TAG = "ALESSANDRA";
     private final int TAG_ADDOBJECT_INT = 9121;
+    private SharedPreferences.Editor editor;
+    public final static String prefName="Preference";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,11 +47,18 @@ public class RegActivity extends AppCompatActivity {
         username.setSingleLine();
         password.setSingleLine();
 
+        editor = getSharedPreferences(prefName, MODE_PRIVATE).edit();
+        editor.remove("username");
+        editor.remove("password");
+        editor.commit();
+
+
         registrationbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(username.getText().toString().length() ==0 || password.getText().toString().length() ==0 ) /* Verifico se username e password inseriti nei campi siano sufficientemente lunghi*/ {
+                if(username.getText().toString().length() ==0 || password.getText().toString().length() ==0 ) // Verifico se username e password inseriti nei campi siano sufficientemente lunghi
+                {
                     runOnUiThread(new Runnable() {
                         public void run() {
                             Toast.makeText(getApplicationContext(), "Username e/o password non riempiti correttamente.", Toast.LENGTH_SHORT).show();
@@ -55,8 +67,14 @@ public class RegActivity extends AppCompatActivity {
                 }
                 else
                     new RegisterUserTask().execute("users",username.getText().toString(),password.getText().toString());
+
+
             }
         });
+
+
+
+
     }
 
     @Override
@@ -64,6 +82,7 @@ public class RegActivity extends AppCompatActivity {
         super.onSaveInstanceState(savedInstanceState);
         savedInstanceState.putString("USERNAME", username.getText().toString());
         savedInstanceState.putString("PASSWORD", password.getText().toString());
+
     }
 
     @Override
@@ -71,7 +90,9 @@ public class RegActivity extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
         username.setText(savedInstanceState.getString("USERNAME"));
         password.setText(savedInstanceState.getString("PASSWORD"));
+
     }
+
 
     /*
         Task per le operazioni del client
@@ -86,11 +107,13 @@ public class RegActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... params) {
             ClientResource cr;
+
             cr = new ClientResource(baseURI + params[0]); // Creo la risorsa client basandomi su una URI costituita da baseURI + parametro passato dal metodo di gestione di un componente grafico (bottone) */
             gson = new Gson();
 
             String response = null;
             User user = new User(params[1], params[2]); // Creo l'oggetto utente con i parametri ottenuti dal metodo per l'interazione con il componente grafico (e forniti dagli EditText)
+            SharedPreferences editor=getSharedPreferences(prefName,MODE_PRIVATE);
 
             try {
                 response = cr.post(gson.toJson(user, User.class)).getText(); // Effettuo la Request HTTP con metodo "POST" e inserisco in response la Response HTTP.
@@ -102,24 +125,35 @@ public class RegActivity extends AppCompatActivity {
             } catch (InvalidKeyException e) {
                 response=null;
 
+
+
                 runOnUiThread(new Runnable() { // Poiché queste operazioni si stanno effettuando in un metodo dell'AsyncTask, per la visualizzazione di Toast è necessario eseguire un "Thread UI".
                     public void run() {
+
                         Toast.makeText(getApplicationContext(), "Username già utilizzato.", Toast.LENGTH_SHORT).show();
+
+
                     }
                 });
             }
             return response;
         }
 
+
+
         @Override
         protected void onPostExecute(final String res) {
-            if (res != null)
-                Toast.makeText(getApplicationContext(),res, Toast.LENGTH_SHORT).show();
-            runOnUiThread(new Runnable() { // Poiché queste operazioni si stanno effettuando in un metodo dell'AsyncTask, per la visualizzazione di Toast è necessario eseguire un "Thread UI".
-                public void run() {
-
-                }
-            });
+            if (res != null) {
+                Toast.makeText(getApplicationContext(), res, Toast.LENGTH_SHORT).show();
+                editor.putString("username", username.getText().toString());
+                editor.putString("password", password.getText().toString());
+                editor.commit();
+            }
         }
     }
+
+
+
+
+
 }

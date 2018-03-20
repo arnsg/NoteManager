@@ -1,5 +1,6 @@
 package it.libero.alessandragenca.notemanagerandroidclient;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Scroller;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -19,9 +21,11 @@ import org.restlet.resource.ClientResource;
 import org.restlet.resource.ResourceException;
 
 import java.io.IOException;
+import java.util.Date;
 
 import it.libero.alessandragenca.notemanagerandroidclient.commons.ErrorCodes;
 import it.libero.alessandragenca.notemanagerandroidclient.commons.InvalidKeyException;
+import it.libero.alessandragenca.notemanagerandroidclient.commons.Note;
 
 public class GetAllActivity extends AppCompatActivity {
 
@@ -31,13 +35,18 @@ public class GetAllActivity extends AppCompatActivity {
     private String baseURI = "http://10.0.2.2:8182/NoteRegApplication/";
 
 
-    private EditText username;
-    private EditText password;
+
     private TextView textOUT;
+    SharedPreferences editor;
+    public final static String prefName="Preference";
 
     public class GetAllRestTask extends AsyncTask<String, Void, String> {
 
+
+
         protected String doInBackground(String... params) {
+
+
 
             ClientResource cr;
             Gson gson = new Gson();
@@ -84,7 +93,11 @@ public class GetAllActivity extends AppCompatActivity {
 
             if (res!= null) {
                 textOUT.setText(res);
+
+
             }
+
+
         }
     }
 
@@ -92,9 +105,10 @@ public class GetAllActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_get_all);
+        editor=getSharedPreferences(prefName,MODE_PRIVATE);
 
-        username = (EditText) findViewById(R.id.usernameGetAllNotes);
-        password = (EditText) findViewById(R.id.passwordGetAllNotes);
+        //username = (EditText) findViewById(R.id.usernameGetAllNotes);
+        //password = (EditText) findViewById(R.id.passwordGetAllNotes);
 
         textOUT = (TextView) findViewById(R.id.noteOutputGetAll);
         textOUT.setScroller(new Scroller(getApplicationContext()));
@@ -104,16 +118,23 @@ public class GetAllActivity extends AppCompatActivity {
         textOUT.setMovementMethod(new ScrollingMovementMethod());
         textOUT.setTextColor(Color.BLUE);
         textOUT.setTextSize(3, 10);
-        username.setSingleLine();
-        password.setSingleLine();
+        //username.setSingleLine();
+        //password.setSingleLine();
 
         gson = new Gson();
+
+
+
     }
 
     public void goGetAll(View v) {
+        final String username=editor.getString("username","");
+        final String password=editor.getString("password","");
 
         //Toast.makeText(getApplicationContext(),username.getText().toString(), Toast.LENGTH_SHORT).show();
         //Toast.makeText(getApplicationContext(),password.getText().toString(), Toast.LENGTH_SHORT).show();
-        new GetAllActivity.GetAllRestTask().execute(username.getText().toString(), password.getText().toString());
+        new GetAllActivity.GetAllRestTask().execute(username,password);
+
+
     }
 }

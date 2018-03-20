@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".LogInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,7 +26,10 @@
         <activity android:name=".GetAllActivity" />
         <activity android:name=".PutActivity" />
         <activity android:name=".RemoveActivity" />
-        <activity android:name=".RemoveAllActivity"/>
+        <activity android:name=".RemoveAllActivity" />
+        <activity android:name=".MainActivity" />
+
+
     </application>
 
 </manifest>

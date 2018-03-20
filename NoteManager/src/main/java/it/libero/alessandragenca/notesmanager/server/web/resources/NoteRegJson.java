@@ -1,24 +1,15 @@
 package it.libero.alessandragenca.notesmanager.server.web.resources;
 
-import java.io.FileNotFoundException;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import org.restlet.resource.Delete;
-import org.restlet.resource.Get;
-import org.restlet.resource.Post;
-import org.restlet.resource.Put;
-import org.restlet.resource.ServerResource;
-import org.restlet.data.Status;
-
 import com.google.gson.Gson;
-
 import it.libero.alessandragenca.notesmanager.commons.ErrorCodes;
 import it.libero.alessandragenca.notesmanager.commons.InvalidKeyException;
 import it.libero.alessandragenca.notesmanager.commons.Note;
 import it.libero.alessandragenca.notesmanager.server.backend.wrapper.NoteRegistryAPI;
+import org.restlet.data.Status;
+import org.restlet.resource.*;
+
+import java.io.FileNotFoundException;
+import java.text.ParseException;
 
 
 
@@ -32,10 +23,12 @@ public class NoteRegJson extends ServerResource{
     }
     
     @Post
-    public String addNote(String payload) throws ParseException  {   	
+    public String addNote(String payload) throws ParseException {
     	Gson gson = new Gson();
+
     	NoteRegistryAPI nrapi = NoteRegistryAPI.instance();
     	Note n = gson.fromJson(payload, Note.class);
+
     	try{
     		nrapi.add(n);
     	return gson.toJson("note added: " + n.getTitle(), String.class);

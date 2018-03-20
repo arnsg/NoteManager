@@ -1,5 +1,6 @@
 package it.libero.alessandragenca.notemanagerandroidclient;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -13,6 +14,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Scroller;
 import android.widget.TextView;
+
+
 
 import org.restlet.data.ChallengeResponse;
 import org.restlet.data.ChallengeScheme;
@@ -31,9 +34,12 @@ public class RemoveAllActivity extends AppCompatActivity {
 
     private Gson gson;
     private String baseURI = "http://10.0.2.2:8182/NoteRegApplication/";
-    private EditText password;
-    private EditText username;
+    //private EditText password;
+    //private EditText username;
     private TextView textOUT;
+
+    SharedPreferences editor;
+    public final static String prefName="Preference";
 
     public class RemoveAllRestTask extends AsyncTask<String, Void, String> {
 
@@ -88,16 +94,25 @@ public class RemoveAllActivity extends AppCompatActivity {
 
     }
 
+
+
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_remove_all);
 
-        username = (EditText) findViewById(R.id.usernameRemoveAllNotes);
-        password = (EditText) findViewById(R.id.passwordRemoveAllNotes);
+
+        editor=getSharedPreferences(prefName,MODE_PRIVATE);
+
+
+
         textOUT = (TextView) findViewById(R.id.noteOutputRAll);
-        username.setSingleLine();
-        password.setSingleLine();
+        //username.setSingleLine();
+        //password.setSingleLine();
         //textOUT.setSingleLine();
         textOUT.setScroller(new Scroller(getApplicationContext()));
         textOUT.setMaxLines(2);
@@ -110,7 +125,18 @@ public class RemoveAllActivity extends AppCompatActivity {
         gson = new Gson();
     }
 
+
+
+
+
+
     public void goRemoveAll (View v) {
-        new RemoveAllActivity.RemoveAllRestTask().execute(username.getText().toString(), password.getText().toString());
+        final String username=editor.getString("username","");
+        final String password=editor.getString("password","");
+        new RemoveAllActivity.RemoveAllRestTask().execute(username, password);
+
+
     }
 }
+
+

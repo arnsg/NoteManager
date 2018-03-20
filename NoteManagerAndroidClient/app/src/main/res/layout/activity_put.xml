@@ -15,7 +15,9 @@
         android:id="@+id/title"
         android:hint="@string/input"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp" />
 
 
     <EditText
@@ -24,39 +26,25 @@
         android:layout_height="wrap_content"
         android:hint="@string/inputText"
         android:id="@+id/text"
-        android:layout_marginTop="11dp"
         android:layout_below="@+id/title"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="24dp" />
 
-    <EditText
-        android:text=""
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/username"
-        android:id="@+id/username"
-        android:layout_below="@+id/text"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 
-    <EditText
-        android:text=""
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/password"
-        android:hint="@string/password"
-        android:layout_below="@+id/username"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+
 
     <TextView
         android:text=""
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/note"
-        android:layout_below="@+id/password"
+        android:layout_above="@+id/buttonModify"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="11dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginBottom="103dp" />
 
     <Button
         android:text="@string/modify_note"
@@ -65,10 +53,10 @@
         android:id="@+id/buttonModify"
         android:enabled="true"
         android:onClick="goput"
-        android:layout_marginTop="48dp"
-        android:layout_below="@+id/note"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_marginBottom="128dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 
 </RelativeLayout>

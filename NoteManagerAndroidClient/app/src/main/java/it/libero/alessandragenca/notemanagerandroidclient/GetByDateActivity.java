@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.TimePickerDialog;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.icu.text.DateFormat;
 import android.icu.text.SimpleDateFormat;
@@ -47,6 +48,7 @@ import it.libero.alessandragenca.notemanagerandroidclient.commons.Note;
 
 public class GetByDateActivity extends AppCompatActivity {
 
+
     private final String TAG = "ALE_DICTIONARY";
 
     private Gson gson;
@@ -55,13 +57,18 @@ public class GetByDateActivity extends AppCompatActivity {
     private EditText textPassword;
     private TextView textOUT;
     private Button changeDataButton;
-    private static Button getByDateButton;
+    private Button getByDateButton;
     private static String date;
-    private static int y;
-    private static int d;
-    private static int m;
+    private int y, d, m;
+
+    SharedPreferences editor;
+    public final static String prefName="Preference";
 
     public class PostRestTask extends AsyncTask<String, Void, String> {
+
+
+
+
 
         @Override
         protected String doInBackground(String... params) {
@@ -74,6 +81,7 @@ public class GetByDateActivity extends AppCompatActivity {
             cr = new ClientResource(URI);
             //String dataText=params[0];
 
+
             ChallengeScheme scheme = ChallengeScheme.HTTP_BASIC;
             ChallengeResponse authentication = new ChallengeResponse(scheme, params[0], params[1]);
             cr.setChallengeResponse(authentication);
@@ -81,8 +89,10 @@ public class GetByDateActivity extends AppCompatActivity {
             GregorianCalendar gc= new GregorianCalendar(y,m,d);
             Date d= gc.getTime();
 
+
             try {
                 jsonResponse = cr.post(gson.toJson(d,Date.class)).getText();
+
 
             } catch (ResourceException | IOException e1) {
                 if (org.restlet.data.Status.CLIENT_ERROR_UNAUTHORIZED.equals(cr.getStatus())) {
@@ -101,14 +111,19 @@ public class GetByDateActivity extends AppCompatActivity {
             return jsonResponse;
         }
 
+
+
         @Override
         protected void onPostExecute(String res) {
             textOUT.setTextColor(Color.BLUE);
             textOUT.setTextSize(3, 8);
 
             if (res!=null) {
+
                 textOUT.setText(res);
             }
+
+
         }
     }
 
@@ -117,19 +132,22 @@ public class GetByDateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_get_by_date);
 
-        textUsername = (EditText) findViewById(R.id.usernameGET);
-        textPassword = (EditText) findViewById(R.id.passwordGET);
+
+        //textUsername = (EditText) findViewById(R.id.usernameGET);
+        //textPassword = (EditText) findViewById(R.id.passwordGET);
         textOUT= (TextView) findViewById(R.id.result);
         getByDateButton = (Button) findViewById(R.id.buttongetnotesbydate);
         getByDateButton.setEnabled(false);
         changeDataButton = (Button) findViewById(R.id.dateButton);
-       // textOUT.setEnabled(false);
+        // textOUT.setEnabled(false);
         textOUT.setScroller(new Scroller(getApplicationContext()));
         textOUT.setMaxLines(2);
         textOUT.setHorizontalScrollBarEnabled(true);
         textOUT.setMovementMethod(new ScrollingMovementMethod());
-        textUsername.setSingleLine();
-        textPassword.setSingleLine();
+        //textUsername.setSingleLine();
+        //textPassword.setSingleLine();
+        editor=getSharedPreferences(prefName,MODE_PRIVATE);
+
 
         gson = new Gson();
 
@@ -137,10 +155,13 @@ public class GetByDateActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
                 // Create a new DatePickerFragment
                 DialogFragment newFragment = new DatePickerFragment();
                 // Display DatePickerFragment
                 newFragment.show(getFragmentManager(), "DatePicker");
+
+
             }
 
         });
@@ -149,14 +170,28 @@ public class GetByDateActivity extends AppCompatActivity {
         getByDateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new PostRestTask().execute(textUsername.getText().toString(),
-                       textPassword.getText().toString());
+
+                final String username=editor.getString("username","");
+                final String password=editor.getString("password","");
+                new PostRestTask().execute(username, password);
+
+
             }
+
         });
     }
 
-    public static class DatePickerFragment extends DialogFragment
+
+
+
+
+
+
+
+    public  class DatePickerFragment extends DialogFragment
             implements DatePickerDialog.OnDateSetListener {
+
+
 
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -184,5 +219,9 @@ public class GetByDateActivity extends AppCompatActivity {
             //Toast.makeText(getApplicationContext(),date.toString(),Toast.LENGTH_SHORT).show();
 
         }
+
     }
+
+
+
 }

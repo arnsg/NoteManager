@@ -9,35 +9,17 @@
     tools:context=".GetAllActivity">
 
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/username"
-        android:id="@+id/usernameGetAllNotes"
-        android:layout_marginTop="25dp"
-
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/passwordGetAllNotes"
-        android:hint="@string/password"
-        android:inputType="textPassword"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/usernameGetAllNotes"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
     <TextView
-        android:text=""
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/noteOutputGetAll"
-        android:layout_centerVertical="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text=""
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/buttonGetAll"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:text="@string/get_all"
@@ -45,10 +27,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/buttonGetAll"
         android:onClick="goGetAll"
-        android:layout_below="@+id/noteOutputGetAll"
+        android:layout_marginBottom="24dp"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="34dp" />
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

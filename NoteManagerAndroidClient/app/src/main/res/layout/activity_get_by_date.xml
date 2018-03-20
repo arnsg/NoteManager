@@ -8,50 +8,32 @@
     tools:context="it.libero.alessandragenca.notemanagerandroidclient.GetByDateActivity">
 
 
-    <EditText
-        android:id="@+id/usernameGET"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
 
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="33dp"
-        android:hint="@string/username" />
 
-    <EditText
-        android:id="@+id/passwordGET"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:inputType="textPassword"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/usernameGET"
-        android:hint="@string/password" />
+
 
     <TextView
         android:id="@+id/result"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/passwordGET"
-        android:layout_marginEnd="11dp"
-        android:layout_marginRight="11dp"
-        android:layout_marginTop="32dp"
+
         android:text=""
         android:textColor="@android:color/black"
-        android:textSize="8sp" />
+        android:textSize="8sp"
+        android:layout_marginBottom="113dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/dateButton"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_alignLeft="@+id/usernameGET"
-        android:layout_alignStart="@+id/usernameGET"
-        android:layout_alignTop="@+id/buttongetnotesbydate"
-        android:layout_toLeftOf="@+id/buttongetnotesbydate"
-        android:layout_toStartOf="@+id/buttongetnotesbydate"
         android:backgroundTint="?android:attr/colorAccent"
-        android:text="Get Date" />
+        android:text="Get Date"
+        android:layout_marginTop="44dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
 
     <Button
@@ -59,12 +41,12 @@
         android:layout_width="200dp"
         android:layout_height="50dp"
 
-        android:layout_alignEnd="@+id/result"
-
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/result"
         android:backgroundTint="@android:color/holo_blue_bright"
-        android:text="Get Note By Date" />
+        android:text="Get Note By Date"
+        android:layout_below="@+id/dateButton"
+        android:layout_alignLeft="@+id/dateButton"
+        android:layout_alignStart="@+id/dateButton"
+        android:layout_marginTop="44dp" />
 
 
 </RelativeLayout>

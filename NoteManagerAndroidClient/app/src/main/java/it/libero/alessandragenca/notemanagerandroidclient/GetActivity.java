@@ -1,5 +1,6 @@
 package it.libero.alessandragenca.notemanagerandroidclient;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Scroller;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -25,6 +27,7 @@ import it.libero.alessandragenca.notemanagerandroidclient.commons.ErrorCodes;
 import it.libero.alessandragenca.notemanagerandroidclient.commons.InvalidKeyException;
 import it.libero.alessandragenca.notemanagerandroidclient.commons.Note;
 
+
 /**
  * Created by Alessandra on 12/11/2017.
  */
@@ -37,21 +40,29 @@ public class GetActivity extends AppCompatActivity {
     private Gson gson;
     private String baseURI = "http://10.0.2.2:8182/NoteRegApplication/";
 
+
     private EditText textTitle;
-    private EditText username;
-    private EditText password;
+    //private EditText username;
+    //private EditText password;
     private TextView textOUT;
     private TextView textOUT2;
     private Button buttonforgetactivity;
     private TextView textOUT3;
 
+    SharedPreferences editor;
+    public final static String prefName="Preference";
+
+
+
     public class GetRestTask extends AsyncTask<String, Void, String> {
+
+
 
         protected String doInBackground(String... params) {
             String title = params[0];
 
-            Note n;
 
+            Note n;
             ClientResource cr;
             Gson gson = new Gson();
 
@@ -64,11 +75,14 @@ public class GetActivity extends AppCompatActivity {
             cr.setChallengeResponse(authentication);
 
             try {
+
                 jsonResponse = cr.get().getText();
+
                 if (cr.getStatus().getCode() == ErrorCodes.INVALID_KEY_CODE)
                     throw gson.fromJson(jsonResponse, InvalidKeyException.class);
                      n = gson.fromJson(jsonResponse, Note.class);
                     jsonResponse=n.toString();
+
 
             } catch (ResourceException | IOException e1) {
                 if (org.restlet.data.Status.CLIENT_ERROR_UNAUTHORIZED.equals(cr.getStatus())) {
@@ -96,6 +110,7 @@ public class GetActivity extends AppCompatActivity {
             textOUT.setTextColor(Color.BLUE);
             textOUT.setTextSize(3, 10);
 
+
             if (res!= null) {
 
                /* if (n != null) {
@@ -105,7 +120,12 @@ public class GetActivity extends AppCompatActivity {
                     textOUT3.setText(n.getDate().toString());
                 } else {*/
                     textOUT.setText(res);
+
+
+
             }
+
+
         }
     }
 
@@ -113,10 +133,16 @@ public class GetActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_get);
-        buttonforgetactivity = (Button) findViewById(R.id.buttongetactivity);
+        editor=getSharedPreferences(prefName,MODE_PRIVATE);
 
-        username = (EditText) findViewById(R.id.usernameGetNote);
-        password = (EditText) findViewById(R.id.passwordGetNote);
+        final String username=editor.getString("username","");
+        final String password=editor.getString("password","");
+        buttonforgetactivity = (Button) findViewById(R.id.buttongetACT);
+
+
+
+        //username = (EditText) findViewById(R.id.usernameGetNote);
+       // password = (EditText) findViewById(R.id.passwordGetNote);
         textTitle = (EditText) findViewById(R.id.titleForGet);
         textOUT = (TextView) findViewById(R.id.noteOutput);
 
@@ -126,28 +152,44 @@ public class GetActivity extends AppCompatActivity {
         textOUT.setMovementMethod(new ScrollingMovementMethod());
         textOUT.setTextColor(Color.BLUE);
         textOUT.setTextSize(3, 10);
-        username.setSingleLine();
-        password.setSingleLine();
+       // username.setSingleLine();
+        //password.setSingleLine();
         textTitle.setSingleLine();
         //textOUT.setSingleLine();
 
         gson = new Gson();
 
+
+
+
+
         buttonforgetactivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+
+
                 if (textTitle.getText().toString().equalsIgnoreCase("")) { // Nel campo input deve essere inserita la key
                     textOUT.setText("Insert Title");
-                    //Toast.makeText(getApplicationContext(),username.getText().toString(), Toast.LENGTH_SHORT).show();
-                    //Toast.makeText(getApplicationContext(),password.getText().toString(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(),username, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(),password, Toast.LENGTH_SHORT).show();
+
                 }
 
                 else
-                    new GetActivity.GetRestTask().execute(textTitle.getText().toString(),
-                            username.getText().toString(), password.getText().toString());
+                    new GetActivity.GetRestTask().execute(textTitle.getText().toString(),username,password);
+                            //username.getText().toString(), password.getText().toString());
+
+
+
             }
 
         });
+
+
     }
+
+
 }
+
+

@@ -1,20 +1,14 @@
 package it.libero.alessandragenca.notesmanager.server.web.resources;
 
-import java.util.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-
-import org.restlet.data.Status;
+import com.google.gson.Gson;
+import it.libero.alessandragenca.notesmanager.commons.Note;
+import it.libero.alessandragenca.notesmanager.server.backend.wrapper.NoteRegistryAPI;
 import org.restlet.resource.Get;
 import org.restlet.resource.Post;
 import org.restlet.resource.ServerResource;
 
-import com.google.gson.Gson;
-
-import it.libero.alessandragenca.notesmanager.commons.ErrorCodes;
-import it.libero.alessandragenca.notesmanager.commons.InvalidKeyException;
-import it.libero.alessandragenca.notesmanager.commons.Note;
-import it.libero.alessandragenca.notesmanager.server.backend.wrapper.NoteRegistryAPI;
+import java.text.ParseException;
+import java.util.Date;
 
 
 

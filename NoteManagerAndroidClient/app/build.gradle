@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
+    buildToolsVersion "25.0.0"
     defaultConfig {
         applicationId "it.libero.alessandragenca.notemanagerandroidclient"
         minSdkVersion 15
@@ -20,11 +21,14 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile 'com.android.support.test.espresso:espresso-core:3.0.1'
-    androidTestCompile 'com.android.support.test:runner:1.0.1'
-	compile group: 'org.restlet.jee', name: 'org.restlet', version:'2.1.1'
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    compile group: 'org.restlet.jee', name: 'org.restlet', version:'2.1.1'
     compile 'com.google.code.gson:gson:2.8.1'
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha9'
+    compile 'com.android.support:design:26.+'
     testCompile 'junit:junit:4.12'
 }

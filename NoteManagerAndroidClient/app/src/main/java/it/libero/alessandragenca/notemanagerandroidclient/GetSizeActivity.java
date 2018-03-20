@@ -1,5 +1,6 @@
 package it.libero.alessandragenca.notemanagerandroidclient;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Scroller;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -25,10 +27,14 @@ import it.libero.alessandragenca.notemanagerandroidclient.commons.InvalidKeyExce
 
 public class GetSizeActivity extends AppCompatActivity {
 
+
     private final String TAG = "ALE_DICTIONARY";
 
     private Gson gson;
     private String baseURI = "http://10.0.2.2:8182/NoteRegApplication/size";
+
+    SharedPreferences editor;
+    public final static String prefName="Preference";
 
     private EditText username;
     private EditText password;
@@ -36,7 +42,12 @@ public class GetSizeActivity extends AppCompatActivity {
 
     public class GetSizeRestTask extends AsyncTask<String, Void, String> {
 
+
+
         protected String doInBackground(String... params) {
+
+
+
             ClientResource cr;
             Gson gson = new Gson();
 
@@ -86,6 +97,7 @@ public class GetSizeActivity extends AppCompatActivity {
 
             }
 
+
         }
     }
 
@@ -93,12 +105,12 @@ public class GetSizeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_get_size);
-
-        username = (EditText) findViewById(R.id.usernameGetNoteSize);
-        password = (EditText) findViewById(R.id.passwordGetNoteSize);
+        editor=getSharedPreferences(prefName,MODE_PRIVATE);
+       // username = (EditText) findViewById(R.id.usernameGetNoteSize);
+        //password = (EditText) findViewById(R.id.passwordGetNoteSize);
         textOUT = (TextView) findViewById(R.id.noteOutputSize);
-        username.setSingleLine();
-        password.setSingleLine();
+        //username.setSingleLine();
+        //password.setSingleLine();
         //textOUT.setSingleLine();
         textOUT.setScroller(new Scroller(getApplicationContext()));
         textOUT.setMaxLines(2);
@@ -109,11 +121,17 @@ public class GetSizeActivity extends AppCompatActivity {
 
         gson = new Gson();
 
+
+
     }
 
     public void goget(View v) {
+        final String username=editor.getString("username","");
+        final String password=editor.getString("password","");
         //Toast.makeText(getApplicationContext(),username.getText().toString(), Toast.LENGTH_SHORT).show();
         //Toast.makeText(getApplicationContext(),password.getText().toString(), Toast.LENGTH_SHORT).show();
-        new GetSizeActivity.GetSizeRestTask().execute(username.getText().toString(), password.getText().toString());
+        new GetSizeActivity.GetSizeRestTask().execute(username, password);
+
+
     }
 }

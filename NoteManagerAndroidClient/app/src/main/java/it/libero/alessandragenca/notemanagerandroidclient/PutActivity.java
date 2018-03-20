@@ -1,5 +1,6 @@
 package it.libero.alessandragenca.notemanagerandroidclient;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Scroller;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -20,6 +22,7 @@ import org.restlet.resource.ClientResource;
 import org.restlet.resource.ResourceException;
 
 import java.io.IOException;
+import java.util.Date;
 
 import it.libero.alessandragenca.notemanagerandroidclient.commons.ErrorCodes;
 import it.libero.alessandragenca.notemanagerandroidclient.commons.InvalidKeyException;
@@ -38,6 +41,9 @@ public class PutActivity extends AppCompatActivity {
     private EditText password;
     private TextView textOUT;
     private Button button;
+
+    SharedPreferences editor;
+    public final static String prefName="Preference";
 
     public class PutRestTask extends AsyncTask<String, Void, String> {
 
@@ -113,7 +119,11 @@ public class PutActivity extends AppCompatActivity {
                 String error2 = "Error: " + cr.getStatus().getCode() + " - " + e2.getMessage();
                 Log.e(TAG, error2);
             }
+
+
+
             return jsonResponse;
+
         }
 
         @Override
@@ -122,8 +132,12 @@ public class PutActivity extends AppCompatActivity {
             textOUT.setTextSize(3, 10);
 
             if (res!= null) {
+
                 textOUT.setText(res);
+
             }
+
+
         }
     }
 
@@ -132,8 +146,8 @@ public class PutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_put);
 
-        username = (EditText) findViewById(R.id.username);
-        password = (EditText) findViewById(R.id.password);
+        //username = (EditText) findViewById(R.id.username);
+        //password = (EditText) findViewById(R.id.password);
         textTitle = (EditText) findViewById(R.id.title);
         text = (EditText) findViewById(R.id.text);
         button = (Button) findViewById(R.id.buttonModify);
@@ -141,8 +155,8 @@ public class PutActivity extends AppCompatActivity {
         gson = new Gson();
         textOUT.setTextColor(Color.BLUE);
         textOUT.setTextSize(3, 10);
-        username.setSingleLine();
-        password.setSingleLine();
+        //username.setSingleLine();
+        //password.setSingleLine();
         textTitle.setSingleLine();
         text.setSingleLine();
         textOUT.setScroller(new Scroller(getApplicationContext()));
@@ -151,19 +165,33 @@ public class PutActivity extends AppCompatActivity {
         textOUT.setHorizontalScrollBarEnabled(true);
         textOUT.setMovementMethod(new ScrollingMovementMethod());
         //textOUT.setSingleLine();
+
+
+        editor=getSharedPreferences(prefName,MODE_PRIVATE);
+
+
     }
 
     public void goput(View v) {
+
+
+        final String username=editor.getString("username","");
+        final String password=editor.getString("password","");
+
         if (textTitle.getText().toString().equalsIgnoreCase("")) { // Nel campo input deve essere inserita la key
             textOUT.setText("Insert Title");
             //Toast.makeText(getApplicationContext(),username.getText().toString(), Toast.LENGTH_SHORT).show();
             //Toast.makeText(getApplicationContext(),password.getText().toString(), Toast.LENGTH_SHORT).show();
+
         }
         else if (text.getText().toString().equalsIgnoreCase("")){
             textOUT.setText("insert text");
+
         }
+
         else {
-            new PutActivity.PutRestTask().execute(textTitle.getText().toString(), text.getText().toString(), username.getText().toString(), password.getText().toString());
+            new PutActivity.PutRestTask().execute(textTitle.getText().toString(), text.getText().toString(),username, password);
         }
+
     }
 }

@@ -21,36 +21,18 @@
 
 
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/username"
-        android:id="@+id/usernameRemoveNote"
-        android:layout_below="@+id/titleToRemove"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="23dp" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/passwordRemoveNote"
-        android:hint="@string/password"
-        android:inputType="textPassword"
-        android:layout_below="@+id/usernameRemoveNote"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="15dp" />
 
     <TextView
         android:text=""
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/noteOutputR"
-        android:layout_below="@+id/passwordRemoveNote"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="21dp" />
+
+        android:layout_marginTop="57dp"
+        android:layout_below="@+id/titleToRemove"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:text="@string/remove_note"
