@@ -98,6 +98,7 @@ public class GetActivity extends AppCompatActivity {
 
             } catch (InvalidKeyException e2) {
                 String error2 = "Error: " + cr.getStatus().getCode() + " - " + e2.getMessage();
+                jsonResponse= "Error: title not found";
                 Log.e(TAG, error2);
             }
 

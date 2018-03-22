@@ -22,6 +22,7 @@ import org.restlet.resource.ResourceException;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.StringTokenizer;
 
 import it.libero.alessandragenca.notemanagerandroidclient.commons.ErrorCodes;
 import it.libero.alessandragenca.notemanagerandroidclient.commons.InvalidKeyException;
@@ -92,7 +93,12 @@ public class GetAllActivity extends AppCompatActivity {
             textOUT.setTextSize(3, 10);
 
             if (res!= null) {
-                textOUT.setText(res);
+
+                textOUT.setText("Note Titles:");
+                StringTokenizer st = new StringTokenizer(res,",");
+                while(st.hasMoreElements()){
+                    textOUT.setText(textOUT.getText()+"\n"+st.nextToken());
+                }
 
 
             }
@@ -112,7 +118,7 @@ public class GetAllActivity extends AppCompatActivity {
 
         textOUT = (TextView) findViewById(R.id.noteOutputGetAll);
         textOUT.setScroller(new Scroller(getApplicationContext()));
-        textOUT.setMaxLines(2);
+        textOUT.setMaxLines(15);
         textOUT.setBackgroundColor(Color.CYAN);
         textOUT.setHorizontalScrollBarEnabled(true);
         textOUT.setMovementMethod(new ScrollingMovementMethod());

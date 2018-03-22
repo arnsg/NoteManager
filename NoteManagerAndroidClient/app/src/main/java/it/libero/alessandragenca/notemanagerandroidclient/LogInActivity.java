@@ -76,7 +76,7 @@ public class LogInActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         if (mUsernameView.getText().toString().equals("") || mPasswordView.getText().toString().equals("")) {
                             View parent = (View) findViewById(R.id.activity_login_page);
-                            sn.make(parent, "Inserisci i dati", Snackbar.LENGTH_SHORT).show();
+                            sn.make(parent, "Insert Data", Snackbar.LENGTH_SHORT).show();
                         } else
                             new LoginRestTask().execute(String.valueOf(mUsernameView.getText()), String.valueOf(mPasswordView.getText()));
                     }
@@ -126,7 +126,7 @@ public class LogInActivity extends AppCompatActivity {
                             @Override
                             public void run() {
 
-                                Toast.makeText(LogInActivity.this, "Autenticazione con il server fallita", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LogInActivity.this, "Authentication Failed", Toast.LENGTH_SHORT).show();
                                 finish();
 
                             }
@@ -189,11 +189,11 @@ public class LogInActivity extends AppCompatActivity {
 
 
             } else if (c == 1) {
-                Toast.makeText(getApplicationContext(), "Utente non registrato", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Unregistered User", Toast.LENGTH_SHORT).show();
 
 
             } else if (c == 2) {
-                Toast.makeText(getApplicationContext(), "Credenziali errate", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Wrong credentials", Toast.LENGTH_SHORT).show();
                 //Toast.makeText(getApplicationContext(),password.getText().toString(), Toast.LENGTH_SHORT).show();
 
             }

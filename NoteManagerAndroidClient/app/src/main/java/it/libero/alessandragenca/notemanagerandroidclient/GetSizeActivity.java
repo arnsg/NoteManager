@@ -93,7 +93,7 @@ public class GetSizeActivity extends AppCompatActivity {
 
             if (res!= null) {
 
-                textOUT.setText(res);
+                textOUT.setText("Number of memorized notes:" +res);
 
             }
 

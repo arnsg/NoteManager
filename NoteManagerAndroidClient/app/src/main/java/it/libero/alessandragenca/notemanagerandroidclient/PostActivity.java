@@ -89,6 +89,7 @@ public class PostActivity extends AppCompatActivity {
 
             } catch (InvalidKeyException e2) {
                 String error2 = "Error: " + cr.getStatus().getCode() + " - " + e2.getMessage();
+                jsonResponse = "Errore nell'inserimento del titolo:\n nota già esistente";
                 Log.e(TAG, error2);
             }
 
@@ -144,8 +145,8 @@ public class PostActivity extends AppCompatActivity {
             String username=editor.getString("username","");
             String password=editor.getString("password","");
             Log.e(TAG, username+password);
-            Toast.makeText(getApplicationContext(),username, Toast.LENGTH_SHORT).show();
-            Toast.makeText(getApplicationContext(),password, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(),username, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(),password, Toast.LENGTH_SHORT).show();
 
             //final SharedPreferences prefs = getPreferences(MODE_PRIVATE);
            // String username= prefs.getString("username", "");
