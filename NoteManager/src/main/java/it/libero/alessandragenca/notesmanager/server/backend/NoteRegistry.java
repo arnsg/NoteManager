@@ -2,17 +2,11 @@ package it.libero.alessandragenca.notesmanager.server.backend;
 
 import it.libero.alessandragenca.notesmanager.commons.InvalidKeyException;
 import it.libero.alessandragenca.notesmanager.commons.Note;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.util.Collection;
+
+import java.io.*;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Set;
-import java.util.TreeMap;
 
 
 

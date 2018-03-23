@@ -57,9 +57,11 @@ public class GetByDateActivity extends AppCompatActivity {
     private EditText textPassword;
     private TextView textOUT;
     private Button changeDataButton;
-    private Button getByDateButton;
+    private static Button getByDateButton;
     private static String date;
-    private int y, d, m;
+    private static int y =0;
+    private static int d = 0;
+    private static int m=0;
 
     SharedPreferences editor;
     public final static String prefName="Preference";
@@ -188,8 +190,7 @@ public class GetByDateActivity extends AppCompatActivity {
 
 
 
-    public  class DatePickerFragment extends DialogFragment
-            implements DatePickerDialog.OnDateSetListener {
+    public static class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
 
 
 
@@ -202,7 +203,7 @@ public class GetByDateActivity extends AppCompatActivity {
             int day = c.get(Calendar.DAY_OF_MONTH);
 
             // Create a new instance of DatePickerDialog and return it
-            return new DatePickerDialog(getActivity(), this, year, month, day);
+            return new DatePickerDialog(getActivity(),this, year, month, day);
         }
 
 

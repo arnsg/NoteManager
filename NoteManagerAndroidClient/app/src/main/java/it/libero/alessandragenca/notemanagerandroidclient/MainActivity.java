@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
         Button buttonadd = (Button) findViewById(R.id.buttonadd);
         Button buttonremove= (Button) findViewById(R.id.buttonremove);
         Button buttonremoveAll= (Button) findViewById(R.id.buttonremove2);
-        Button buttonRegistration= (Button) findViewById(R.id.buttonRegister);
         Button buttonGetAll= (Button) findViewById(R.id.buttonGetAllNotes);
         Button buttongetSize =(Button) findViewById(R.id.buttonGetsize);
 
@@ -61,16 +60,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent Intent = new Intent(MainActivity.this ,PostActivity.class);
-                startActivity(Intent);
-
-
-            }
-        });
-
-        buttonRegistration.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent Intent = new Intent(MainActivity.this ,RegActivity.class);
                 startActivity(Intent);
 
 

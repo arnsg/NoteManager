@@ -1,24 +1,17 @@
 package it.libero.alessandragenca.notesmanager.server.backend;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintStream;
-import java.util.ArrayList;
-
+import it.libero.alessandragenca.notesmanager.commons.InvalidUsernameException;
+import it.libero.alessandragenca.notesmanager.commons.User1;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
 import org.restlet.security.MemoryRealm;
 import org.restlet.security.User;
 
-
-import it.libero.alessandragenca.notesmanager.commons.InvalidUsernameException;
-import it.libero.alessandragenca.notesmanager.commons.User1;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.util.ArrayList;
 
 
 
@@ -42,7 +35,7 @@ public class UserRegistry {
 	}
 	
 	public void add (User u) throws InvalidUsernameException{
-		//controlliamo se c'è gia un user con quell'identifier
+		//controlliamo se c'e' gia' un user con quell'identifier
 		for (User users: realm.getUsers()){
 			if(u.getIdentifier().equalsIgnoreCase(users.getIdentifier()))
 				throw new InvalidUsernameException("Username Duplicato:" + u.getIdentifier());

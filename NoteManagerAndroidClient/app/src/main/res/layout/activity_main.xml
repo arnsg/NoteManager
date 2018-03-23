@@ -16,13 +16,13 @@
         android:textAlignment="viewStart"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:gravity="start" />
 
     <Button
         android:id="@+id/buttonRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorAccent"
         android:text="Register new User for Note Registry"
         android:textSize="12sp"
         android:layout_above="@+id/buttonget"
@@ -30,7 +30,10 @@
         android:layout_alignParentEnd="true"
         android:layout_marginRight="12dp"
         android:layout_marginEnd="12dp"
-        android:layout_marginBottom="79dp" />
+        android:layout_marginBottom="79dp"
+        android:textColor="@color/white"
+        android:foreground="@color/white"
+        android:background="@color/white" />
 
 
     <Button

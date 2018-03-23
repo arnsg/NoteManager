@@ -25,15 +25,14 @@
         android:layout_alignParentStart="true" />
 
     <Button
-        android:text="Get Size"
+        android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button"
-        android:onClick="goget"
-        android:layout_below="@+id/noteOutputSize"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="34dp" />
+        android:onClick="goget"
+        android:text="Get Size" />
 
 
 </RelativeLayout>

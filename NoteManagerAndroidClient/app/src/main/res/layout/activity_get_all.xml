@@ -22,15 +22,14 @@
         android:layout_alignParentEnd="true" />
 
     <Button
-        android:text="@string/get_all"
+        android:id="@+id/buttonGetAll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonGetAll"
-        android:onClick="goGetAll"
-        android:layout_marginBottom="24dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:onClick="goGetAll"
+        android:text="@string/get_all" />
 
 
 </RelativeLayout>

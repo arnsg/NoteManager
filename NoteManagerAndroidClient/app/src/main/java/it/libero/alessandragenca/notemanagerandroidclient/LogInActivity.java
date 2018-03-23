@@ -76,9 +76,10 @@ public class LogInActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         if (mUsernameView.getText().toString().equals("") || mPasswordView.getText().toString().equals("")) {
                             View parent = (View) findViewById(R.id.activity_login_page);
-                            sn.make(parent, "Insert Data", Snackbar.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Insert Data", Toast.LENGTH_SHORT).show();
+ //                           sn.make(parent, "Insert Data", Snackbar.LENGTH_SHORT).show();
                         } else
-                            new LoginRestTask().execute(String.valueOf(mUsernameView.getText()), String.valueOf(mPasswordView.getText()));
+                            new LoginRestTask().execute(mUsernameView.getText().toString(), mPasswordView.getText().toString());
                     }
                 });
 
