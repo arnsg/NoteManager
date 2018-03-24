@@ -94,8 +94,12 @@ public class Test1 {
 		}
 		
 		System.out.println("update-01");
-		nr.update(new Note("Nota1", "Nuovo testo nota1", myDate));
-				
+		try {
+			nr.add(new Note("Nota1", "Nuovo testo nota1", myDate));
+		} catch (InvalidKeyException e) {
+			e.printStackTrace();
+		}
+
 		try {
 			System.out.println("get-01");
 			System.out.println(nr.get("Nota1").toString());

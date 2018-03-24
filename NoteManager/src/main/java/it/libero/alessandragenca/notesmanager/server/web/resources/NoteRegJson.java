@@ -44,7 +44,11 @@ public class NoteRegJson extends ServerResource{
     	Gson gson = new Gson();
     	NoteRegistryAPI nrapi = NoteRegistryAPI.instance();
     	Note n = gson.fromJson(payload, Note.class);
-    	nrapi.update(n);
+		try {
+			nrapi.add(n);
+		} catch (InvalidKeyException e) {
+			e.printStackTrace();
+		}
 		return gson.toJson("note modified: " + n.getTitle(), String.class); 
     	
     }
