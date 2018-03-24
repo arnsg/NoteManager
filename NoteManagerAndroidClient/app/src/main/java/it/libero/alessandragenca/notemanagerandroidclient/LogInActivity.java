@@ -19,6 +19,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -43,6 +44,7 @@ public class LogInActivity extends AppCompatActivity {
     private Snackbar sn;
     private Button mLoginInButton;
     private Button mSignInButton;
+    private TextView mResultOp;
     private final int MY_PERMISSIONS_REQUEST=123;
     private SharedPreferences preferences;
     private AsyncTask logintask;
@@ -61,10 +63,12 @@ public class LogInActivity extends AppCompatActivity {
         preferences=getSharedPreferences(prefName,MODE_PRIVATE);
         editor = getSharedPreferences(prefName, MODE_PRIVATE).edit();
 
+
         mUsernameView = (EditText) findViewById(R.id.username);
         mPasswordView = (EditText) findViewById(R.id.password);
         mPasswordView.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         mLoginInButton = (Button) findViewById(R.id.login_button);
+        mResultOp = (TextView) findViewById(R.id.textView);
 
         preferences = getSharedPreferences(prefName, MODE_PRIVATE);
 
@@ -76,7 +80,8 @@ public class LogInActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         if (mUsernameView.getText().toString().equals("") || mPasswordView.getText().toString().equals("")) {
                             View parent = (View) findViewById(R.id.activity_login_page);
-                            Toast.makeText(getApplicationContext(), "Insert Data", Toast.LENGTH_SHORT).show();
+                            mResultOp.setText("Insert Data");
+                       //     Toast.makeText(getApplicationContext(), "Insert Data", Toast.LENGTH_SHORT).show();
  //                           sn.make(parent, "Insert Data", Snackbar.LENGTH_SHORT).show();
                         } else
                             new LoginRestTask().execute(mUsernameView.getText().toString(), mPasswordView.getText().toString());
@@ -126,8 +131,8 @@ public class LogInActivity extends AppCompatActivity {
                         activity.runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-
-                                Toast.makeText(LogInActivity.this, "Authentication Failed", Toast.LENGTH_SHORT).show();
+                                mResultOp.setText("Authentication Failed");
+                        //        Toast.makeText(LogInActivity.this, "Authentication Failed", Toast.LENGTH_SHORT).show();
                                 finish();
 
                             }
@@ -190,11 +195,14 @@ public class LogInActivity extends AppCompatActivity {
 
 
             } else if (c == 1) {
-                Toast.makeText(getApplicationContext(), "Unregistered User", Toast.LENGTH_SHORT).show();
+                mResultOp.setText("Unregistered User");
+
+            //    Toast.makeText(getApplicationContext(), "Unregistered User", Toast.LENGTH_SHORT).show();
 
 
             } else if (c == 2) {
-                Toast.makeText(getApplicationContext(), "Wrong credentials", Toast.LENGTH_SHORT).show();
+                mResultOp.setText("Wrong credentials");
+          //      Toast.makeText(getApplicationContext(), "Wrong credentials", Toast.LENGTH_SHORT).show();
                 //Toast.makeText(getApplicationContext(),password.getText().toString(), Toast.LENGTH_SHORT).show();
 
             }

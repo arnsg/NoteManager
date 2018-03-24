@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.google.gson.Gson;
 
@@ -28,6 +29,7 @@ public class RegActivity extends AppCompatActivity {
     private EditText username;
     private EditText password;
     private Button registrationbutton;
+    private TextView resultOp;
     private Gson gson;
     private final String TAG = "ALESSANDRA";
     private final int TAG_ADDOBJECT_INT = 9121;
@@ -44,6 +46,7 @@ public class RegActivity extends AppCompatActivity {
         username = (EditText) findViewById(R.id.txtUsername);
         password = (EditText) findViewById(R.id.txtPassword);
         registrationbutton= (Button) findViewById(R.id.registerUser);
+        resultOp = (TextView) findViewById(R.id.textView2);
         username.setSingleLine();
         password.setSingleLine();
 
@@ -61,7 +64,8 @@ public class RegActivity extends AppCompatActivity {
                 {
                     runOnUiThread(new Runnable() {
                         public void run() {
-                            Toast.makeText(getApplicationContext(), "Username e/o password non riempiti correttamente.", Toast.LENGTH_SHORT).show();
+                            resultOp.setText("Username e/o password non riempiti correttamente");
+                        //    Toast.makeText(getApplicationContext(), "Username e/o password non riempiti correttamente.", Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
@@ -129,8 +133,8 @@ public class RegActivity extends AppCompatActivity {
 
                 runOnUiThread(new Runnable() { // Poiché queste operazioni si stanno effettuando in un metodo dell'AsyncTask, per la visualizzazione di Toast è necessario eseguire un "Thread UI".
                     public void run() {
-
-                        Toast.makeText(getApplicationContext(), "Username già utilizzato.", Toast.LENGTH_SHORT).show();
+                        resultOp.setText("Username gia' utilizzato");
+                    //    Toast.makeText(getApplicationContext(), "Username già utilizzato.", Toast.LENGTH_SHORT).show();
 
 
                     }
@@ -144,7 +148,8 @@ public class RegActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(final String res) {
             if (res != null) {
-                Toast.makeText(getApplicationContext(), res, Toast.LENGTH_SHORT).show();
+                resultOp.setText(res);
+            //    Toast.makeText(getApplicationContext(), res, Toast.LENGTH_SHORT).show();
                 editor.putString("username", username.getText().toString());
                 editor.putString("password", password.getText().toString());
                 editor.commit();
