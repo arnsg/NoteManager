@@ -39,11 +39,7 @@ public class UserRegistryAPI {
 		
 	}
 	
-	public synchronized void update(User u) throws InvalidUsernameException
-	{
-		ur.update(u);
-		commit();
-	}
+
 	
 	public synchronized void remove(User u) throws InvalidUsernameException
 	{
