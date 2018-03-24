@@ -19,119 +19,123 @@
         android:textStyle="bold"
         android:gravity="start" />
 
-    <Button
-        android:id="@+id/buttonRegister"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Register new User for Note Registry"
-        android:textSize="12sp"
-        android:layout_above="@+id/buttonget"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="12dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="79dp"
-        android:textColor="@color/white"
-        android:foreground="@color/white"
-        android:background="@color/white" />
-
 
     <Button
         android:id="@+id/buttonGETNOTEBYDATE"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@android:color/holo_blue_bright"
         android:text="Get Note By Date"
         android:textSize="12sp"
-        android:layout_alignBaseline="@+id/buttonremove2"
-        android:layout_alignBottom="@+id/buttonremove2"
+
+        android:layout_below="@+id/buttonget"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="11dp"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="12dp"
-        android:layout_marginStart="12dp" />
+        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/buttonget"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:backgroundTint="@android:color/holo_blue_bright"
         android:text="Get Note "
         android:textSize="12sp"
-        android:layout_marginBottom="11dp"
-        android:layout_above="@+id/buttonGetsize"
-        android:layout_alignLeft="@+id/buttonGetsize"
-        android:layout_alignStart="@+id/buttonGetsize" />
+        android:layout_marginTop="55dp"
+        android:layout_below="@+id/notetext"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:id="@+id/buttonput"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:backgroundTint="@android:color/holo_blue_bright"
         android:text="Modify Note"
         android:textSize="12sp"
-        android:layout_marginBottom="29dp"
+        android:layout_marginBottom="16dp"
         android:layout_above="@+id/buttonadd"
-        android:layout_alignLeft="@+id/buttonGetAllNotes"
-        android:layout_alignStart="@+id/buttonGetAllNotes" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:id="@+id/buttonadd"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:backgroundTint="@android:color/holo_blue_bright"
         android:text=" Add Note"
         android:textSize="12sp"
-        android:layout_alignTop="@+id/buttonremove2"
-        android:layout_alignLeft="@+id/buttonput"
-        android:layout_alignStart="@+id/buttonput" />
+        android:layout_marginBottom="10dp"
+        android:layout_above="@+id/buttonGetAllNotes"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:id="@+id/buttonremove"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:backgroundTint="@android:color/holo_blue_bright"
         android:text=" Remove Note"
         android:textSize="12sp"
-        android:layout_alignBaseline="@+id/buttonput"
-        android:layout_alignBottom="@+id/buttonput"
-        android:layout_centerHorizontal="true" />
+        android:layout_above="@+id/buttonput"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="16dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 
     <Button
         android:id="@+id/buttonremove2"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
+        style="@android:style/Widget.DeviceDefault.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:backgroundTint="@android:color/holo_blue_bright"
         android:text=" Remove All Notes"
         android:textSize="12sp"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/buttonremove"
-        android:layout_alignStart="@+id/buttonremove"
-        android:layout_marginBottom="10dp" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 
     <Button
         android:id="@+id/buttonGetAllNotes"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@android:color/holo_blue_bright"
         android:text="Get All Notes"
         android:textSize="12sp"
-        android:layout_alignBaseline="@+id/buttonget"
-        android:layout_alignBottom="@+id/buttonget"
-        android:layout_alignRight="@+id/buttonRegister"
-        android:layout_alignEnd="@+id/buttonRegister" />
+
+        android:layout_above="@+id/buttonGetsize"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="18dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 
     <Button
         android:id="@+id/buttonGetsize"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@android:color/holo_blue_bright"
         android:text="Get Number of Note"
         android:textSize="12sp"
-        android:layout_alignTop="@+id/buttonremove"
-        android:layout_alignLeft="@+id/buttonGETNOTEBYDATE"
-        android:layout_alignStart="@+id/buttonGETNOTEBYDATE" />
+
+        android:layout_marginBottom="20dp"
+        android:layout_above="@+id/buttonremove2"
+        android:layout_alignLeft="@+id/buttonremove2"
+        android:layout_alignStart="@+id/buttonremove2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>
