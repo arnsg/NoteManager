@@ -39,7 +39,11 @@ public class UserRegistryAPI {
 		
 	}
 	
-
+	public synchronized void update(User u) throws InvalidUsernameException
+	{
+		ur.update(u);
+		commit();
+	}
 	
 	public synchronized void remove(User u) throws InvalidUsernameException
 	{
@@ -57,7 +61,7 @@ public class UserRegistryAPI {
 		System.err.println("Users Storage Base File: " + this.baseStorageFile);
 	}
 	
-	// Costruisco l'estensione del file in base ai file gia' presenti all'interno della cartella
+	// Costruisco l'estensione del file in base ai file già presenti all'interno della cartella
 	
 	protected int buildStorageFileExtension()
 	{

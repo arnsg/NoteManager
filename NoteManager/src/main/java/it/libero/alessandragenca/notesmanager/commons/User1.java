@@ -1,8 +1,6 @@
 package it.libero.alessandragenca.notesmanager.commons;
 
-import org.restlet.security.User;
-
-public class User1 extends User {
+public class User1 {
 	
 
 

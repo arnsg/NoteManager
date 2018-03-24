@@ -35,20 +35,27 @@ public class UserRegistry {
 	}
 	
 	public void add (User u) throws InvalidUsernameException{
-		//controlliamo se c'e' gia' un user con quell'identifier
+		//controlliamo se c'e' gia un user con quell'identifier
 		for (User users: realm.getUsers()){
 			if(u.getIdentifier().equalsIgnoreCase(users.getIdentifier()))
 				throw new InvalidUsernameException("Username Duplicato:" + u.getIdentifier());
 			}
 		realm.getUsers().add(u);
+
 	}
 	
-
+	public void update(User u){
+		realm.getUsers().add(u);
+		}
 	
 	public void remove (User u) throws InvalidUsernameException{
-		if(!realm.getUsers().contains(u))
-			throw new InvalidUsernameException("Username non valido: " + u.getIdentifier());
-		realm.getUsers().remove(u);
+		for (User users: realm.getUsers()){
+			if(u.getIdentifier().equalsIgnoreCase(users.getIdentifier()))
+				realm.getUsers().remove(u);
+
+
+		}
+
 	}
 	
 		

@@ -2,11 +2,17 @@ package it.libero.alessandragenca.notesmanager.server.backend;
 
 import it.libero.alessandragenca.notesmanager.commons.InvalidKeyException;
 import it.libero.alessandragenca.notesmanager.commons.Note;
-
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Set;
+import java.util.TreeMap;
 
 
 
@@ -51,7 +57,12 @@ public class NoteRegistry {
 		reg.put(note.getTitle(), note);
 	}
 	
-
+	// UPDATE di una entry nella mappa
+	
+	public void update(Note note)
+	{
+		reg.put(note.getTitle(), note);
+	}
 	
 	// DELETE di una entry nella mappa
 	
