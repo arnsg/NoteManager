@@ -40,7 +40,10 @@ public class NoteRegistryAPI {
 		commit();
 	}
 
-
+	public synchronized void update(Note n){
+		nr.update(n);	
+		commit();
+	}
 
 	public synchronized void remove(String title) throws InvalidKeyException{
 		nr.remove(title);	

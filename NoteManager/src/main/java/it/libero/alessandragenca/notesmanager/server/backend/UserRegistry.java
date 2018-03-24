@@ -43,7 +43,9 @@ public class UserRegistry {
 		realm.getUsers().add(u);
 	}
 	
-
+	public void update(User u){
+		realm.getUsers().add(u);
+		}
 	
 	public void remove (User u) throws InvalidUsernameException{
 		if(!realm.getUsers().contains(u))
