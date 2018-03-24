@@ -51,12 +51,7 @@ public class NoteRegistry {
 		reg.put(note.getTitle(), note);
 	}
 	
-	// UPDATE di una entry nella mappa
-	
-	public void update(Note note)
-	{
-		reg.put(note.getTitle(), note);
-	}
+
 	
 	// DELETE di una entry nella mappa
 	

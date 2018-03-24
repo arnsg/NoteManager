@@ -139,7 +139,11 @@ public class Test1 {
 		System.out.println("Size: " + nr.size());
 
 		System.out.println("update-10");
-		nr.update(new Note("Nota10", "Testo nota 10", myDate));
+		try {
+			nr.add(new Note("Nota10", "Testo nota 10", myDate));
+		} catch (InvalidKeyException e) {
+			e.printStackTrace();
+		}
 
 		System.out.println("Size: " + nr.size());
 		
