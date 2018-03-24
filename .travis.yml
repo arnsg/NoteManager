@@ -12,7 +12,6 @@ jdk:
 
 notifications:
 email:
-recipients:
 - arnaldo.sgueglia@gmail.com
 - alessandragenca@gmail.com
 - isaackios94@gmail.com
