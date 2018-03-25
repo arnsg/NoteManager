@@ -11,43 +11,40 @@
         android:id="@+id/notetext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="15dp"
+        android:gravity="start"
         android:text=" Note registry client: select an option"
         android:textAlignment="viewStart"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
-        android:textStyle="bold"
-        android:gravity="start" />
+        android:textStyle="bold" />
 
 
     <Button
         android:id="@+id/buttonGETNOTEBYDATE"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonremove"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+
         android:background="@android:color/holo_blue_bright"
         android:text="Get Note By Date"
-        android:textSize="12sp"
-
-        android:layout_below="@+id/buttonget"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="11dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:textSize="12sp" />
 
     <Button
         android:id="@+id/buttonget"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@android:color/holo_blue_bright"
-        android:text="Get Note "
-        android:textSize="12sp"
-        android:layout_marginTop="55dp"
-        android:layout_below="@+id/notetext"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_below="@+id/notetext"
+        android:backgroundTint="@android:color/holo_blue_bright"
+        android:text="Get Note "
+        android:textSize="12sp" />
 
     <Button
         android:id="@+id/buttonput"
