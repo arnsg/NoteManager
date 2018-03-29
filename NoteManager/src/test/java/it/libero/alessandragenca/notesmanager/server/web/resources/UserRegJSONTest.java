@@ -7,6 +7,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 import org.restlet.security.MemoryRealm;
+import org.restlet.security.User;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -53,12 +54,12 @@ public class UserRegJSONTest {
         //urapi.restore();
         char[] pass1 = {'2', '7', '0', '9'};
 
-        //User utente = new User("AlessandraGenca", pass1);
+        User utente = new User("AlessandraGenca", pass1);
         //userRegJson.addUser(gson.toJson(utente, User1.class));
-        //urapi.add(utente);
+        urapi.add(utente);
         //realm.getUsers().add(utente);
 
-        //urapi.commit();
+        urapi.commit();
 
 
 
@@ -77,7 +78,7 @@ public class UserRegJSONTest {
         User1 utente3 = new User1("Prova", pass3);
 
         //aggiunta utente gia' esistente
-        /*String u1S=gson.toJson(utente1,User1.class);
+        String u1S=gson.toJson(utente1,User1.class);
         try{
             gson.fromJson(userRegJson.addUser(u1S),String.class);
 
@@ -86,7 +87,7 @@ public class UserRegJSONTest {
         }catch (Exception e) {
             System.out.print("Non è stato aggiunto l'utente\n");
             assertTrue("L'utente "+utente1.getIdentifier() +" gia' esiste!", true);
-        } */
+        }
 
         //aggiunta utente non esistente
         String u2S=gson.toJson(utente2,User1.class);
@@ -102,15 +103,15 @@ public class UserRegJSONTest {
 
 
         //Stampa di tutti gli utenti
-        //for (User u :realm.getUsers()){
-            //System.out.println("utente:"+u.getIdentifier()+"\n");
-       // }
+        for (User u :realm.getUsers()){
+            System.out.println("utente:"+u.getIdentifier()+"\n");
+        }
 
         //check utente esistente password corretta
-        //assertTrue("L'utente "+utente1.getIdentifier()+utente1.getSecret().toString() +" esiste, le credenziali sono corrette e dovrebbe autenticarsi!", gson.fromJson(userRegJson.checkUser(gson.toJson(utente1.getIdentifier()+";"+ String.copyValueOf(utente1.getSecret()),String.class)), Boolean.class));
+        assertTrue("L'utente "+utente1.getIdentifier()+utente1.getSecret().toString() +" esiste, le credenziali sono corrette e dovrebbe autenticarsi!", gson.fromJson(userRegJson.checkUser(gson.toJson(utente1.getIdentifier()+";"+ String.copyValueOf(utente1.getSecret()),String.class)), Boolean.class));
 
         //check utente esistente password sbagliata
-        //assertTrue("L'utente "+utente1.getIdentifier() +" esiste, ma le credenziali sono sbagliate e non potrebbe autenticarsi!", !gson.fromJson(userRegJson.checkUser(gson.toJson(utente1.getIdentifier()+";ahbfakshvbadfk",String.class)), Boolean.class));
+        assertTrue("L'utente "+utente1.getIdentifier() +" esiste, ma le credenziali sono sbagliate e non potrebbe autenticarsi!", !gson.fromJson(userRegJson.checkUser(gson.toJson(utente1.getIdentifier()+";ahbfakshvbadfk",String.class)), Boolean.class));
 
         //check utente non esistente
         assertTrue("L'utente "+utente3.getIdentifier() +" non esiste e non potrebbe autenticarsi!", !gson.fromJson(userRegJson.checkUser(gson.toJson(utente3.getIdentifier()+";"+String.copyValueOf(utente3.getSecret()),String.class)), Boolean.class));
