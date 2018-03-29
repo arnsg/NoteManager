@@ -31,7 +31,7 @@ public class NoteRegJsonTest {
     }
 
     @AfterClass
-    public static void tearDownAfterClass()  {
+    public static void tearDownAfterClass() {
         File file = new File("src/main/resources/storage");
         for(File f:file.listFiles()) {
             //System.out.println(f.getName());
@@ -55,7 +55,7 @@ public class NoteRegJsonTest {
             Scanner scanner = new Scanner(new File ("src/main/resources/settings.json"));
             settings = gson.fromJson(scanner.nextLine(),NoteRegJsonTest.Settings.class);
             scanner.close();
-            System.err.println("Loading settings from file");
+            //System.err.println("Loading settings from file");
         }
         catch (FileNotFoundException e1)
         {
@@ -171,7 +171,7 @@ public class NoteRegJsonTest {
 
 
         } catch (Exception e) {
-            assertTrue("La nota  è stata modificata!", false);
+            assertTrue("La nota  è stata modificata!", true);
         }
 
     }

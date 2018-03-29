@@ -47,7 +47,7 @@ public class NoteRegSizeJSONTest {
             Scanner scanner = new Scanner(new File("src/main/resources/settings.json"));
             settings = gson.fromJson(scanner.nextLine(),NoteRegSizeJSONTest.Settings.class);
             scanner.close();
-            System.err.println("Loading settings from file");
+            //System.err.println("Loading settings from file");
         }
         catch (FileNotFoundException e1)
         {
@@ -65,21 +65,27 @@ public class NoteRegSizeJSONTest {
         System.out.print("Dimensioni prima dell'add:"+nr.size()+"\n");
         Note n = new Note("Nota di Alessandra", "Testo della nota", new Date());
         nr.add(n);
+
         System.out.print("Dimensioni dopo dell'add:"+nr.size()+"\n");
         String n1s=gson.toJson(n,Note.class);
-        gson.fromJson(NoteRegJson.addNote(n1s),String.class);
+        String r1=gson.fromJson(NoteRegJson.addNote(n1s),String.class);
+        System.out.print(r1+"\n");
         Note n2 = new Note("Nota2", "Testo della nota2", new Date());
         nr.add(n2);
         System.out.print("Dimensioni dopo dell'add:"+nr.size()+"\n");
         String n2s=gson.toJson(n2,Note.class);
-        gson.fromJson(NoteRegJson.addNote(n2s),String.class);
+        String r=gson.fromJson(NoteRegJson.addNote(n2s),String.class);
+        System.out.print(r+"\n");
+
         GregorianCalendar gregorianCalendar1 = new GregorianCalendar(2018, GregorianCalendar.SEPTEMBER, 28);
         Date data1 = gregorianCalendar1.getTime();
         Note n3 = new Note("Nota3", "Testo della nota3", data1);
         nr.add(n3);
         System.out.print("Dimensioni dopo dell'add:"+nr.size()+"\n");
         String n3s=gson.toJson(n3,Note.class);
-        gson.fromJson(NoteRegJson.addNote(n3s),String.class);
+        System.out.println(n3s);
+        String r3=gson.fromJson(NoteRegJson.addNote(n3s),String.class);
+        System.out.print(r3+"\n");
 
 
 
