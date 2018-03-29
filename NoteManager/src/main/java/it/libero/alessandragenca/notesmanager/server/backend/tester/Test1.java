@@ -1,21 +1,17 @@
 package it.libero.alessandragenca.notesmanager.server.backend.tester;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.Locale;
-
 import it.libero.alessandragenca.notesmanager.commons.InvalidKeyException;
 import it.libero.alessandragenca.notesmanager.commons.Note;
 import it.libero.alessandragenca.notesmanager.server.backend.NoteRegistry;
+
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class Test1 {
 	
 
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InvalidKeyException {
 
 		NoteRegistry nr = new NoteRegistry();
 				
@@ -34,7 +30,7 @@ public class Test1 {
 		
 		try {
 			System.out.println("add-01");
-			nr.add(new Note("Nota1", "Questo è il testo della nota 1",myDate));
+			nr.add(new Note("Nota1", "Questo ï¿½ il testo della nota 1",myDate));
 			System.out.println("OK");
 		} catch (InvalidKeyException e) {
 			System.out.println("ERR: " + e.getMessage());
@@ -42,7 +38,7 @@ public class Test1 {
 		
 		try {
 			System.out.println("add-02");
-			nr.add(new Note("Nota2", "Questo è il testo della nota 2",myDate));
+			nr.add(new Note("Nota2", "Questo ï¿½ il testo della nota 2",myDate));
 			System.out.println("OK");
 			
 		} catch (InvalidKeyException e) {
@@ -53,7 +49,7 @@ public class Test1 {
 			System.out.println("add-03");
 			GregorianCalendar gregorianCalendar1 = new GregorianCalendar(2017, GregorianCalendar.NOVEMBER, 12);
 			Date data1 = gregorianCalendar1.getTime();
-			nr.add(new Note("Nota3", "Questo è il testo della nota 3",data1));
+			nr.add(new Note("Nota3", "Questo ï¿½ il testo della nota 3",data1));
 			System.out.println("OK");
 			System.out.println("OK");
 		} catch (InvalidKeyException e) {
@@ -62,7 +58,7 @@ public class Test1 {
 
 		try {
 			System.out.println("add-05");
-			nr.add(new Note("Nota5", "Questo è il testo della nota 5",myDate));
+			nr.add(new Note("Nota5", "Questo ï¿½ il testo della nota 5",myDate));
 			System.out.println("OK");
 		} catch (InvalidKeyException e) {
 			System.out.println("ERR: " + e.getMessage());
@@ -79,7 +75,7 @@ public class Test1 {
 		
 		try {
 			System.out.println("add-03");
-			nr.add(new Note("Nota3", "Questo è il testo della nota 3",myDate));
+			nr.add(new Note("Nota3", "Questo ï¿½ il testo della nota 3",myDate));
 			System.out.println("OK");
 		} catch (InvalidKeyException e) {
 			System.out.println("ERR: " + e.getMessage());

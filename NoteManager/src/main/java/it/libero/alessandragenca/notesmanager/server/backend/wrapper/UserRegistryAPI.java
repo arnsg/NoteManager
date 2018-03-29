@@ -1,13 +1,12 @@
 package it.libero.alessandragenca.notesmanager.server.backend.wrapper;
 
-import java.io.File;
-import java.io.IOException;
-
+import it.libero.alessandragenca.notesmanager.commons.InvalidUsernameException;
+import it.libero.alessandragenca.notesmanager.server.backend.UserRegistry;
 import org.restlet.security.MemoryRealm;
 import org.restlet.security.User;
 
-import it.libero.alessandragenca.notesmanager.commons.InvalidUsernameException;
-import it.libero.alessandragenca.notesmanager.server.backend.UserRegistry;
+import java.io.File;
+import java.io.IOException;
 
 
 
@@ -61,7 +60,7 @@ public class UserRegistryAPI {
 		System.err.println("Users Storage Base File: " + this.baseStorageFile);
 	}
 	
-	// Costruisco l'estensione del file in base ai file già presenti all'interno della cartella
+	// Costruisco l'estensione del file in base ai file giï¿½ presenti all'interno della cartella
 	
 	protected int buildStorageFileExtension()
 	{
@@ -136,6 +135,14 @@ public class UserRegistryAPI {
 	private UserRegistry ur;
 	private String rootDirForStorageFile;
 	private String baseStorageFile;
-	
 
+
+
+	public String getRootDirForStorageFile() {
+		return rootDirForStorageFile;
+	}
+
+	public String getBaseStorageFile() {
+		return baseStorageFile;
+	}
 }

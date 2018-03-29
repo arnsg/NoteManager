@@ -1,13 +1,12 @@
 package it.libero.alessandragenca.notesmanager.server.backend.wrapper;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Date;
-
 import it.libero.alessandragenca.notesmanager.commons.InvalidKeyException;
 import it.libero.alessandragenca.notesmanager.commons.Note;
 import it.libero.alessandragenca.notesmanager.server.backend.NoteRegistry;
-import it.libero.alessandragenca.notesmanager.server.backend.UserRegistry;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Date;
 
 public class NoteRegistryAPI {
 
@@ -40,7 +39,7 @@ public class NoteRegistryAPI {
 		commit();
 	}
 
-	public synchronized void update(Note n){
+	public synchronized void update(Note n) throws InvalidKeyException {
 		nr.update(n);	
 		commit();
 	}
@@ -65,7 +64,7 @@ public class NoteRegistryAPI {
 			System.err.println("Users Storage Base File: " + this.baseStorageFile);
 		}
 		
-		// Costruisco l'estensione del file in base ai file già presenti all'interno della cartella
+		// Costruisco l'estensione del file in base ai file giï¿½ presenti all'interno della cartella
 		
 		protected int buildStorageFileExtension()
 		{

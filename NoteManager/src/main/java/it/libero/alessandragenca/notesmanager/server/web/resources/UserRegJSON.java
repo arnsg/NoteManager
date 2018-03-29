@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import it.libero.alessandragenca.notesmanager.commons.ErrorCodes;
 import it.libero.alessandragenca.notesmanager.commons.InvalidUsernameException;
 import it.libero.alessandragenca.notesmanager.server.backend.wrapper.UserRegistryAPI;
-import it.libero.alessandragenca.notesmanager.server.web.frontend.NoteRegistryWebApp;
 import org.restlet.data.Status;
 import org.restlet.resource.Post;
 import org.restlet.resource.Put;
@@ -36,17 +35,15 @@ public class UserRegJSON extends ServerResource{
 	@Put
 	public String checkUser(String payload){
 		Gson gson = new Gson();
+		UserRegistryAPI urapi = UserRegistryAPI.instance();
 		String response=gson.fromJson(payload, String.class);
 		StringTokenizer st = new StringTokenizer(response,";");
 		String username = st.nextToken();
 		String password = st.nextToken();
-		User u=NoteRegistryWebApp.realm.findUser(username);
-
-		if(u!=null && u.getIdentifier().equalsIgnoreCase(username) && String.copyValueOf(u.getSecret()).equalsIgnoreCase(password)) {
+		User u= urapi.getRealm().findUser(username);
+		if(u!=null && u.getIdentifier().equalsIgnoreCase(username) && String.copyValueOf(u.getSecret()).equalsIgnoreCase(password))
 			return gson.toJson(true, Boolean.class);
-
-		}
-		return gson.toJson(false, Boolean.class);
+		 return gson.toJson(false, Boolean.class);
 
 
 	}

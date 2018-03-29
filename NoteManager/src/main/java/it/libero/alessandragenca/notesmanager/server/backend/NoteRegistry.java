@@ -2,17 +2,11 @@ package it.libero.alessandragenca.notesmanager.server.backend;
 
 import it.libero.alessandragenca.notesmanager.commons.InvalidKeyException;
 import it.libero.alessandragenca.notesmanager.commons.Note;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.util.Collection;
+
+import java.io.*;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Set;
-import java.util.TreeMap;
 
 
 
@@ -38,7 +32,7 @@ public class NoteRegistry {
 	{
 		Note note = reg.get(title);
 		if(note != null) return note;
-		throw new InvalidKeyException("Chiave non valida: " + title);
+		throw new InvalidKeyException("Nota non presente nel registro");
 	}
 	
 	// GET di tutte le note 
@@ -59,8 +53,11 @@ public class NoteRegistry {
 	
 	// UPDATE di una entry nella mappa
 	
-	public void update(Note note)
+	public void update(Note note) throws InvalidKeyException
+
 	{
+		if(!reg.containsKey(note.getTitle()))
+			throw new InvalidKeyException("Nota non presente");
 		reg.put(note.getTitle(), note);
 	}
 	
@@ -69,7 +66,7 @@ public class NoteRegistry {
 	public void remove(String title) throws InvalidKeyException
 	{
 		if(!reg.containsKey(title))
-			throw new InvalidKeyException("Chiave non valida: " + title);
+			throw new InvalidKeyException("Nota non presente");
 		reg.remove(title);
 	}
 	

@@ -49,15 +49,17 @@ public class UserRegistry {
 		}
 	
 	public void remove (User u) throws InvalidUsernameException{
-		for (User users: realm.getUsers()){
-			if(u.getIdentifier().equalsIgnoreCase(users.getIdentifier()))
-				realm.getUsers().remove(u);
+		//for (User users: realm.getUsers()){
+			//if(u.getIdentifier().equalsIgnoreCase(users.getIdentifier()))
+				//realm.getUsers().remove(u);
+		User u1= realm.findUser(u.getIdentifier());
+		if (u1!=null) realm.getUsers().remove(u);
+		else throw new InvalidUsernameException("Username non presente, non posso rimuovere l'utente: " + u.getIdentifier());
 
 
-		}
 
 	}
-	
+
 		
 	public void save(String fileOutName) throws IOException{		
 	    FileOutputStream fileOut = new FileOutputStream(fileOutName);
