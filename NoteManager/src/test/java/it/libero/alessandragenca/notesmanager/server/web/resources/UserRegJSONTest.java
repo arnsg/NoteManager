@@ -11,6 +11,7 @@ import org.restlet.security.User;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.text.ParseException;
 import java.util.Scanner;
 
 import static junit.framework.TestCase.assertNotNull;
@@ -52,28 +53,20 @@ public class UserRegJSONTest {
         UserRegistryAPI urapi = UserRegistryAPI.instance();
         urapi.setStorageFiles(System.getProperty("user.dir") + "/src/main/resources/" + settings.users_storage_base_dir + "\\","TestUser"); // Imposto i file di storage
         realm= urapi.getRealm();
-        //urapi.restore();
-        char[] pass1 = {'2', '7', '0', '9'};
-
-        User1 utente = new User1("AlessandraGenca", pass1);
-        userRegJson.addUser(gson.toJson(utente, User1.class));
-        urapi.commit();
-
-        assertNotNull(userRegJson.addUser(gson.toJson(utente, User1.class)));
-
-
-
 
         }
 
     @Test
-    public void test() {
+    public void test() throws ParseException {
         char[] pass1 = {'2', '7', '0', '9'};
         char[] pass2 = {'3','2', '3','2'};
         char[] pass3 = {'3','3', '3','3'};
         User1 utente1 = new User1("AlessandraGenca", pass1);
         User1 utente2 = new User1("UtenteTest", pass2);
         User1 utente3 = new User1("Prova", pass3);
+        User1 utente = new User1("AlessandraGenca", pass1);
+        userRegJson.addUser(gson.toJson(utente, User1.class));
+        assertNotNull(userRegJson.addUser(gson.toJson(utente, User1.class)));
 
         //aggiunta utente gia' esistente
         String u1S=gson.toJson(utente1,User1.class);
