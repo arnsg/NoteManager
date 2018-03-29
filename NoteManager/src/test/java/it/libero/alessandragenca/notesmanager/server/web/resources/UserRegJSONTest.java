@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 public class UserRegJSONTest {
@@ -76,8 +77,10 @@ public class UserRegJSONTest {
         char[] pass1 = {'2', '7', '0', '9'};
 
         User1 utente = new User1("AlessandraGenca", pass1);
-        userRegJson.addUser(gson.toJson(utente, User1.class));
-        //User user = new User(utente.getIdentifier(), utente.getSecret());
+
+        User user = new User(utente.getIdentifier(), utente.getSecret());
+        userRegJson.addUser(gson.toJson(user, User.class));
+        assertNotNull(userRegJson.addUser(gson.toJson(user, User.class)));
        // realm.getUsers().add(user);
 
 
@@ -127,7 +130,7 @@ public class UserRegJSONTest {
 
         //Stampa di tutti gli utenti
         for (User u :realm.getUsers()){
-            System.out.println("utente"+u.getIdentifier());
+            System.out.println("utente:"+u.getIdentifier());
         }
 
         //check utente esistente password corretta

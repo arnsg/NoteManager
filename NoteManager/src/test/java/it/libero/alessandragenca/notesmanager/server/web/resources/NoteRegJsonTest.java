@@ -10,6 +10,7 @@ import org.junit.Test;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Scanner;
 
 import static org.junit.Assert.assertTrue;
@@ -19,7 +20,10 @@ public class NoteRegJsonTest {
     static NoteRegJson NoteRegJson= new NoteRegJson();
 
     static Gson gson=new Gson();
+    static GregorianCalendar gregorianCalendar1 = new GregorianCalendar(2018, GregorianCalendar.SEPTEMBER, 8);
+    static Date data = gregorianCalendar1.getTime();
 
+     static Note n= new Note ("Titolo della nota di prova", "Testo della nota di prova", data);
 
     class Settings
     {
@@ -33,8 +37,9 @@ public class NoteRegJsonTest {
     @AfterClass
     public static void tearDownAfterClass() {
         File file = new File("src/main/resources/storage");
+        if(file.exists())
         for(File f:file.listFiles()) {
-            //System.out.println(f.getName());
+            System.out.println(f.getName());
             if(f.getName().startsWith("Test")){
                 f.delete();
             }
@@ -65,12 +70,12 @@ public class NoteRegJsonTest {
 
 
 
+
         NoteRegistryAPI nrapi = NoteRegistryAPI.instance();
         nrapi.setStorageFiles(System.getProperty("user.dir") +"/src/main/resources/"+ settings.storage_base_dir + "\\", "Test"); // Imposto i file di storage
 
 
 
-        Note n= new Note ("Titolo della nota di prova", "Testo della nota di prova", new Date());
         String n1s=gson.toJson(n,Note.class);
         gson.fromJson(NoteRegJson.addNote(n1s),String.class);
         System.out.print("Aggiunta nota1:" + n.getTitle()+"\n");
@@ -85,7 +90,6 @@ public class NoteRegJsonTest {
 
 
 
-        Note n= new Note ("Titolo della nota di prova", "Testo della nota di prova", new Date());
         //aggiunta Nota duplicata
         String n1s=gson.toJson(n,Note.class);
 
@@ -104,7 +108,9 @@ public class NoteRegJsonTest {
     public void testAdd2() {
 
 
-        Note n2 = new Note("Titolo della nota di prova2", "Testo della nota di prova2", new Date());
+        GregorianCalendar gregorianCalendar1 = new GregorianCalendar(2018, GregorianCalendar.SEPTEMBER, 10);
+        Date data = gregorianCalendar1.getTime();
+        Note n2 = new Note("Titolo della nota di prova2", "Testo della nota di prova2", data);
         //aggiunta Nota  Non duplicata
         String n1s = gson.toJson(n2, Note.class);
 
