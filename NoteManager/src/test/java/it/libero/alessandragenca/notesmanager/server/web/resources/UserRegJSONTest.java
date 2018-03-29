@@ -52,7 +52,7 @@ public class UserRegJSONTest {
         UserRegistryAPI urapi = UserRegistryAPI.instance();
         urapi.setStorageFiles(System.getProperty("user.dir") + "/src/main/resources/" + settings.users_storage_base_dir + "\\","TestUser"); // Imposto i file di storage
         realm= urapi.getRealm();
-        urapi.restore();
+        //urapi.restore();
         char[] pass1 = {'2', '7', '0', '9'};
 
         User1 utente = new User1("AlessandraGenca", pass1);

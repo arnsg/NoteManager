@@ -14,6 +14,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 
+import static junit.framework.TestCase.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 public class NoteRegSizeJSONTest {
@@ -60,6 +61,7 @@ public class NoteRegSizeJSONTest {
         NoteRegistryAPI nrapi = NoteRegistryAPI.instance();
         nrapi.setStorageFiles(System.getProperty("user.dir") +"/src/main/resources/"+ settings.storage_base_dir + "\\", "Test"); // Imposto i file di storage
 
+
         nrapi.restore();
 
         System.out.print("Dimensioni prima dell'add:"+nr.size()+"\n");
@@ -69,7 +71,7 @@ public class NoteRegSizeJSONTest {
         nr.add(n);
         System.out.print("Dimensioni dopo dell'add:"+nr.size()+"\n");
         String n1s=gson.toJson(n,Note.class);
-        gson.fromJson(NoteRegJson.addNote(n1s),String.class);
+        assertNotNull(gson.fromJson(NoteRegJson.addNote(n1s),String.class));
         nrapi.commit();
         Note n2 = new Note("Nota2", "Testo della nota2", data2);
         nr.add(n2);
