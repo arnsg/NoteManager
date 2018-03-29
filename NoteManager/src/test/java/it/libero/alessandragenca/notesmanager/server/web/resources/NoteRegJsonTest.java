@@ -38,7 +38,7 @@ public class NoteRegJsonTest {
         File file = new File("src/main/resources/storage");
         if(file.exists())
         for(File f:file.listFiles()) {
-            System.out.println(f.getName());
+            //System.out.println(f.getName());
             if(f.getName().startsWith("Test")){
                 f.delete();
             }
@@ -72,12 +72,12 @@ public class NoteRegJsonTest {
 
         NoteRegistryAPI nrapi = NoteRegistryAPI.instance();
         nrapi.setStorageFiles(System.getProperty("user.dir") +"/src/main/resources/"+ settings.storage_base_dir + "\\", "Test"); // Imposto i file di storage
-
-
+        nrapi.restore();
 
         String n1s=gson.toJson(n,Note.class);
         gson.fromJson(NoteRegJson.addNote(n1s),String.class);
         System.out.print("Aggiunta nota1:" + n.getTitle()+"\n");
+        nrapi.commit();
 
 
     }
