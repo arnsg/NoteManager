@@ -69,14 +69,13 @@ public class NoteRegSizeJSONTest {
         nr.add(n);
         System.out.print("Dimensioni dopo dell'add:"+nr.size()+"\n");
         String n1s=gson.toJson(n,Note.class);
-        String r1=gson.fromJson(NoteRegJson.addNote(n1s),String.class);
-        System.out.print(r1+"\n");
+        gson.fromJson(NoteRegJson.addNote(n1s),String.class);
         Note n2 = new Note("Nota2", "Testo della nota2", data2);
         nr.add(n2);
         System.out.print("Dimensioni dopo dell'add:"+nr.size()+"\n");
         String n2s=gson.toJson(n2,Note.class);
-        String r=gson.fromJson(NoteRegJson.addNote(n2s),String.class);
-        System.out.print(r+"\n");
+        gson.fromJson(NoteRegJson.addNote(n2s),String.class);
+
 
         gregorianCalendar1 = new GregorianCalendar(2018, GregorianCalendar.SEPTEMBER, 28);
         Date data1 = gregorianCalendar1.getTime();
@@ -84,9 +83,7 @@ public class NoteRegSizeJSONTest {
         nr.add(n3);
         System.out.print("Dimensioni dopo dell'add:"+nr.size()+"\n");
         String n3s=gson.toJson(n3,Note.class);
-        System.out.println(n3s);
-        String r3=gson.fromJson(NoteRegJson.addNote(n3s),String.class);
-        System.out.print(r3+"\n");
+        gson.fromJson(NoteRegJson.addNote(n3s),String.class);
 
 
 
@@ -103,10 +100,10 @@ public class NoteRegSizeJSONTest {
         GregorianCalendar gregorianCalendar1 = new GregorianCalendar(2018, GregorianCalendar.SEPTEMBER, 27);
         Date data1 = gregorianCalendar1.getTime();
         try {
-            String []titles=gson.fromJson(NoteRegSizeJson.getNotebyDate(gson.toJson(data1,Date.class)), String[].class);
+            String []titles=gson.fromJson(NoteRegSizeJson.getNotebyDate(gson.toJson(data1, Date.class)), String[].class);
             System.out.println(titles.length);
             for (int i=0; i<titles.length ; i++) {
-                System.out.print("Titolo Nota: "+ titles[i] +"\n");
+                System.out.print("Titolo Nota: "+ titles[i]+"\n");
             }
             assertTrue("Le note non sono state ottenute!", true);
 

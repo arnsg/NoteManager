@@ -5,7 +5,6 @@ import it.libero.alessandragenca.notesmanager.commons.User1;
 import it.libero.alessandragenca.notesmanager.server.backend.wrapper.UserRegistryAPI;
 import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.restlet.security.MemoryRealm;
 import org.restlet.security.User;
@@ -20,12 +19,9 @@ import static org.junit.Assert.assertTrue;
 public class UserRegJSONTest {
 
     static UserRegJSON userRegJson= new UserRegJSON();
+
     public static MemoryRealm realm ;
     static Gson gson=new Gson();
-    //NoteRegistryWebApp
-
-
-
     class Settings
     {
 
@@ -35,18 +31,9 @@ public class UserRegJSONTest {
 
     }
 
-    @BeforeClass
-    public static void setUpBeforeClass() throws Exception {
-
-
-
-    }
-
     @Before
     public void setUp() throws Exception {
         Settings settings = null;
-
-
 
         try
         {
@@ -62,22 +49,12 @@ public class UserRegJSONTest {
             System.exit(-1);
         }
 
-
-
-
-
         UserRegistryAPI urapi = UserRegistryAPI.instance();
         urapi.setStorageFiles(System.getProperty("user.dir") + "/src/main/resources/" + settings.users_storage_base_dir + "\\","TestUser"); // Imposto i file di storage
         realm= urapi.getRealm();
-
-
-
-
         char[] pass1 = {'2', '7', '0', '9'};
 
         User1 utente = new User1("AlessandraGenca", pass1);
-
-
         userRegJson.addUser(gson.toJson(utente, User1.class));
         assertNotNull(userRegJson.addUser(gson.toJson(utente, User1.class)));
 
@@ -95,15 +72,10 @@ public class UserRegJSONTest {
         User1 utente2 = new User1("UtenteTest", pass2);
         User1 utente3 = new User1("Prova", pass3);
 
-
-
-
-
         //aggiunta utente gia' esistente
         String u1S=gson.toJson(utente1,User1.class);
         try{
             gson.fromJson(userRegJson.addUser(u1S),String.class);
-
 
             assertTrue("L'utente "+utente1.getIdentifier() +" gia' esiste!", false);
             assertTrue("L'utente "+utente1.getIdentifier()+" esiste, le credenziali sono corrette e dovrebbe autenticarsi!", gson.fromJson(userRegJson.checkUser(gson.toJson(utente1.getIdentifier()+";"+String.copyValueOf(utente1.getSecret()),String.class)), Boolean.class));
@@ -115,9 +87,6 @@ public class UserRegJSONTest {
         String u2S=gson.toJson(utente2,User1.class);
         try{
             gson.fromJson(userRegJson.addUser(u2S),String.class);
-            //User user = new User(utente2.getIdentifier(), utente2.getSecret());
-            //realm.getUsers().add(user);
-
             assertTrue("L'utente "+utente2.getIdentifier() +" non esiste e dovrebbe essere aggiunto", true);
 
         }catch (Exception e) {
@@ -129,7 +98,7 @@ public class UserRegJSONTest {
 
         //Stampa di tutti gli utenti
         for (User u :realm.getUsers()){
-            System.out.println("utente:"+u.getIdentifier());
+            System.out.println("utente:"+u.getIdentifier()+"\n");
         }
 
         //check utente esistente password corretta

@@ -32,11 +32,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserRegJSONTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UserRegJSONTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/it/libero/alessandragenca/notesmanager/server/web/resources/UserRegJSONTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="161" column="0" lean-forward="true" selection-start-line="161" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
+            <state relative-caret-position="236">
+              <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserRegistryAPI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/it/libero/alessandragenca/notesmanager/server/backend/wrapper/UserRegistryAPI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NoteRegistryTestAdd.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/it/libero/alessandragenca/notesmanager/server/backend/NoteRegistryTestAdd.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="282">
+              <caret line="43" column="32" lean-forward="true" selection-start-line="43" selection-start-column="32" selection-end-line="43" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -45,8 +65,8 @@
       <file leaf-file-name="NoteRegJson.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/it/libero/alessandragenca/notesmanager/server/web/resources/NoteRegJson.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="45" column="31" lean-forward="true" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
+            <state relative-caret-position="133">
+              <caret line="30" column="52" lean-forward="true" selection-start-line="30" selection-start-column="52" selection-end-line="30" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -57,8 +77,8 @@
       <file leaf-file-name="NoteRegSizeJSONTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/it/libero/alessandragenca/notesmanager/server/web/resources/NoteRegSizeJSONTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="166" column="9" lean-forward="false" selection-start-line="166" selection-start-column="9" selection-end-line="166" selection-end-column="9" />
+            <state relative-caret-position="-170">
+              <caret line="52" column="9" lean-forward="true" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -66,7 +86,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NoteRegJsonTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NoteRegSizeJSON.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/it/libero/alessandragenca/notesmanager/server/web/resources/NoteRegSizeJSON.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="24" column="4" lean-forward="true" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NoteRegJsonTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/it/libero/alessandragenca/notesmanager/server/web/resources/NoteRegJsonTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="115">
@@ -79,8 +109,8 @@
       <file leaf-file-name="UserRegJSON.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/it/libero/alessandragenca/notesmanager/server/web/resources/UserRegJSON.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="23" column="16" lean-forward="true" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+            <state relative-caret-position="229">
+              <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -419,7 +449,6 @@
         <option value="$PROJECT_DIR$/src/test/java/it/libero/alessandragenca/notesmanager/server/web/resources/UserRegJSONTest2.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/libero/alessandragenca/notesmanager/server/backend/wrapper/UserRegistryAPI.java" />
         <option value="$PROJECT_DIR$/src/main/resources/settings.json" />
-        <option value="$PROJECT_DIR$/src/main/java/it/libero/alessandragenca/notesmanager/server/web/resources/UserRegJSON.java" />
         <option value="$PROJECT_DIR$/src/test/java/it/libero/alessandragenca/notesmanager/server/backend/wrapper/TestSuiteUser.java" />
         <option value="$PROJECT_DIR$/src/test/java/it/libero/alessandragenca/notesmanager/server/backend/TestSuiteUser.java" />
         <option value="$PROJECT_DIR$/src/test/java/it/libero/alessandragenca/notesmanager/server/backend/NoteRegistryTestGet.java" />
@@ -435,12 +464,13 @@
         <option value="$PROJECT_DIR$/src/test/java/it/libero/alessandragenca/notesmanager/server/backend/NoteRegistryTestLoad.java" />
         <option value="$PROJECT_DIR$/src/test/java/it/libero/alessandragenca/notesmanager/server/backend/TestSuiteNote.java" />
         <option value="$PROJECT_DIR$/src/test/java/it/libero/alessandragenca/notesmanager/server/web/resources/NoteRegJsonTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/libero/alessandragenca/notesmanager/server/web/resources/UserRegJSON.java" />
         <option value="$PROJECT_DIR$/src/test/java/it/libero/alessandragenca/notesmanager/server/web/resources/UserRegJSONTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/it/libero/alessandragenca/notesmanager/server/web/resources/NoteRegSizeJSONTest.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="10" />
     <option name="y" value="20" />
     <option name="width" value="1358" />
@@ -722,6 +752,14 @@
               <item name="a_test" type="616d4139:PackageViewModuleNode" />
               <item name="it.libero.alessandragenca.notesmanager" type="1f31426a:PackageElementNode" />
               <item name="server" type="1f31426a:PackageElementNode" />
+              <item name="backend" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="a" type="58d84e3e:PackageViewProjectNode" />
+              <item name="a" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="a_test" type="616d4139:PackageViewModuleNode" />
+              <item name="it.libero.alessandragenca.notesmanager" type="1f31426a:PackageElementNode" />
+              <item name="server" type="1f31426a:PackageElementNode" />
               <item name="web.resources" type="1f31426a:PackageElementNode" />
             </path>
           </expand>
@@ -762,7 +800,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UserRegJSONTest">
+  <component name="RunManager" selected="JUnit.NoteRegSizeJSONTest">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -1050,9 +1088,9 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.UserRegJSONTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.NoteRegJsonTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.NoteRegSizeJSONTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.NoteRegSizeJSONTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.UserRegJSONTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.NoteRegJsonTest" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.TestSuiteNote" />
         <item index="4" class="java.lang.String" itemvalue="JUnit.NoteRegistryTestLoad" />
       </list>
@@ -1075,39 +1113,39 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="NoteRegJsonTest - 2018.03.29 at 15h 02m 15s.xml">
-      <configuration name="NoteRegJsonTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="NoteRegJsonTest - 2018.03.29 at 15h 08m 00s.xml">
-      <configuration name="NoteRegJsonTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="NoteRegJsonTest - 2018.03.29 at 15h 08m 15s.xml">
-      <configuration name="NoteRegJsonTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="NoteRegSizeJSONTest - 2018.03.29 at 15h 08m 04s.xml">
+    <history-entry file="NoteRegSizeJSONTest - 2018.03.29 at 15h 48m 18s.xml">
       <configuration name="NoteRegSizeJSONTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserRegJSONTest - 2018.03.29 at 15h 02m 20s.xml">
-      <configuration name="UserRegJSONTest" configurationId="JUnit" />
+    <history-entry file="NoteRegSizeJSONTest - 2018.03.29 at 15h 49m 27s.xml">
+      <configuration name="NoteRegSizeJSONTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserRegJSONTest - 2018.03.29 at 15h 03m 45s.xml">
-      <configuration name="UserRegJSONTest" configurationId="JUnit" />
+    <history-entry file="NoteRegSizeJSONTest - 2018.03.29 at 15h 49m 51s.xml">
+      <configuration name="NoteRegSizeJSONTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserRegJSONTest - 2018.03.29 at 15h 04m 01s.xml">
-      <configuration name="UserRegJSONTest" configurationId="JUnit" />
+    <history-entry file="NoteRegSizeJSONTest - 2018.03.29 at 15h 52m 06s.xml">
+      <configuration name="NoteRegSizeJSONTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserRegJSONTest - 2018.03.29 at 15h 06m 34s.xml">
-      <configuration name="UserRegJSONTest" configurationId="JUnit" />
+    <history-entry file="NoteRegSizeJSONTest - 2018.03.29 at 15h 52m 36s.xml">
+      <configuration name="NoteRegSizeJSONTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserRegJSONTest - 2018.03.29 at 15h 06m 57s.xml">
-      <configuration name="UserRegJSONTest" configurationId="JUnit" />
+    <history-entry file="NoteRegSizeJSONTest - 2018.03.29 at 15h 53m 25s.xml">
+      <configuration name="NoteRegSizeJSONTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserRegJSONTest - 2018.03.29 at 15h 08m 21s.xml">
-      <configuration name="UserRegJSONTest" configurationId="JUnit" />
+    <history-entry file="NoteRegSizeJSONTest - 2018.03.29 at 15h 54m 18s.xml">
+      <configuration name="NoteRegSizeJSONTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="NoteRegSizeJSONTest - 2018.03.29 at 15h 54m 56s.xml">
+      <configuration name="NoteRegSizeJSONTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="NoteRegSizeJSONTest - 2018.03.29 at 15h 56m 04s.xml">
+      <configuration name="NoteRegSizeJSONTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="NoteRegSizeJSONTest - 2018.03.29 at 15h 58m 28s.xml">
+      <configuration name="NoteRegSizeJSONTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1118,12 +1156,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10866142" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.49448818" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2818448" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27306002" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1174,7 +1212,11 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -1219,13 +1261,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
           <caret line="50" column="54" lean-forward="true" selection-start-line="49" selection-start-column="12" selection-end-line="50" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/libero/alessandragenca/notesmanager/server/backend/wrapper/UserRegistryAPI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="48" column="21" lean-forward="true" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -1272,6 +1307,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="263">
           <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+          <folding>
+            <element signature="e#578#579#0" expanded="true" />
+            <element signature="e#599#600#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1363,14 +1402,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/libero/alessandragenca/notesmanager/server/web/resources/NoteRegSizeJSON.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="15" column="4" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/it/libero/alessandragenca/notesmanager/server/backend/NoteRegistryTestLoad.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
@@ -1389,14 +1420,6 @@
             <element signature="e#1643#1644#0" expanded="true" />
             <element signature="e#1677#1678#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/it/libero/alessandragenca/notesmanager/server/backend/NoteRegistryTestAdd.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-668">
-          <caret line="13" column="34" lean-forward="true" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1426,36 +1449,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/libero/alessandragenca/notesmanager/server/web/resources/UserRegJSON.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/libero/alessandragenca/notesmanager/server/backend/wrapper/UserRegistryAPI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="23" column="16" lean-forward="true" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+        <state relative-caret-position="76">
+          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/it/libero/alessandragenca/notesmanager/server/web/resources/NoteRegJson.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="45" column="31" lean-forward="true" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/it/libero/alessandragenca/notesmanager/server/web/resources/UserRegJSONTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="161" column="0" lean-forward="true" selection-start-line="161" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/it/libero/alessandragenca/notesmanager/server/web/resources/NoteRegSizeJSONTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="166" column="9" lean-forward="false" selection-start-line="166" selection-start-column="9" selection-end-line="166" selection-end-column="9" />
+        <state relative-caret-position="133">
+          <caret line="30" column="52" lean-forward="true" selection-start-line="30" selection-start-column="52" selection-end-line="30" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1466,6 +1471,48 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
           <caret line="27" column="4" lean-forward="true" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/it/libero/alessandragenca/notesmanager/server/backend/NoteRegistryTestAdd.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="43" column="32" lean-forward="true" selection-start-line="43" selection-start-column="32" selection-end-line="43" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/libero/alessandragenca/notesmanager/server/web/resources/NoteRegSizeJSON.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="24" column="4" lean-forward="true" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/it/libero/alessandragenca/notesmanager/server/web/resources/NoteRegSizeJSONTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-170">
+          <caret line="52" column="9" lean-forward="true" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/libero/alessandragenca/notesmanager/server/web/resources/UserRegJSON.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/it/libero/alessandragenca/notesmanager/server/web/resources/UserRegJSONTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -23,8 +23,9 @@ public class UserRegJSON extends ServerResource{
 	    	User u = gson.fromJson(payload, User.class);
 	    	try{
 	    		urapi.add(u);
-	    		
+
 	    		return gson.toJson("User added: " + u.getIdentifier(), String.class);
+
 	    	} catch (InvalidUsernameException e){    		
 	    		Status s = new Status(ErrorCodes.INVALID_KEY_CODE);
 	    		setStatus(s);
