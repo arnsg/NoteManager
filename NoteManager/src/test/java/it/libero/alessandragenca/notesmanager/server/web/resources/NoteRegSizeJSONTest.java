@@ -157,10 +157,12 @@ public class NoteRegSizeJSONTest {
     @AfterClass
     public static void tearDownAfterClass()  {
         File file = new File("src/main/resources/storage");
-        for(File f:file.listFiles()) {
-            //System.out.println(f.getName());
-            if(f.getName().startsWith("Test")){
-                f.delete();
+        if (file.exists()) {
+            for (File f : file.listFiles()) {
+                //System.out.println(f.getName());
+                if (f.getName().startsWith("Test")) {
+                    f.delete();
+                }
             }
         }
 

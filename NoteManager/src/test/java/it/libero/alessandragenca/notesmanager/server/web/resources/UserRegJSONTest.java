@@ -14,7 +14,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import static org.junit.Assert.assertNotNull;
+import static junit.framework.TestCase.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 public class UserRegJSONTest {
@@ -32,7 +32,6 @@ public class UserRegJSONTest {
 
         public String users_storage_base_dir; // Directory per lo storage degli utenti
 
-        public String users_storage_base_file; // File per lo storage degli utenti
 
     }
 
@@ -78,10 +77,10 @@ public class UserRegJSONTest {
 
         User1 utente = new User1("AlessandraGenca", pass1);
 
-        User user = new User(utente.getIdentifier(), utente.getSecret());
-        userRegJson.addUser(gson.toJson(user, User.class));
-        assertNotNull(userRegJson.addUser(gson.toJson(user, User.class)));
-       // realm.getUsers().add(user);
+
+        userRegJson.addUser(gson.toJson(utente, User1.class));
+        assertNotNull(userRegJson.addUser(gson.toJson(utente, User1.class)));
+
 
 
 
@@ -149,12 +148,14 @@ public class UserRegJSONTest {
     @AfterClass
     public static void tearDownAfterClass()  {
         File file = new File("src/main/resources/users");
-             for(File f:file.listFiles()) {
-                 //System.out.println(f.getName());
-                 if(f.getName().startsWith("Test")){
-                     f.delete();
-                 }
-         }
+            if(file.exists()) {
+                for (File f : file.listFiles()) {
+                    //System.out.println(f.getName());
+                    if (f.getName().startsWith("Test")) {
+                        f.delete();
+                    }
+                }
+            }
 
     }
 

@@ -22,8 +22,7 @@ public class NoteRegJsonTest {
     static Gson gson=new Gson();
     static GregorianCalendar gregorianCalendar1 = new GregorianCalendar(2018, GregorianCalendar.SEPTEMBER, 8);
     static Date data = gregorianCalendar1.getTime();
-
-     static Note n= new Note ("Titolo della nota di prova", "Testo della nota di prova", data);
+    static Note n= new Note ("Titolo della nota di prova", "Testo della nota di prova", data);
 
     class Settings
     {
