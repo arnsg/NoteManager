@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>NoteRegistry-GetSize</title>
+
+<script src="httputilities.js"></script>
+<script src="note.js"></script>
+<script src="error_codes.js"></script>
+
+<script>
+
+function customError(code, payload){
+	if (code==INVALID_KEY_CODE){
+		var msg = JSON.parse(payload).detailMessage;
+		//alert("Error: " + code + " - " + msg);
+		document.getElementById('demo').innerHTML ="Error: " + code + " - " + msg;
+		return true;
+	}
+	return false;
+}
+
+function callback(response){	
+	//alert(response);
+	document.getElementById('demo').innerHTML =response;
+}
+
+function fSize(){	
+	
+	
+	var theUri = 'http://localhost:8182/NoteRegApplication/size';
+	
+	httpAsyncOperation(theUri,"GET", null, callback);
+}
+
+</script>
+
+</head>
+<body>
+
+<p>
+Test client for Note Registry services - Get Number of Notes
+</p>
+<form name="NoteRegistry">
+
+
+
+
+
+
+
+<button type="button"
+onclick="fSize()">
+Get Number of notes</button>
+
+</form>
+
+<p id="demo"></p>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>NoteRegistry-GetNote</title>
+
+<script src="httputilities.js"></script>
+<script src="note.js"></script>
+<script src="error_codes.js"></script>
+
+<script>
+
+function customError(code, payload){
+	if (code==INVALID_KEY_CODE){
+		var msg = JSON.parse(payload).detailMessage;
+		//alert("Error: " + code + " - " + msg);
+		document.getElementById('demo').innerHTML ="Error: " + code + " - " + msg;
+		return true;
+	}
+	return false;
+}
+
+function callback(response){	
+	var n = new Note();
+	n.setFromJSON(JSON.parse(response));
+	document.getElementById('demo').innerHTML = n.toString();
+}
+
+function fGet(){
+
+	if (document.NoteRegistry.title.value=="type a title" || document.NoteRegistry.title.value==""){
+		var text= "Insert a title";
+		//alert(text);
+		
+		document.getElementById('demo').innerHTML =text;
+	}
+	else {	
+		var theUri = 'http://localhost:8182/NoteRegApplication/notes/'+document.getElementById('title').value;
+		httpAsyncOperation(theUri,"GET", null, callback);
+	}
+}
+
+</script>
+
+</head>
+<body>
+
+<p>
+Test client for Note Registry services - Get a Note
+</p>
+<form name="NoteRegistry">
+
+Title : 
+
+<input type="text" id="title" value="type a title" onclick= "value=''">
+<br>
+<br>
+<button type="button"
+onclick="fGet()">
+GET</button>
+
+</form>
+
+<p id="demo"></p>
+
+</body>
+</html>
