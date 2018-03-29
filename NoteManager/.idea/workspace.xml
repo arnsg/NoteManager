@@ -32,11 +32,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserRegJSONTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserRegJSONTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/it/libero/alessandragenca/notesmanager/server/web/resources/UserRegJSONTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="87" column="8" lean-forward="true" selection-start-line="87" selection-start-column="8" selection-end-line="87" selection-end-column="8" />
+            <state relative-caret-position="359">
+              <caret line="109" column="50" lean-forward="true" selection-start-line="109" selection-start-column="50" selection-end-line="109" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -74,11 +74,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NoteRegSizeJSONTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="NoteRegSizeJSONTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/it/libero/alessandragenca/notesmanager/server/web/resources/NoteRegSizeJSONTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="101">
-              <caret line="64" column="24" lean-forward="true" selection-start-line="64" selection-start-column="24" selection-end-line="64" selection-end-column="24" />
+            <state relative-caret-position="36">
+              <caret line="70" column="18" lean-forward="false" selection-start-line="70" selection-start-column="18" selection-end-line="70" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -465,8 +465,8 @@
         <option value="$PROJECT_DIR$/src/test/java/it/libero/alessandragenca/notesmanager/server/backend/TestSuiteNote.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/libero/alessandragenca/notesmanager/server/web/resources/UserRegJSON.java" />
         <option value="$PROJECT_DIR$/src/test/java/it/libero/alessandragenca/notesmanager/server/web/resources/NoteRegJsonTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/it/libero/alessandragenca/notesmanager/server/web/resources/NoteRegSizeJSONTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/it/libero/alessandragenca/notesmanager/server/web/resources/UserRegJSONTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/it/libero/alessandragenca/notesmanager/server/web/resources/NoteRegSizeJSONTest.java" />
       </list>
     </option>
   </component>
@@ -806,7 +806,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UserRegJSONTest">
+  <component name="RunManager" selected="JUnit.NoteRegSizeJSONTest">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -1094,8 +1094,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.UserRegJSONTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.NoteRegSizeJSONTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.NoteRegSizeJSONTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.UserRegJSONTest" />
         <item index="2" class="java.lang.String" itemvalue="JUnit.NoteRegJsonTest" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.TestSuiteNote" />
         <item index="4" class="java.lang.String" itemvalue="JUnit.NoteRegistryTestLoad" />
@@ -1119,18 +1119,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="NoteRegJsonTest - 2018.03.29 at 16h 08m 56s.xml">
-      <configuration name="NoteRegJsonTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="NoteRegJsonTest - 2018.03.29 at 16h 13m 00s.xml">
-      <configuration name="NoteRegJsonTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="NoteRegJsonTest - 2018.03.29 at 16h 13m 06s.xml">
-      <configuration name="NoteRegJsonTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="NoteRegSizeJSONTest - 2018.03.29 at 16h 08m 50s.xml">
-      <configuration name="NoteRegSizeJSONTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="NoteRegSizeJSONTest - 2018.03.29 at 16h 13m 20s.xml">
       <configuration name="NoteRegSizeJSONTest" configurationId="JUnit" />
     </history-entry>
@@ -1140,13 +1128,25 @@
     <history-entry file="NoteRegSizeJSONTest - 2018.03.29 at 16h 26m 35s.xml">
       <configuration name="NoteRegSizeJSONTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserRegJSONTest - 2018.03.29 at 16h 13m 13s.xml">
-      <configuration name="UserRegJSONTest" configurationId="JUnit" />
+    <history-entry file="NoteRegSizeJSONTest - 2018.03.29 at 17h 17m 28s.xml">
+      <configuration name="NoteRegSizeJSONTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="UserRegJSONTest - 2018.03.29 at 16h 39m 06s.xml">
       <configuration name="UserRegJSONTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="UserRegJSONTest - 2018.03.29 at 17h 04m 19s.xml">
+      <configuration name="UserRegJSONTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserRegJSONTest - 2018.03.29 at 17h 15m 31s.xml">
+      <configuration name="UserRegJSONTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserRegJSONTest - 2018.03.29 at 17h 15m 50s.xml">
+      <configuration name="UserRegJSONTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserRegJSONTest - 2018.03.29 at 17h 16m 29s.xml">
+      <configuration name="UserRegJSONTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserRegJSONTest - 2018.03.29 at 17h 16m 46s.xml">
       <configuration name="UserRegJSONTest" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -1162,7 +1162,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3007874" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1505,21 +1505,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/it/libero/alessandragenca/notesmanager/server/web/resources/NoteRegSizeJSONTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/it/libero/alessandragenca/notesmanager/server/web/resources/UserRegJSONTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="64" column="24" lean-forward="true" selection-start-line="64" selection-start-column="24" selection-end-line="64" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="359">
+          <caret line="109" column="50" lean-forward="true" selection-start-line="109" selection-start-column="50" selection-end-line="109" selection-end-column="50" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/it/libero/alessandragenca/notesmanager/server/web/resources/UserRegJSONTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/it/libero/alessandragenca/notesmanager/server/web/resources/NoteRegSizeJSONTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="87" column="8" lean-forward="true" selection-start-line="87" selection-start-column="8" selection-end-line="87" selection-end-column="8" />
-          <folding />
+        <state relative-caret-position="36">
+          <caret line="70" column="18" lean-forward="false" selection-start-line="70" selection-start-column="18" selection-end-line="70" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
