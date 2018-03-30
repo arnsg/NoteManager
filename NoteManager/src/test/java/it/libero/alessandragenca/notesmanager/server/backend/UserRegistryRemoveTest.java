@@ -10,7 +10,7 @@ import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertNotEquals;
 
 public class UserRegistryRemoveTest {
-    private UserRegistry userreg = new UserRegistry();
+    private UserRegistry userreg = UserRegistry.getInstance();
     private  User u = new User("Alessandra", "Genca");
     @Before
     public void setUp() throws Exception {

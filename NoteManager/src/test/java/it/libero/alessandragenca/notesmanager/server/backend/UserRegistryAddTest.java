@@ -10,7 +10,7 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 public class UserRegistryAddTest {
-    private UserRegistry userreg = new UserRegistry();
+    private UserRegistry userreg = UserRegistry.getInstance();
 
     @Before
     public void setUp() throws Exception {
