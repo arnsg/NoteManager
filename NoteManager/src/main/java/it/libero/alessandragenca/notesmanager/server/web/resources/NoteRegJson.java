@@ -29,6 +29,8 @@ public class NoteRegJson extends ServerResource{
 
     	NoteRegistryAPI nrapi = NoteRegistryAPI.instance();
     	Note n = gson.fromJson(payload, Note.class);
+
+
     	try{
     		nrapi.add(n);
     	return gson.toJson("note added: " + n.getTitle(), String.class);
@@ -71,13 +73,10 @@ public class NoteRegJson extends ServerResource{
 			setStatus(s);
 			return gson.toJson(e, InvalidKeyException.class);
 		} finally {
-
-			if(file.listFiles()!=null){
-				for (File f : file.listFiles()) {
-					//System.out.println(f.getName());
-					if (f.getName().startsWith("db")) {
-						f.delete();
-					}
+			for (File f : file.listFiles()) {
+				//System.out.println(f.getName());
+				if (f.getName().startsWith("db")) {
+					f.delete();
 				}
 			}
 

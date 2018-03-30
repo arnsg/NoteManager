@@ -16,15 +16,8 @@ import java.util.ArrayList;
 
 
 public class UserRegistry {
-
-	private static UserRegistry instance;
-
-	public static UserRegistry getInstance(){
-		if(instance==null) instance=new UserRegistry();
-		return instance;
-	}
-
-	private UserRegistry(){
+	
+	public UserRegistry(){
 		
 		realm= new MemoryRealm();
 	}
@@ -90,7 +83,7 @@ public class UserRegistry {
 	
 	public void load(String fileName) throws IOException, ClassNotFoundException{
 	    FileInputStream fileIn = new FileInputStream(fileName);
-	    ArrayList<User1> userList;// = new ArrayList<User1>();
+	    ArrayList<User1> userList = new ArrayList<User1>();
 	    ObjectMapper mapper = new ObjectMapper();
 	    // Tramite la funzione readValue riottengo la lista degli utenti a partire dalla stringa con codifica JSON
 	    userList = mapper.readValue(fileIn, new TypeReference<ArrayList<User1>>() {});

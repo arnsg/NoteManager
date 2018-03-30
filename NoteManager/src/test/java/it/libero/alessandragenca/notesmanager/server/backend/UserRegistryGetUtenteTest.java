@@ -10,7 +10,7 @@ import static org.junit.Assert.assertNull;
 
 public class UserRegistryGetUtenteTest {
 
-    private UserRegistry userreg = UserRegistry.getInstance();
+    private UserRegistry userreg = new UserRegistry();
 
 
     @Before

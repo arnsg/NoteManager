@@ -20,7 +20,7 @@ public class NoteRegistryTestRemove {
     public void setUp() throws Exception {
         GregorianCalendar gregorianCalendar1 = new GregorianCalendar(2018, GregorianCalendar.SEPTEMBER, 27);
         Date data1 = gregorianCalendar1.getTime();
-        //GregorianCalendar gregorianCalendar2 = new GregorianCalendar(2018, GregorianCalendar.DECEMBER, 13);
+        GregorianCalendar gregorianCalendar2 = new GregorianCalendar(2018, GregorianCalendar.DECEMBER, 13);
         Date data2 = gregorianCalendar1.getTime();
 
         Note n= new Note ("Titolo della nota di prova1", "Testo della nota di prova1", data1 );

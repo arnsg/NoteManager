@@ -10,7 +10,7 @@ import static org.junit.Assert.assertTrue;
 
 public class UserRegistryTestSave {
 
-    private UserRegistry userreg = UserRegistry.getInstance();
+    private UserRegistry userreg = new UserRegistry();
     User u = new User("Alessandra", "Genca");
 
     @Before

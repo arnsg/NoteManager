@@ -22,7 +22,7 @@ public class UserRegistryAPI {
 		return instance;
 	}
 	
-	protected UserRegistryAPI(){ur= UserRegistry.getInstance();}
+	protected UserRegistryAPI(){ur= new UserRegistry();}
 	
 	
 	public synchronized int size (){return ur.size();}
@@ -52,7 +52,7 @@ public class UserRegistryAPI {
 	
 	// Imposto le informazioni di storage degli utenti
 	
-	public synchronized void setStorageFiles(String rootDirForStorageFile, String baseStorageFile)
+	public void setStorageFiles(String rootDirForStorageFile, String baseStorageFile)
 	{
 		this.rootDirForStorageFile = rootDirForStorageFile;
 		this.baseStorageFile = baseStorageFile;
@@ -67,25 +67,22 @@ public class UserRegistryAPI {
 		final File folder = new File(rootDirForStorageFile);
 		int c;
 		int max = -1;
-
-		if(folder.listFiles()!=null){
-			for(final File fileEntry : folder.listFiles())
+		
+		for(final File fileEntry : folder.listFiles())
+		{
+			if(fileEntry.getName().substring(0, baseStorageFile.length()).equalsIgnoreCase(baseStorageFile))
 			{
-				if(fileEntry.getName().substring(0, baseStorageFile.length()).equalsIgnoreCase(baseStorageFile))
+				try
 				{
-					try
-					{
-						c = Integer.parseInt(fileEntry.getName().substring(baseStorageFile.length()+1));
-					}
-					catch(NumberFormatException | StringIndexOutOfBoundsException e)
-					{
-						c = -1;
-					}
-					if(c > max) max=c;
+					c = Integer.parseInt(fileEntry.getName().substring(baseStorageFile.length()+1));
 				}
+				catch(NumberFormatException | StringIndexOutOfBoundsException e)
+				{
+					c = -1;
+				}
+				if(c > max) max=c;
 			}
 		}
-
 		return max;
 	}
 	
@@ -123,7 +120,7 @@ public class UserRegistryAPI {
 			catch (ClassNotFoundException | IOException e)
 			{
 				System.err.println("Restore filed - starting a new registry " + e.getCause() + " " + e.getMessage());
-				ur = UserRegistry.getInstance();
+				ur = new UserRegistry();
 			}
 		}
 	}
