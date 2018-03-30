@@ -51,7 +51,7 @@ public class NoteRegJsonTest {
     @BeforeClass
     public static void setUpBeforeClass() throws Exception {
 
-        NoteRegJsonTest.Settings settings = null;
+        Settings settings = null;
 
         try
         {
@@ -72,12 +72,10 @@ public class NoteRegJsonTest {
 
         NoteRegistryAPI nrapi = NoteRegistryAPI.instance();
         nrapi.setStorageFiles(System.getProperty("user.dir") +"/src/main/resources/"+ settings.storage_base_dir + "\\", "Test"); // Imposto i file di storage
-        nrapi.restore();
-
         String n1s=gson.toJson(n,Note.class);
         gson.fromJson(NoteRegJson.addNote(n1s),String.class);
         System.out.print("Aggiunta nota1:" + n.getTitle()+"\n");
-        nrapi.commit();
+
 
 
     }
@@ -86,8 +84,6 @@ public class NoteRegJsonTest {
     // test per l'aggiunta di una nota già presente nel registro
     @Test
     public void testAdd1() {
-
-
 
         //aggiunta Nota duplicata
         String n1s=gson.toJson(n,Note.class);

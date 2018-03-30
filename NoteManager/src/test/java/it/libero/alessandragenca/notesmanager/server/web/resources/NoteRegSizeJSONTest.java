@@ -40,7 +40,7 @@ public class NoteRegSizeJSONTest {
     @BeforeClass
     public static void setUpBeforeClass() throws Exception {
 
-        NoteRegSizeJSONTest.Settings settings = null;
+        Settings settings = null;
 
         try
         {
@@ -62,8 +62,6 @@ public class NoteRegSizeJSONTest {
         nrapi.setStorageFiles(System.getProperty("user.dir") +"/src/main/resources/"+ settings.storage_base_dir + "\\", "Test"); // Imposto i file di storage
 
 
-        nrapi.restore();
-
         System.out.print("Dimensioni prima dell'add:"+nr.size()+"\n");
         GregorianCalendar gregorianCalendar1 = new GregorianCalendar(2018, GregorianCalendar.SEPTEMBER, 8);
         Date data2 = gregorianCalendar1.getTime();
@@ -72,13 +70,13 @@ public class NoteRegSizeJSONTest {
         System.out.print("Dimensioni dopo dell'add:"+nr.size()+"\n");
         String n1s=gson.toJson(n,Note.class);
         assertNotNull(gson.fromJson(NoteRegJson.addNote(n1s),String.class));
-        nrapi.commit();
+
         Note n2 = new Note("Nota2", "Testo della nota2", data2);
         nr.add(n2);
         System.out.print("Dimensioni dopo dell'add:"+nr.size()+"\n");
         String n2s=gson.toJson(n2,Note.class);
         gson.fromJson(NoteRegJson.addNote(n2s),String.class);
-        nrapi.commit();
+
 
 
         gregorianCalendar1 = new GregorianCalendar(2018, GregorianCalendar.SEPTEMBER, 28);
@@ -88,7 +86,7 @@ public class NoteRegSizeJSONTest {
         System.out.print("Dimensioni dopo dell'add:"+nr.size()+"\n");
         String n3s=gson.toJson(n3,Note.class);
         gson.fromJson(NoteRegJson.addNote(n3s),String.class);
-        nrapi.commit();
+
 
 
 

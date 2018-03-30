@@ -53,7 +53,7 @@ public class UserRegJSONTest {
 
         User utente = new User("AlessandraGenca", pass1);
         assertNotNull(userRegJson.addUser(gson.toJson(utente, User.class)));
-        urapi.getRealm().getUsers().add(utente);
+
 
     }
 
