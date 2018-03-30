@@ -11,10 +11,7 @@ jdk:
 - oraclejdk8
 
 notifications:
-email:
-- arnaldo.sgueglia@gmail.com
-- alessandragenca@gmail.com
-- isaackios94@gmail.com
+email: arnaldo.sgueglia@gmail.com, alessandragenca@gmail.com, isaackios94@gmail.com
 on_success: never
 on_failure: always
   
