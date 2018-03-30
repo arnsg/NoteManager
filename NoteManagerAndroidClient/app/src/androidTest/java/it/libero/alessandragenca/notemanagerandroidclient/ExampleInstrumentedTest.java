@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         Context appContext = InstrumentationRegistry.getTargetContext();
 
         assertEquals("it.libero.alessandragenca.notemanagerandroidclient", appContext.getPackageName());
-		assertTrue(2+2,4);
+		assertTrue(2+2,3);
     }
 }
