@@ -117,7 +117,7 @@ public class RegActivity extends AppCompatActivity {
 
             String response = null;
             User user = new User(params[1], params[2]); // Creo l'oggetto utente con i parametri ottenuti dal metodo per l'interazione con il componente grafico (e forniti dagli EditText)
-            SharedPreferences editor=getSharedPreferences(prefName,MODE_PRIVATE);
+            //SharedPreferences editor=getSharedPreferences(prefName,MODE_PRIVATE);
 
             try {
                 response = cr.post(gson.toJson(user, User.class)).getText(); // Effettuo la Request HTTP con metodo "POST" e inserisco in response la Response HTTP.

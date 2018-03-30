@@ -45,12 +45,12 @@ public class LogInActivity extends AppCompatActivity {
     private Button mLoginInButton;
     private Button mSignInButton;
     private TextView mResultOp;
-    private final int MY_PERMISSIONS_REQUEST=123;
-    private SharedPreferences preferences;
+    private static final int MY_PERMISSIONS_REQUEST=123;
+    //private SharedPreferences preferences;
     private AsyncTask logintask;
     private static int MAX_TARDINESS=5000;
-    private static Activity activity;
-    private String baseURI = "http://10.0.2.2:8182/NoteRegApplication/";
+    private Activity activity;
+   // private String baseURI = "http://10.0.2.2:8182/NoteRegApplication/";
 
 
 
@@ -58,9 +58,9 @@ public class LogInActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activity=this;
+        //activity=this;
         setContentView(R.layout.activity_log_in);
-        preferences=getSharedPreferences(prefName,MODE_PRIVATE);
+        //preferences=getSharedPreferences(prefName,MODE_PRIVATE);
         editor = getSharedPreferences(prefName, MODE_PRIVATE).edit();
 
 
@@ -70,7 +70,7 @@ public class LogInActivity extends AppCompatActivity {
         mLoginInButton = (Button) findViewById(R.id.login_button);
         mResultOp = (TextView) findViewById(R.id.textView);
 
-        preferences = getSharedPreferences(prefName, MODE_PRIVATE);
+        //preferences = getSharedPreferences(prefName, MODE_PRIVATE);
 
 
 
@@ -79,7 +79,7 @@ public class LogInActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         if (mUsernameView.getText().toString().equals("") || mPasswordView.getText().toString().equals("")) {
-                            View parent = (View) findViewById(R.id.activity_login_page);
+                           // View parent = (View) findViewById(R.id.activity_login_page);
                             mResultOp.setText("Insert Data");
                        //     Toast.makeText(getApplicationContext(), "Insert Data", Toast.LENGTH_SHORT).show();
  //                           sn.make(parent, "Insert Data", Snackbar.LENGTH_SHORT).show();
