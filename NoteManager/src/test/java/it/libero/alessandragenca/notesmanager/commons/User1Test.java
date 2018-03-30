@@ -11,7 +11,7 @@ public class User1Test {
     public void setUp() throws Exception {
         char[] pass = {'2','7','0','9'};
         u = new User1("AlessandraGenca", pass);
-        Assert.assertNotNull("Creato oggetto USER", u);
+        Assert.assertNull("Creato oggetto USER", u);
 
 
 
