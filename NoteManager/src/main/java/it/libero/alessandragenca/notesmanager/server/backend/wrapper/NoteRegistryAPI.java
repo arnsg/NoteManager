@@ -56,7 +56,7 @@ public class NoteRegistryAPI {
 	
 	// Imposto le informazioni di storage degli utenti
 	
-		public void setStorageFiles(String rootDirForStorageFile, String baseStorageFile)
+		public synchronized void setStorageFiles(String rootDirForStorageFile, String baseStorageFile)
 		{
 			this.rootDirForStorageFile = rootDirForStorageFile;
 			this.baseStorageFile = baseStorageFile;
@@ -71,22 +71,25 @@ public class NoteRegistryAPI {
 			final File folder = new File(rootDirForStorageFile);
 			int c;
 			int max = -1;
-			
-			for(final File fileEntry : folder.listFiles())
-			{
-				if(fileEntry.getName().substring(0, baseStorageFile.length()).equalsIgnoreCase(baseStorageFile))
+
+			if(folder.listFiles()!=null){
+				for(final File fileEntry : folder.listFiles())
 				{
-					try
+					if(fileEntry.getName().substring(0, baseStorageFile.length()).equalsIgnoreCase(baseStorageFile))
 					{
-						c = Integer.parseInt(fileEntry.getName().substring(baseStorageFile.length()+1));
+						try
+						{
+							c = Integer.parseInt(fileEntry.getName().substring(baseStorageFile.length()+1));
+						}
+						catch(NumberFormatException | StringIndexOutOfBoundsException e)
+						{
+							c = -1;
+						}
+						if(c > max) max=c;
 					}
-					catch(NumberFormatException | StringIndexOutOfBoundsException e)
-					{
-						c = -1;
-					}
-					if(c > max) max=c;
 				}
 			}
+
 			return max;
 		}
 		

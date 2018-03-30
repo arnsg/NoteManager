@@ -26,7 +26,7 @@ import java.util.Scanner;
 public class NoteRegistryWebApp extends Application{
 	
 	
-public static MemoryRealm realm;
+private static MemoryRealm realm;
 	
 	/* Creo la classe relative alle impostazioni del server */
 	

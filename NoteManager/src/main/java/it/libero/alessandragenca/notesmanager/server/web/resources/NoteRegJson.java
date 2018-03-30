@@ -71,10 +71,13 @@ public class NoteRegJson extends ServerResource{
 			setStatus(s);
 			return gson.toJson(e, InvalidKeyException.class);
 		} finally {
-			for (File f : file.listFiles()) {
-				//System.out.println(f.getName());
-				if (f.getName().startsWith("db")) {
-					f.delete();
+
+			if(file.listFiles()!=null){
+				for (File f : file.listFiles()) {
+					//System.out.println(f.getName());
+					if (f.getName().startsWith("db")) {
+						f.delete();
+					}
 				}
 			}
 
