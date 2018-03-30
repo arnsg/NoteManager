@@ -29,8 +29,6 @@ public class NoteRegJson extends ServerResource{
 
     	NoteRegistryAPI nrapi = NoteRegistryAPI.instance();
     	Note n = gson.fromJson(payload, Note.class);
-
-
     	try{
     		nrapi.add(n);
     	return gson.toJson("note added: " + n.getTitle(), String.class);
