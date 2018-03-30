@@ -17,7 +17,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.Espresso.pressBack;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static android.support.test.espresso.action.ViewActions.replaceText;
@@ -29,15 +28,15 @@ import static org.hamcrest.Matchers.allOf;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-public class GetNoteActivityTest3 {
+public class GetAllNotesActivityTest1 {
 
-    //nota non esistente
+    //0 note
 
     @Rule
     public ActivityTestRule<LogInActivity> mActivityTestRule = new ActivityTestRule<>(LogInActivity.class);
 
     @Test
-    public void getNoteActivityTest3() {
+    public void getAllNotesActivityTest1() {
         ViewInteraction appCompatEditText = onView(
                 allOf(withId(R.id.username),
                         childAtPosition(
@@ -81,53 +80,47 @@ public class GetNoteActivityTest3 {
         }
 
         ViewInteraction appCompatButton2 = onView(
-                allOf(withId(R.id.buttonget), withText("Get Note "),
+                allOf(withId(R.id.buttonGetAllNotes), withText("Get All Notes"),
                         childAtPosition(
                                 allOf(withId(R.id.activity_main),
                                         childAtPosition(
                                                 withId(android.R.id.content),
                                                 0)),
-                                2),
+                                7),
                         isDisplayed()));
         appCompatButton2.perform(click());
 
-        ViewInteraction appCompatEditText3 = onView(
-                allOf(withId(R.id.titleForGet),
+        ViewInteraction appCompatButton3 = onView(
+                allOf(withId(R.id.buttonGetAll), withText("Get All Notes"),
                         childAtPosition(
-                                allOf(withId(R.id.activity_get_note),
+                                allOf(withId(R.id.activity_getall_note),
+                                        childAtPosition(
+                                                withId(android.R.id.content),
+                                                0)),
+                                1),
+                        isDisplayed()));
+        appCompatButton3.perform(click());
+
+        // Added a sleep statement to match the app's execution delay.
+        // The recommended way to handle such scenarios is to use Espresso idling resources:
+        // https://google.github.io/android-testing-support-library/docs/espresso/idling-resource/index.html
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        ViewInteraction textView = onView(
+                allOf(withId(R.id.noteOutputGetAll), withText("Note Titles:\n[]"),
+                        childAtPosition(
+                                allOf(withId(R.id.activity_getall_note),
                                         childAtPosition(
                                                 withId(android.R.id.content),
                                                 0)),
                                 0),
                         isDisplayed()));
-        appCompatEditText3.perform(replaceText("s"), closeSoftKeyboard());
+        textView.check(matches(withText("Note Titles:\n[]")));
 
-        //pressBack();
-
-        ViewInteraction appCompatButton3 = onView(
-                allOf(withId(R.id.buttongetACT), withText("Get"),
-                        childAtPosition(
-                                allOf(withId(R.id.activity_get_note),
-                                        childAtPosition(
-                                                withId(android.R.id.content),
-                                                0)),
-                                2),
-                        isDisplayed()));
-        appCompatButton3.perform(click());
-
-        onView(withId(R.id.noteOutput)).check(matches(withText("Error: title not found")));
-
-  /*      ViewInteraction textView = onView(
-                allOf(withId(R.id.noteOutput), withText("Error: title not found"),
-                        childAtPosition(
-                                allOf(withId(R.id.activity_get_note),
-                                        childAtPosition(
-                                                withId(android.R.id.content),
-                                                0)),
-                                2),
-                        isDisplayed()));
-        textView.check(matches(withText("Error: title not found")));
-*/
     }
 
     private static Matcher<View> childAtPosition(

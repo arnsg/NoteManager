@@ -29,15 +29,15 @@ import static org.hamcrest.Matchers.allOf;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-public class GetNoteActivityTest3 {
+public class AddNoteActivityTest5 {
 
-    //nota non esistente
+    //inserimento nota già esistente
 
     @Rule
     public ActivityTestRule<LogInActivity> mActivityTestRule = new ActivityTestRule<>(LogInActivity.class);
 
     @Test
-    public void getNoteActivityTest3() {
+    public void addNoteActivityTest5() {
         ViewInteraction appCompatEditText = onView(
                 allOf(withId(R.id.username),
                         childAtPosition(
@@ -81,53 +81,64 @@ public class GetNoteActivityTest3 {
         }
 
         ViewInteraction appCompatButton2 = onView(
-                allOf(withId(R.id.buttonget), withText("Get Note "),
+                allOf(withId(R.id.buttonadd), withText(" Add Note"),
                         childAtPosition(
                                 allOf(withId(R.id.activity_main),
                                         childAtPosition(
                                                 withId(android.R.id.content),
                                                 0)),
-                                2),
+                                4),
                         isDisplayed()));
         appCompatButton2.perform(click());
 
         ViewInteraction appCompatEditText3 = onView(
-                allOf(withId(R.id.titleForGet),
+                allOf(withId(R.id.title),
                         childAtPosition(
-                                allOf(withId(R.id.activity_get_note),
+                                allOf(withId(R.id.activity_post_note),
                                         childAtPosition(
                                                 withId(android.R.id.content),
                                                 0)),
-                                0),
+                                1),
                         isDisplayed()));
-        appCompatEditText3.perform(replaceText("s"), closeSoftKeyboard());
+        appCompatEditText3.perform(replaceText("a"), closeSoftKeyboard());
+
+        ViewInteraction appCompatEditText4 = onView(
+                allOf(withId(R.id.text),
+                        childAtPosition(
+                                allOf(withId(R.id.activity_post_note),
+                                        childAtPosition(
+                                                withId(android.R.id.content),
+                                                0)),
+                                3),
+                        isDisplayed()));
+        appCompatEditText4.perform(replaceText("a"), closeSoftKeyboard());
 
         //pressBack();
 
         ViewInteraction appCompatButton3 = onView(
-                allOf(withId(R.id.buttongetACT), withText("Get"),
+                allOf(withId(R.id.button), withText("Add Note"),
                         childAtPosition(
-                                allOf(withId(R.id.activity_get_note),
+                                allOf(withId(R.id.activity_post_note),
                                         childAtPosition(
                                                 withId(android.R.id.content),
                                                 0)),
-                                2),
+                                4),
                         isDisplayed()));
         appCompatButton3.perform(click());
 
-        onView(withId(R.id.noteOutput)).check(matches(withText("Error: title not found")));
-
-  /*      ViewInteraction textView = onView(
-                allOf(withId(R.id.noteOutput), withText("Error: title not found"),
+ /*       ViewInteraction textView = onView(
+                allOf(withId(R.id.note), withText("Errore nell'inserimento del titolo:\n nota già esistente"),
                         childAtPosition(
-                                allOf(withId(R.id.activity_get_note),
+                                allOf(withId(R.id.activity_post_note),
                                         childAtPosition(
                                                 withId(android.R.id.content),
                                                 0)),
-                                2),
+                                4),
                         isDisplayed()));
-        textView.check(matches(withText("Error: title not found")));
+        textView.check(matches(withText("Errore nell'inserimento del titolo:  nota gia' esistente")));
 */
+        onView(withId(R.id.note)).check(matches(withText("Errore nell'inserimento del titolo:\n nota già esistente")));
+
     }
 
     private static Matcher<View> childAtPosition(

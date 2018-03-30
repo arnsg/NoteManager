@@ -17,7 +17,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.Espresso.pressBack;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static android.support.test.espresso.action.ViewActions.replaceText;
@@ -29,15 +28,15 @@ import static org.hamcrest.Matchers.allOf;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-public class GetNoteActivityTest3 {
+public class AddNoteActivityTest2 {
 
-    //nota non esistente
+    //niente dati nei campi
 
     @Rule
     public ActivityTestRule<LogInActivity> mActivityTestRule = new ActivityTestRule<>(LogInActivity.class);
 
     @Test
-    public void getNoteActivityTest3() {
+    public void addNoteActivityTest2() {
         ViewInteraction appCompatEditText = onView(
                 allOf(withId(R.id.username),
                         childAtPosition(
@@ -81,52 +80,39 @@ public class GetNoteActivityTest3 {
         }
 
         ViewInteraction appCompatButton2 = onView(
-                allOf(withId(R.id.buttonget), withText("Get Note "),
+                allOf(withId(R.id.buttonadd), withText(" Add Note"),
                         childAtPosition(
                                 allOf(withId(R.id.activity_main),
                                         childAtPosition(
                                                 withId(android.R.id.content),
                                                 0)),
-                                2),
+                                4),
                         isDisplayed()));
         appCompatButton2.perform(click());
 
-        ViewInteraction appCompatEditText3 = onView(
-                allOf(withId(R.id.titleForGet),
-                        childAtPosition(
-                                allOf(withId(R.id.activity_get_note),
-                                        childAtPosition(
-                                                withId(android.R.id.content),
-                                                0)),
-                                0),
-                        isDisplayed()));
-        appCompatEditText3.perform(replaceText("s"), closeSoftKeyboard());
-
-        //pressBack();
-
         ViewInteraction appCompatButton3 = onView(
-                allOf(withId(R.id.buttongetACT), withText("Get"),
+                allOf(withId(R.id.button), withText("Add Note"),
                         childAtPosition(
-                                allOf(withId(R.id.activity_get_note),
+                                allOf(withId(R.id.activity_post_note),
                                         childAtPosition(
                                                 withId(android.R.id.content),
                                                 0)),
-                                2),
+                                4),
                         isDisplayed()));
         appCompatButton3.perform(click());
 
-        onView(withId(R.id.noteOutput)).check(matches(withText("Error: title not found")));
+        onView(withId(R.id.note)).check(matches(withText("Insert Title and Text")));
 
-  /*      ViewInteraction textView = onView(
-                allOf(withId(R.id.noteOutput), withText("Error: title not found"),
+ /*       ViewInteraction textView = onView(
+                allOf(withId(R.id.note), withText("Insert Title and Text"),
                         childAtPosition(
-                                allOf(withId(R.id.activity_get_note),
+                                allOf(withId(R.id.activity_post_note),
                                         childAtPosition(
                                                 withId(android.R.id.content),
                                                 0)),
-                                2),
+                                4),
                         isDisplayed()));
-        textView.check(matches(withText("Error: title not found")));
+        textView.check(matches(withText("Insert Title and Text")));
 */
     }
 

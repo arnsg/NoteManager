@@ -17,7 +17,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.Espresso.pressBack;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static android.support.test.espresso.action.ViewActions.replaceText;
@@ -29,15 +28,15 @@ import static org.hamcrest.Matchers.allOf;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-public class GetNoteActivityTest3 {
+public class GetSizeActivityTest1 {
 
-    //nota non esistente
+    //size == 0
 
     @Rule
     public ActivityTestRule<LogInActivity> mActivityTestRule = new ActivityTestRule<>(LogInActivity.class);
 
     @Test
-    public void getNoteActivityTest3() {
+    public void getSizeActivityTest1() {
         ViewInteraction appCompatEditText = onView(
                 allOf(withId(R.id.username),
                         childAtPosition(
@@ -80,54 +79,41 @@ public class GetNoteActivityTest3 {
             e.printStackTrace();
         }
 
-        ViewInteraction appCompatButton2 = onView(
-                allOf(withId(R.id.buttonget), withText("Get Note "),
+  /*      ViewInteraction appCompatButton2 = onView(
+                allOf(withId(R.id.buttonGetsize), withText("Number of Note"),
                         childAtPosition(
                                 allOf(withId(R.id.activity_main),
                                         childAtPosition(
                                                 withId(android.R.id.content),
                                                 0)),
-                                2),
+                                8),
                         isDisplayed()));
         appCompatButton2.perform(click());
+    */
+        onView(withId(R.id.buttonGetsize)).perform(click());
 
-        ViewInteraction appCompatEditText3 = onView(
-                allOf(withId(R.id.titleForGet),
+        ViewInteraction appCompatButton3 = onView(
+                allOf(withId(R.id.button), withText("Get Size"),
                         childAtPosition(
-                                allOf(withId(R.id.activity_get_note),
+                                allOf(withId(R.id.activity_getsize_note),
+                                        childAtPosition(
+                                                withId(android.R.id.content),
+                                                0)),
+                                1),
+                        isDisplayed()));
+        appCompatButton3.perform(click());
+
+        ViewInteraction textView = onView(
+                allOf(withId(R.id.noteOutputSize), withText("Number of memorized notes:0"),
+                        childAtPosition(
+                                allOf(withId(R.id.activity_getsize_note),
                                         childAtPosition(
                                                 withId(android.R.id.content),
                                                 0)),
                                 0),
                         isDisplayed()));
-        appCompatEditText3.perform(replaceText("s"), closeSoftKeyboard());
+        textView.check(matches(withText("Number of memorized notes:0")));
 
-        //pressBack();
-
-        ViewInteraction appCompatButton3 = onView(
-                allOf(withId(R.id.buttongetACT), withText("Get"),
-                        childAtPosition(
-                                allOf(withId(R.id.activity_get_note),
-                                        childAtPosition(
-                                                withId(android.R.id.content),
-                                                0)),
-                                2),
-                        isDisplayed()));
-        appCompatButton3.perform(click());
-
-        onView(withId(R.id.noteOutput)).check(matches(withText("Error: title not found")));
-
-  /*      ViewInteraction textView = onView(
-                allOf(withId(R.id.noteOutput), withText("Error: title not found"),
-                        childAtPosition(
-                                allOf(withId(R.id.activity_get_note),
-                                        childAtPosition(
-                                                withId(android.R.id.content),
-                                                0)),
-                                2),
-                        isDisplayed()));
-        textView.check(matches(withText("Error: title not found")));
-*/
     }
 
     private static Matcher<View> childAtPosition(
