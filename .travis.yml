@@ -11,8 +11,10 @@ jdk:
 - oraclejdk8
 
 notifications:
-email: true
+email: arnaldo.sgueglia@gmail.com
 on_success: never
 on_failure: always
   
-sudo: enabled
+sudo: required
+dist: trusty
+group: stable
