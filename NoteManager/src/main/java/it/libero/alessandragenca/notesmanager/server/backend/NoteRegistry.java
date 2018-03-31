@@ -78,8 +78,9 @@ public class NoteRegistry {
 	
 
 	public void save(String fileOutName) throws IOException, NullPointerException{
-	    FileOutputStream fileOut=null;
-	    ObjectOutputStream out=null;
+        if (fileOutName==null) {throw  new NullPointerException();}
+	    FileOutputStream fileOut;
+	    ObjectOutputStream out;
 	    try {
 			fileOut = new FileOutputStream(fileOutName);
 			out = new ObjectOutputStream(fileOut);
@@ -96,8 +97,9 @@ public class NoteRegistry {
 
 	}
 	
-	public void load(String fileName) throws ClassNotFoundException, ClassCastException, IOException, NullPointerException {
+	public void load(String fileName) throws ClassNotFoundException, ClassCastException, IOException {
 
+	    if (fileName==null) {throw  new NullPointerException();}
 	    FileInputStream fileIn= null;
 	    ObjectInputStream in=null ;
 	    try {

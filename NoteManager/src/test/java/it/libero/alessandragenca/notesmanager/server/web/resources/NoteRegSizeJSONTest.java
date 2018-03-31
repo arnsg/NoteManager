@@ -159,7 +159,7 @@ public class NoteRegSizeJSONTest {
             for (File f : file.listFiles()) {
                 //System.out.println(f.getName());
                 if (f.getName().startsWith("Test")) {
-                    f.delete();
+                    f.deleteOnExit();
                 }
             }
         }

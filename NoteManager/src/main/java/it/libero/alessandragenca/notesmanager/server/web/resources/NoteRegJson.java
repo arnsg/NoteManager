@@ -77,9 +77,9 @@ public class NoteRegJson extends ServerResource{
 		} finally {
 
 			for (File f : file.listFiles()) {
-				//System.out.println(f.getName());
 				if (f.getName().startsWith("db")) {
-					f.delete();
+					f.deleteOnExit();
+
 				}
 			}
 
