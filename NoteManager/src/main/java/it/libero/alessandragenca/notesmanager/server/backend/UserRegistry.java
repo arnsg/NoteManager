@@ -126,7 +126,7 @@ public class UserRegistry {
 	}
 	
 	
-	private static MemoryRealm realm;
+	private MemoryRealm realm;
 	
 }
 
