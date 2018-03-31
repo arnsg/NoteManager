@@ -79,14 +79,16 @@ public class NoteRegistry {
 
 	public void save(String fileOutName) throws IOException{
 		FileOutputStream fileOut=null;
+		ObjectOutputStream out=null;
 	    try{
 			fileOut = new FileOutputStream(fileOutName);
-			ObjectOutputStream out = new ObjectOutputStream(fileOut);
+			out = new ObjectOutputStream(fileOut);
 			out.writeObject(reg);
 			out.close();
 			fileOut.close();
 		}catch (IOException e){
 			if(fileOut!=null)fileOut.close();
+			if(out!=null)out.close();
 	    	throw e;
 		}
 	}

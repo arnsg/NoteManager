@@ -13,9 +13,15 @@ import java.util.ArrayList;
 
 
 public class UserRegistry {
-	
+
+	/*private static UserRegistry instance;
+
+	public static UserRegistry getInstance(){
+		if(instance==null) instance=new UserRegistry();
+		return instance;
+	}*/
+
 	public UserRegistry(){
-		
 		realm= new MemoryRealm();
 	}
 	
@@ -60,9 +66,10 @@ public class UserRegistry {
 		
 	public void save(String fileOutName) throws IOException{
 		FileOutputStream fileOut=null;
+		Writer out=null;
 		try{
 			fileOut = new FileOutputStream(fileOutName);
-			Writer out = new BufferedWriter(new OutputStreamWriter(fileOut,"UTF-8"));
+			out = new BufferedWriter(new OutputStreamWriter(fileOut,"UTF-8"));
 
 			ArrayList<User1> userList = new ArrayList<User1>();
 			ObjectMapper objectMapper = new ObjectMapper(); // Classe della libreria JACKSON per la memorizzazione della lista di utenti con codifica JSON
@@ -78,6 +85,7 @@ public class UserRegistry {
 			fileOut.close();
 		} catch (IOException e){
 			if(fileOut!=null)fileOut.close();
+			if(out!=null)out.close();
 	    	throw e;
 		}
 

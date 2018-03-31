@@ -36,10 +36,6 @@ public class UserRegistryTestLoad {
         }catch (IOException e) {
             assertTrue("Errore gestione file", true);
             e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            assertTrue("Errore gestione file", true);
-            e.printStackTrace();
-
         }
 
 
