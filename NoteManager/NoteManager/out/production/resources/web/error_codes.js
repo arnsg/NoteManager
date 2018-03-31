@@ -1,1 +1,0 @@
-const INVALID_KEY_CODE=800;
