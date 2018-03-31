@@ -56,7 +56,7 @@ findbugs {
     effort = "max"
     reportLevel = "low"
     includeFilter = file("$rootProject.projectDir/config/findbugs/includeFilter.xml")
-    excludeFilter = file("$rootProject.projectDir/config/findbugs/excludeFilter.xml")
+    //excludeFilter = file("$rootProject.projectDir/config/findbugs/excludeFilter.xml")
 }
 tasks.withType(FindBugs) {
     reports {
