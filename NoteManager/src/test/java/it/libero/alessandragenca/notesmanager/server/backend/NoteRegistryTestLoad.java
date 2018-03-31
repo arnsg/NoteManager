@@ -30,12 +30,10 @@ public class NoteRegistryTestLoad {
             }
 
 
-        }catch (IOException e) {
+        }catch (Exception e) {
             assertTrue("Errore gestione file", true);
             e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            assertTrue("Errore gestione file", true);
-            e.printStackTrace();
+
 
         }
 

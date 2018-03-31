@@ -5,14 +5,17 @@ import it.libero.alessandragenca.notesmanager.commons.Note;
 import it.libero.alessandragenca.notesmanager.server.backend.NoteRegistry;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.Date;
 
 public class NoteRegistryAPI {
 
+
 	public static synchronized NoteRegistryAPI instance() {
+
 		if (instance == null)
 			instance = new NoteRegistryAPI();
+
+
 		return instance;
 	}
 	
@@ -66,11 +69,12 @@ public class NoteRegistryAPI {
 		
 		// Costruisco l'estensione del file in base ai file gi� presenti all'interno della cartella
 		
-		protected int buildStorageFileExtension()
+		protected int buildStorageFileExtension() throws  NullPointerException
 		{
 			final File folder = new File(rootDirForStorageFile);
 			int c;
 			int max = -1;
+
 			
 			for(final File fileEntry : folder.listFiles())
 			{
@@ -101,7 +105,7 @@ public class NoteRegistryAPI {
 			{
 				nr.save(fileName);
 			}
-			catch (IOException e)
+			catch (Exception e)
 			{
 				System.err.println("Commit filed " + e.getMessage() + " " + e.getCause());
 			}		
@@ -121,7 +125,7 @@ public class NoteRegistryAPI {
 				{
 					nr.load(fileName);
 				}
-				catch (ClassNotFoundException | IOException e)
+				catch (ClassNotFoundException  e)
 				{
 					System.err.println("Restore filed - starting a new registry " + e.getCause() + " " + e.getMessage());
 					nr = new NoteRegistry();

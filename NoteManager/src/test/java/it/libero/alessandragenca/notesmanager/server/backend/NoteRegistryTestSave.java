@@ -39,7 +39,7 @@ public class NoteRegistryTestSave {
             System.out.print("salvataggio nel file avvenuto correttamente");
 
 
-        }catch (IOException e) {
+        }catch (Exception e) {
             assertTrue("Errore creazione file", true);
         }
 

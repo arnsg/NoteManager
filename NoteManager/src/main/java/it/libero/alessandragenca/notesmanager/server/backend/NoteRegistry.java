@@ -77,20 +77,69 @@ public class NoteRegistry {
 	}
 	
 
-	public void save(String fileOutName) throws IOException{		
-	    FileOutputStream fileOut = new FileOutputStream(fileOutName);
-	    ObjectOutputStream out = new ObjectOutputStream(fileOut);
-	    out.writeObject(reg);
-	    out.close();
-	    fileOut.close();
+	public void save(String fileOutName){
+	    FileOutputStream fileOut=null;
+	    ObjectOutputStream out=null;
+	    try {
+			fileOut = new FileOutputStream(fileOutName);
+			out = new ObjectOutputStream(fileOut);
+			out.writeObject(reg);
+		}
+		catch(IOException e){
+			e.printStackTrace();
+
+		}
+
+		finally {
+			try {
+				if (out!= null) {
+					out.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			try {
+				if (out!= null) {
+					out.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+
+		}
 	}
 	
-	public void load(String fileName) throws IOException, ClassNotFoundException{
-	    FileInputStream fileIn = new FileInputStream(fileName);
-	    ObjectInputStream in = new ObjectInputStream(fileIn);
-	    reg = (HashMap<String,Note>) in.readObject();
-	    in.close();
-	    fileIn.close();
+	public void load(String fileName) throws  ClassNotFoundException , ClassCastException{
+
+	    FileInputStream fileIn= null;
+	    ObjectInputStream in=null ;
+	    try {
+			fileIn = new FileInputStream(fileName);
+			in = new ObjectInputStream(fileIn);
+			reg = (HashMap<String, Note>) in.readObject();
+		}
+		catch (IOException e){
+	    	e.printStackTrace();
+		}
+		finally {
+			try {
+				if (in != null) {
+					in.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			try {
+				if (fileIn != null) {
+					fileIn.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+
+		}
 	}
 	
 	

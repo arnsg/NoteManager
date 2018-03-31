@@ -19,6 +19,7 @@ import org.restlet.security.MemoryRealm;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 
@@ -93,20 +94,25 @@ public static MemoryRealm realm;
 		Settings settings = null;
 		
 		// Inizializzo le impostazioni del server basandomi sulle informazioni contenute nel file settings.json
-
+		Scanner scanner=null;
 		try
 		{
 			System.out.print(new File("").getAbsolutePath());
 			System.out.print("stampa:"+System.getProperty("user.dir"));
-			Scanner scanner = new Scanner(new File ("src/main/resources/settings.json"));
+			scanner = new Scanner(new File ("src/main/resources/settings.json"), "UTF-8");
 			settings = gson.fromJson(scanner.nextLine(), Settings.class);
 			scanner.close();
 			System.err.println("Loading settings from file");
 		}
-		catch (FileNotFoundException e1)
+		catch (FileNotFoundException e)
 		{
 			System.err.println("Settings file not found");
-			System.exit(-1);
+
+		}
+		catch (IOException e)
+		{
+			System.err.println("Settings file not found");
+
 		}
 		
 		rootDirForWebStaticFiles="file:///"+System.getProperty("user.dir")+"/src/main/resources/"+settings.web_base_dir;
