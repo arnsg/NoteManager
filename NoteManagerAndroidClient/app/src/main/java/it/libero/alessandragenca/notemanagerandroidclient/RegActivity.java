@@ -31,8 +31,8 @@ public class RegActivity extends AppCompatActivity {
     private Button registrationbutton;
     private TextView resultOp;
     private Gson gson;
-    private final String TAG = "ALESSANDRA";
-    private final int TAG_ADDOBJECT_INT = 9121;
+    private static final String TAG = "ALESSANDRA";
+ //   private final int TAG_ADDOBJECT_INT = 9121;
     private SharedPreferences.Editor editor;
     public final static String prefName="Preference";
 
@@ -106,7 +106,7 @@ public class RegActivity extends AppCompatActivity {
 
         /* AsyncTask per l'esecuzione in background delle operazioni asincrone dedicate alla registrazione di un nuovo utente */
 
-        private String response;
+    //    private String response;
 
         @Override
         protected String doInBackground(String... params) {

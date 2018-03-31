@@ -28,16 +28,16 @@ import it.libero.alessandragenca.notemanagerandroidclient.commons.InvalidKeyExce
 public class GetSizeActivity extends AppCompatActivity {
 
 
-    private final String TAG = "ALE_DICTIONARY";
+    private static final String TAG = "ALE_DICTIONARY";
 
-    private Gson gson;
+  //  private Gson gson;
     private String baseURI = "http://10.0.2.2:8182/NoteRegApplication/size";
 
     SharedPreferences editor;
     public final static String prefName="Preference";
 
-    private EditText username;
-    private EditText password;
+ //   private EditText username;
+  //  private EditText password;
     private TextView textOUT;
 
     public class GetSizeRestTask extends AsyncTask<String, Void, String> {
@@ -119,7 +119,7 @@ public class GetSizeActivity extends AppCompatActivity {
         textOUT.setMovementMethod(new ScrollingMovementMethod());
 
 
-        gson = new Gson();
+   //     gson = new Gson();
 
 
 

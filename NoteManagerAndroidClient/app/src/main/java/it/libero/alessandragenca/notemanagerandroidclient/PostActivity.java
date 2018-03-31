@@ -32,9 +32,9 @@ public class PostActivity extends AppCompatActivity {
 
 
 
-        private final String TAG = "ALE_DICTIONARY";
+        private static final String TAG = "ALE_DICTIONARY";
 
-        private Gson gson;
+  //      private Gson gson;
         private String baseURI = "http://10.0.2.2:8182/NoteRegApplication/";
         private EditText text;
         private EditText textTitle;
@@ -134,7 +134,7 @@ public class PostActivity extends AppCompatActivity {
             textOUT.setTextSize(3, 10);
 
 
-            gson = new Gson();
+      //      gson = new Gson();
 
 
         }

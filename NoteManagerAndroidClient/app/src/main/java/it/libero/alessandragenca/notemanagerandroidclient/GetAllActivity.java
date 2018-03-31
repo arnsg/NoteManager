@@ -30,9 +30,9 @@ import it.libero.alessandragenca.notemanagerandroidclient.commons.Note;
 
 public class GetAllActivity extends AppCompatActivity {
 
-    private final String TAG = "ALE_DICTIONARY";
+    private static final String TAG = "ALE_DICTIONARY";
 
-    private Gson gson;
+  //  private Gson gson;
     private String baseURI = "http://10.0.2.2:8182/NoteRegApplication/";
 
 
@@ -127,7 +127,7 @@ public class GetAllActivity extends AppCompatActivity {
         //username.setSingleLine();
         //password.setSingleLine();
 
-        gson = new Gson();
+    //    gson = new Gson();
 
 
 

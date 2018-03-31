@@ -38,14 +38,14 @@ public class LogInActivity extends AppCompatActivity {
 
     private EditText mUsernameView;
     private EditText mPasswordView;
-    public final static String prefName="Preference";
+    public static final String prefName="Preference";
     private String TAG = "Note_APPLICATION";
     private SharedPreferences.Editor editor;
-    private Snackbar sn;
+ //   private Snackbar sn;
     private Button mLoginInButton;
     private Button mSignInButton;
     private TextView mResultOp;
-    private static final int MY_PERMISSIONS_REQUEST=123;
+ //   private static final int MY_PERMISSIONS_REQUEST=123;
     //private SharedPreferences preferences;
     private AsyncTask logintask;
     private static int MAX_TARDINESS=5000;

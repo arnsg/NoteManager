@@ -1,5 +1,7 @@
 package it.libero.alessandragenca.notemanagerandroidclient.commons;
 
+import java.util.Arrays;
+
 public class User1 {
 	
 
@@ -10,7 +12,7 @@ public class User1 {
 	public User1(String identifier, char [] secret)
 	{
 		this.identifier = identifier;
-		this.secret = secret;
+		this.secret = Arrays.copyOfRange(secret,0,secret.length);
 		//this.role = role;
 	}
 	
@@ -29,7 +31,7 @@ public class User1 {
 	
 	public char[] getSecret()
 	{
-		return secret;
+		return Arrays.copyOfRange(secret,0,secret.length);
 	}
 	
 	

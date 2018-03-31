@@ -30,24 +30,24 @@ import it.libero.alessandragenca.notemanagerandroidclient.commons.Note;
 
 public class PutActivity extends AppCompatActivity {
 
-    private final String TAG = "ALE_DICTIONARY";
+    private static final String TAG = "ALE_DICTIONARY";
 
-    private Gson gson;
+ //   private Gson gson;
     private String baseURI = "http://10.0.2.2:8182/NoteRegApplication/";
 
     private EditText text;
     private EditText textTitle;
-    private EditText username;
-    private EditText password;
+//    private EditText username;
+ //   private EditText password;
     private TextView textOUT;
-    private Button button;
+ //   private Button button;
 
     SharedPreferences editor;
     public final static String prefName="Preference";
 
     public class PutRestTask extends AsyncTask<String, Void, String> {
 
-        private Note n;
+  //      private Note n;
 
         protected String doInBackground(String... params) {
             String title = params[0];
@@ -150,9 +150,9 @@ public class PutActivity extends AppCompatActivity {
         //password = (EditText) findViewById(R.id.password);
         textTitle = (EditText) findViewById(R.id.title);
         text = (EditText) findViewById(R.id.text);
-        button = (Button) findViewById(R.id.buttonModify);
+  //      button = (Button) findViewById(R.id.buttonModify);
         textOUT = (TextView) findViewById(R.id.note);
-        gson = new Gson();
+   //     gson = new Gson();
         textOUT.setTextColor(Color.BLUE);
         textOUT.setTextSize(3, 10);
         //username.setSingleLine();

@@ -28,16 +28,12 @@ import it.libero.alessandragenca.notemanagerandroidclient.commons.InvalidKeyExce
 import it.libero.alessandragenca.notemanagerandroidclient.commons.Note;
 
 
-/**
- * Created by Alessandra on 12/11/2017.
- */
-
 public class GetActivity extends AppCompatActivity {
 
 
-    private final String TAG = "ALE_DICTIONARY";
+    private static final String TAG = "ALE_DICTIONARY";
 
-    private Gson gson;
+   // private Gson gson;
     private String baseURI = "http://10.0.2.2:8182/NoteRegApplication/";
 
 
@@ -45,9 +41,9 @@ public class GetActivity extends AppCompatActivity {
     //private EditText username;
     //private EditText password;
     private TextView textOUT;
-    private TextView textOUT2;
+ //   private TextView textOUT2;
     private Button buttonforgetactivity;
-    private TextView textOUT3;
+  //  private TextView textOUT3;
 
     SharedPreferences editor;
     public final static String prefName="Preference";
@@ -158,7 +154,7 @@ public class GetActivity extends AppCompatActivity {
         textTitle.setSingleLine();
         //textOUT.setSingleLine();
 
-        gson = new Gson();
+     //   gson = new Gson();
 
 
 

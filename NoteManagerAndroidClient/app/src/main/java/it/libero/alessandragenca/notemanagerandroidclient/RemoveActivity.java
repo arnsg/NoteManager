@@ -27,9 +27,9 @@ import it.libero.alessandragenca.notemanagerandroidclient.commons.InvalidKeyExce
 public class RemoveActivity extends AppCompatActivity {
 
 
-        private final String TAG = "ALE_DICTIONARY";
+        private static final String TAG = "ALE_DICTIONARY";
 
-        private Gson gson;
+     //   private Gson gson;
         private String baseURI = "http://10.0.2.2:8182/NoteRegApplication/";
         private EditText textIN;
         //private EditText password;
@@ -119,7 +119,7 @@ public class RemoveActivity extends AppCompatActivity {
            // password.setSingleLine();
             textOUT.setTextColor(Color.BLUE);
             textOUT.setTextSize(3, 10);
-            gson = new Gson();
+    //        gson = new Gson();
         }
 
 
