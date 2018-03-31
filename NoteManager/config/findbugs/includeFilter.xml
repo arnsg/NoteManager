@@ -19,15 +19,8 @@
         <Bug category="SECURITY" />
     </Match>
 
-    <!-- Violations of recommended and essential coding practice. Examples include 
-        hash code and equals problems, cloneable idiom, dropped exceptions, Serializable 
-        problems, and misuse of finalize. We strive to make this analysis accurate, 
-        although some groups may not care about some of the bad practices. -->
-    <Match>
-        <Bug category="BAD_PRACTICE" />
-    </Match>
-
-    <!-- code that is confusing, anomalous, or written in a way that leads itself 
+  
+   <!-- code that is confusing, anomalous, or written in a way that leads itself 
         to errors. Examples include dead local stores, switch fall through, unconfirmed 
         casts, and redundant null check of value known to be null. More false positives 
         accepted. In previous versions of FindBugs, this category was known as Style. -->
@@ -45,16 +38,7 @@
         <Bug category="MALICIOUS_CODE" />
     </Match>
 
-    <!-- code flaws having to do with threads, locks, and volatiles -->
-    <Match>
-        <Bug category="MT_CORRECTNESS" />
-    </Match>
-
-    <!-- code flaws having to do with internationalization and locale -->
-    <Match>
-        <Bug category="I18N" />
-    </Match>
-
+  
     <!-- Experimental and not fully vetted bug patterns -->
     <Match>
         <Bug category="EXPERIMENTAL" />
