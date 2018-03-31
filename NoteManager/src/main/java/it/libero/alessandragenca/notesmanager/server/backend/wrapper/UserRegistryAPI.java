@@ -22,7 +22,9 @@ public class UserRegistryAPI {
 		return instance;
 	}
 	
-	protected UserRegistryAPI(){ur= new UserRegistry();}
+	private UserRegistryAPI(){ur= new UserRegistry();
+	baseStorageFile=null;
+	rootDirForStorageFile=null;}
 	
 	
 	public synchronized int size (){return ur.size();}
@@ -93,7 +95,7 @@ public class UserRegistryAPI {
 	
 	// Effettuo il salvataggio (commit) delle modifiche su file
 	
-	public synchronized void commit()
+	private synchronized void commit()
 	{
 		int extension = buildStorageFileExtension();
 		String fileName = rootDirForStorageFile + baseStorageFile + "." + (extension + 1);
@@ -130,7 +132,7 @@ public class UserRegistryAPI {
 		}
 	}
 	
-	public MemoryRealm getRealm()
+	public synchronized MemoryRealm getRealm()
 	{
 		return ur.getRealm();
 	}
@@ -143,11 +145,11 @@ public class UserRegistryAPI {
 
 
 
-	public String getRootDirForStorageFile() {
+	public synchronized String getRootDirForStorageFile() {
 		return rootDirForStorageFile;
 	}
 
-	public String getBaseStorageFile() {
+	public synchronized String getBaseStorageFile() {
 		return baseStorageFile;
 	}
 }
