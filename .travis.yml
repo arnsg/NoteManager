@@ -17,6 +17,10 @@ email:
 - isaackios94@gmail.com
 on_success: never
 on_failure: always
+
+after_script:
+- cat /home/travis/build/arnsg/NoteManager/NoteManager/build/findbugsReports/main.html
+- cat /home/travis/build/arnsg/NoteManager/NoteManager/build/reports/JUnitReport/index.html
   
 sudo: required
 dist: trusty
