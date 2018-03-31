@@ -76,17 +76,16 @@ public class UserRegistry {
 			out.write(json); // Scrivo su file (con codifica JSON) l'intera lista di utenti
 			out.close();
 			fileOut.close();
-		} catch (Exception e){
+		} catch (IOException e){
+			if(fileOut!=null)fileOut.close();
 	    	throw e;
 		}
-		finally {
-			if(fileOut!=null)fileOut.close();
-		}
+
 	}
 	
 	// Caricamento della lista utenti da file 
 	
-	public void load(String fileName) throws IOException, ClassNotFoundException{
+	public void load(String fileName) throws IOException{
 		FileInputStream fileIn=null;
 	    try {
 			fileIn = new FileInputStream(fileName);
@@ -100,12 +99,11 @@ public class UserRegistry {
 				realm.getUsers().add(user); // Aggiungo l'utente alla lista
 			}
 			fileIn.close();
-		} catch (Exception e){
+		} catch (IOException e){
+			if(fileIn!=null)fileIn.close();
 	    	throw e;
 		}
-		finally {
-			if(fileIn!=null)fileIn.close();
-		}
+
 	} 
 	
 	

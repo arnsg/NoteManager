@@ -85,11 +85,9 @@ public class NoteRegistry {
 			out.writeObject(reg);
 			out.close();
 			fileOut.close();
-		}catch (Exception e){
-	    	throw e;
-		}
-		finally {
+		}catch (IOException e){
 			if(fileOut!=null)fileOut.close();
+	    	throw e;
 		}
 	}
 	
@@ -101,11 +99,9 @@ public class NoteRegistry {
 			reg = (HashMap<String,Note>) in.readObject();
 			in.close();
 			fileIn.close();
-		}catch (Exception e){
-			throw e;
-		}
-		finally {
+		}catch (IOException | ClassNotFoundException e){
 			if(fileIn!=null)fileIn.close();
+			throw e;
 		}
 	}
 	

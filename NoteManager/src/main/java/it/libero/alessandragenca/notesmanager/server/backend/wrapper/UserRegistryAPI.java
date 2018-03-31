@@ -124,7 +124,7 @@ public class UserRegistryAPI {
 			{
 				ur.load(fileName);
 			}
-			catch (ClassNotFoundException | IOException e)
+			catch (IOException e)
 			{
 				System.err.println("Restore filed - starting a new registry " + e.getCause() + " " + e.getMessage());
 				ur = new UserRegistry();
