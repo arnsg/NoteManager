@@ -1,5 +1,7 @@
 package it.libero.alessandragenca.notesmanager.commons;
 
+import com.google.gson.annotations.Expose;
+
 public class User1 {
 	
 
@@ -32,8 +34,9 @@ public class User1 {
 	}
 	
 	
-	
-	private String identifier; 
+	@Expose
+	private String identifier;
+	@Expose
 	private char[] secret;
 
 }

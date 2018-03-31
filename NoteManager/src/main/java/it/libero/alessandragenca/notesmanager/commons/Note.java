@@ -1,5 +1,7 @@
 package it.libero.alessandragenca.notesmanager.commons;
 
+import com.google.gson.annotations.Expose;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -17,7 +19,7 @@ public class Note implements Serializable {
 		
 		
 	}
-	
+
 	public String getTitle(){
 		return title;
 	}
@@ -29,7 +31,7 @@ public class Note implements Serializable {
 	public Date getDate(){
 		return date;
 	}
-	
+
 	public void setTitle(String title){
 		this.title=title;
 	}
@@ -46,8 +48,11 @@ public class Note implements Serializable {
 		
 		return "Note [Title=" + title + ", Text=" + text + ", Date=" + date.toString() + "]";
 	}
-	
-	private String title, text;
+	@Expose
+	private String title;
+	@Expose
+    private String text;
+	@Expose
 	private Date date;
 
 }
