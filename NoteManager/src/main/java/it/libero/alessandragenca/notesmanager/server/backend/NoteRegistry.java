@@ -84,6 +84,8 @@ public class NoteRegistry {
 			fileOut = new FileOutputStream(fileOutName);
 			out = new ObjectOutputStream(fileOut);
 			out.writeObject(reg);
+            if (fileOut!=null) fileOut.close();
+            if (out!=null) out.close();
 
 		}
 		catch(IOException e){
@@ -106,6 +108,8 @@ public class NoteRegistry {
 			fileIn = new FileInputStream(fileName);
 			in = new ObjectInputStream(fileIn);
 			reg = (HashMap<String, Note>) in.readObject();
+            if( fileIn!=null )fileIn.close();
+            if (in!= null) in.close();
 
 
 		}
