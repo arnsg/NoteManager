@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="FindBugs-IDEA">
-    <plugins>
-      <plugin id="com.h3xstream.findsecbugs" enabled="true" bundled="true" />
-    </plugins>
     <includeFilterFiles>
       <filter file="$PROJECT_DIR$/config/findbugs/includeFilter.xml" enabled="true" />
     </includeFilterFiles>
-    <excludeFilterFiles>
-      <filter file="$PROJECT_DIR$/config/findbugs/excludeFilter.xml" enabled="false" />
-    </excludeFilterFiles>
   </component>
 </project>

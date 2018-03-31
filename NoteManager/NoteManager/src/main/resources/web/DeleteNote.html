@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>NoteRegistry-DeleteNote</title>
+
+<script src="httputilities.js"></script>
+<script src="note.js"></script>
+<script src="error_codes.js"></script>
+
+<script>
+
+function customError(code, payload){
+	if (code==INVALID_KEY_CODE){
+		var msg = JSON.parse(payload).detailMessage;
+		//alert("Error: " + code + " - " + msg);
+		document.getElementById('demo').innerHTML ="Error: " + code + " - " + msg;	
+		return true;
+	}
+	return false;
+}
+
+function callback(response){
+	document.getElementById('demo').innerHTML =response;	
+	
+}
+
+function fDelete(){
+
+	if (document.NoteRegistry.title.value=="type a title" || document.NoteRegistry.title.value==""){
+		var text= "Insert a title";
+		alert(text);
+		
+		document.getElementById('demo').innerHTML =text;
+	}
+	else {
+		var theUri = 'http://localhost:8182/NoteRegApplication/notes/'+document.getElementById('title').value;
+		httpAsyncOperation(theUri,"DELETE", null, callback);
+	}
+}
+
+</script>
+
+</head>
+<body>
+
+<p>
+Test client for Note Registry services - Delete a Note
+</p>
+<form name="NoteRegistry">
+
+Title: 
+<input type="text" id="title" value="type a title" onclick= "value=''">
+<br>
+<br>
+<button type="button"
+onclick="fDelete()">
+DELETE</button>
+
+</form>
+
+<p id="demo"></p>
+
+</body>
+</html>

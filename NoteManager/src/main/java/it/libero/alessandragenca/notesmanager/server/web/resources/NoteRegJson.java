@@ -14,7 +14,6 @@ import java.text.ParseException;
 
 
 
-@SuppressWarnings("ALL")
 public class NoteRegJson extends ServerResource{
 	
 	@Get
@@ -30,8 +29,6 @@ public class NoteRegJson extends ServerResource{
 
     	NoteRegistryAPI nrapi = NoteRegistryAPI.instance();
     	Note n = gson.fromJson(payload, Note.class);
-
-
     	try{
     		nrapi.add(n);
     	return gson.toJson("note added: " + n.getTitle(), String.class);
@@ -54,7 +51,6 @@ public class NoteRegJson extends ServerResource{
     
     
     @Delete
-
     public String deleteAll() {
 		Gson gson = new Gson();
 		// ottengo una istanza del registro
@@ -75,11 +71,10 @@ public class NoteRegJson extends ServerResource{
 			setStatus(s);
 			return gson.toJson(e, InvalidKeyException.class);
 		} finally {
-
 			for (File f : file.listFiles()) {
+				//System.out.println(f.getName());
 				if (f.getName().startsWith("db")) {
-					f.deleteOnExit();
-
+					f.delete();
 				}
 			}
 
