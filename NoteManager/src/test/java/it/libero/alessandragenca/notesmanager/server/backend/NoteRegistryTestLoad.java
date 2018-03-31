@@ -15,7 +15,7 @@ public class NoteRegistryTestLoad {
 
 
     @Test
-    public void TestLoad1() {
+    public void testLoad1() {
 
 
         try{

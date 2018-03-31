@@ -6,7 +6,7 @@ import it.libero.alessandragenca.notesmanager.commons.Note;
 import java.io.*;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Set;
+import java.util.Iterator;
 
 
 
@@ -97,10 +97,10 @@ public class NoteRegistry {
 	public String[] getNotebyDate(Date date){
 		int i=0;
 		int size=0;
-		String [] notes =null;
-		Set <String> keySet = reg.keySet();
-		for(String  key:keySet){
-		     Note note = reg.get(key);
+		String [] notes;
+		Iterator keySetIterator = reg.keySet().iterator();
+		while (keySetIterator.hasNext()){
+		     Note note = reg.get(keySetIterator.next().toString());
 		     if (note.getDate().before(date)){
 		    	size= size+1;
 		     }
@@ -108,9 +108,10 @@ public class NoteRegistry {
 		notes = new String [size];
 		//System.out.println(size);
 		
-		
-		for(String  key2:keySet){
-		     Note note2 = reg.get(key2);
+		keySetIterator=reg.keySet().iterator();
+
+		while (keySetIterator.hasNext()){
+		     Note note2 = reg.get(keySetIterator.next().toString());
 		     if (note2.getDate().before(date)){
 		    	 notes[i]= note2.getTitle();
 		    	 i++;

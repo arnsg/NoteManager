@@ -56,7 +56,7 @@ public class NoteRegistryAPI {
 	
 	// Imposto le informazioni di storage degli utenti
 	
-		public void setStorageFiles(String rootDirForStorageFile, String baseStorageFile)
+		public synchronized void setStorageFiles(String rootDirForStorageFile, String baseStorageFile)
 		{
 			this.rootDirForStorageFile = rootDirForStorageFile;
 			this.baseStorageFile = baseStorageFile;
@@ -66,27 +66,31 @@ public class NoteRegistryAPI {
 		
 		// Costruisco l'estensione del file in base ai file gi� presenti all'interno della cartella
 		
-		protected int buildStorageFileExtension()
+		private int buildStorageFileExtension()
 		{
 			final File folder = new File(rootDirForStorageFile);
 			int c;
 			int max = -1;
-			
-			for(final File fileEntry : folder.listFiles())
-			{
-				if(fileEntry.getName().substring(0, baseStorageFile.length()).equalsIgnoreCase(baseStorageFile))
+			File[] listFiles=folder.listFiles();
+
+			if(listFiles!=null){
+				for(final File fileEntry : listFiles)
 				{
-					try
+					if(fileEntry.getName().substring(0, baseStorageFile.length()).equalsIgnoreCase(baseStorageFile))
 					{
-						c = Integer.parseInt(fileEntry.getName().substring(baseStorageFile.length()+1));
+						try
+						{
+							c = Integer.parseInt(fileEntry.getName().substring(baseStorageFile.length()+1));
+						}
+						catch(NumberFormatException | StringIndexOutOfBoundsException e)
+						{
+							c = -1;
+						}
+						if(c > max) max=c;
 					}
-					catch(NumberFormatException | StringIndexOutOfBoundsException e)
-					{
-						c = -1;
-					}
-					if(c > max) max=c;
 				}
 			}
+
 			return max;
 		}
 		

@@ -29,7 +29,7 @@ public class NoteRegistryTestAdd {
 
     //aggiunta nota valida
     @Test
-    public void TestAdd1() {
+    public void testAdd1() {
         System.out.println("inizio test1->test per verificare add di una nota valida");
         int size=nr.size();
         System.out.println("dimensioni registro:"+ size);
@@ -54,7 +54,7 @@ public class NoteRegistryTestAdd {
 
     //aggiunta nota duplicata
     @Test
-    public void TestAdd2() {
+    public void testAdd2() {
         System.out.println("inizio test2->aggiunta nota duplicata");
         int size=nr.size();
         System.out.println("dimensioni registro:"+ size);

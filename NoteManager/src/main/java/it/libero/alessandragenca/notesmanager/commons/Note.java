@@ -12,9 +12,9 @@ public class Note implements Serializable {
 	public Note (String title, String text, Date date){
 		this.title=title;
 		this.text= text;
-		this.date=date;
-		
-		
+		Date newDate=new Date();
+		newDate.setTime(date.getTime());
+		this.date=newDate;
 		
 	}
 	
@@ -27,7 +27,9 @@ public class Note implements Serializable {
 	}
 	
 	public Date getDate(){
-		return date;
+		Date newDate=new Date();
+		newDate.setTime(date.getTime());
+		return newDate;
 	}
 	
 	public void setTitle(String title){
@@ -39,7 +41,9 @@ public class Note implements Serializable {
 	}
 	
 	public void setDate(Date date){
-		this.date=date;
+		Date newDate=new Date();
+		newDate.setTime(date.getTime());
+		this.date=newDate;
 	}
 	
 	public String toString() {

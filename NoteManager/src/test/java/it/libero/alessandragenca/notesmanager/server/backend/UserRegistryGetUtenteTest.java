@@ -15,7 +15,7 @@ public class UserRegistryGetUtenteTest {
 
     @Before
     public void setUp() throws Exception {
-        userreg.getRealm();
+        //userreg.getRealm();
         User u= new User("Alessandra", "Genca");
         userreg.add(u);
         System.out.print("Aggiunto user1:" + u.getIdentifier()+"\n");
@@ -29,7 +29,7 @@ public class UserRegistryGetUtenteTest {
 
     //test per verificare get di un utente "Null"
     @Test
-    public void TestUserRegistry1() {
+    public void testUserRegistry1() {
         System.out.println("inizio test-1>test per verificare get di un utente Null");
         User u=null;
 
@@ -48,7 +48,7 @@ public class UserRegistryGetUtenteTest {
 
     //test per verificare get di un utente non valido
     @Test
-    public void TestUserRegistry3() {
+    public void testUserRegistry3() {
         System.out.println("inizio test3->test per verificare get di un utente non valido");
         User u=null;
 
@@ -69,7 +69,7 @@ public class UserRegistryGetUtenteTest {
 
     //test per verificare get di un utente  valido
     @Test
-    public void TestUserRegistry2(){
+    public void testUserRegistry2(){
         User u=null;
         System.out.println("inizio test2->test per verificare get di un utente  valido");
         try {

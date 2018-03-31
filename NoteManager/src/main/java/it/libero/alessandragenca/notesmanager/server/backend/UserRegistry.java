@@ -7,10 +7,7 @@ import org.codehaus.jackson.type.TypeReference;
 import org.restlet.security.MemoryRealm;
 import org.restlet.security.User;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.PrintStream;
+import java.io.*;
 import java.util.ArrayList;
 
 
@@ -63,7 +60,7 @@ public class UserRegistry {
 		
 	public void save(String fileOutName) throws IOException{		
 	    FileOutputStream fileOut = new FileOutputStream(fileOutName);
-	    PrintStream out = new PrintStream(fileOut);
+		Writer out = new BufferedWriter(new OutputStreamWriter(fileOut,"UTF-8"));
 	   
 	    ArrayList<User1> userList = new ArrayList<User1>();
 	    ObjectMapper objectMapper = new ObjectMapper(); // Classe della libreria JACKSON per la memorizzazione della lista di utenti con codifica JSON
@@ -74,7 +71,7 @@ public class UserRegistry {
 	    		userList.add(new User1(user.getIdentifier(), user.getSecret()));
 	    }
 	    String json = objectMapper.writeValueAsString(userList); // Ottengo la stringa (con codifica JSON) rappresentante la lista di utenti
-	    out.print(json); // Scrivo su file (con codifica JSON) l'intera lista di utenti
+	    out.write(json); // Scrivo su file (con codifica JSON) l'intera lista di utenti
 	    out.close();
 	    fileOut.close();
 	}
@@ -83,7 +80,7 @@ public class UserRegistry {
 	
 	public void load(String fileName) throws IOException, ClassNotFoundException{
 	    FileInputStream fileIn = new FileInputStream(fileName);
-	    ArrayList<User1> userList = new ArrayList<User1>();
+	    ArrayList<User1> userList;    // = new ArrayList<User1>();
 	    ObjectMapper mapper = new ObjectMapper();
 	    // Tramite la funzione readValue riottengo la lista degli utenti a partire dalla stringa con codifica JSON
 	    userList = mapper.readValue(fileIn, new TypeReference<ArrayList<User1>>() {});

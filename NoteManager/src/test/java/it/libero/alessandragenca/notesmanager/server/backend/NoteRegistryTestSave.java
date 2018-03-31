@@ -30,7 +30,7 @@ public class NoteRegistryTestSave {
     }
 
     @Test
-    public void TestSave1() {
+    public void testSave1() {
         System.out.print("Dimensioni dopo dell'add:"+nr.size()+"\n");
 
         try{

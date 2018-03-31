@@ -16,7 +16,7 @@ public class UserRegistryTestLoad {
 
 
     @Test
-    public void TestLoad1() {
+    public void testLoad1() {
 
 
         try{

@@ -14,7 +14,7 @@ public class UserRegistryAddTest {
 
     @Before
     public void setUp() throws Exception {
-        userreg.getRealm();
+        //userreg.getRealm();
         System.out.print("Dimensioni prima dell'add:"+userreg.size()+"\n");
         User u = new User("Alessandra", "Genca");
         userreg.add(u);
@@ -25,7 +25,7 @@ public class UserRegistryAddTest {
 
     //aggiunta utente valido
     @Test
-    public void TestAdd1() {
+    public void testAdd1() {
         System.out.println("inizio test-1>test per verificare add di un utente valido");
         int size=userreg.size();
         System.out.println("dimensioni registro:"+ size);
@@ -50,7 +50,7 @@ public class UserRegistryAddTest {
 
     //aggiunta utente duplicato
     @Test
-    public void TestAdd2() {
+    public void testAdd2() {
         System.out.println("inizio test2->aggiunta utente duplicato");
         int size=userreg.size();
         System.out.println("dimensioni registro:"+ size);

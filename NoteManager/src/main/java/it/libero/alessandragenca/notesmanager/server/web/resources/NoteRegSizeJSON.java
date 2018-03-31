@@ -18,7 +18,7 @@ public class NoteRegSizeJSON extends ServerResource {
     public String getSize() throws ParseException  {    	
     	Gson gson = new Gson();
     	NoteRegistryAPI nrapi = NoteRegistryAPI.instance();
-    	return gson.toJson(new Integer(nrapi.size()),Integer.class);   	
+    	return gson.toJson(nrapi.size(),Integer.class);
     }
 	
 	

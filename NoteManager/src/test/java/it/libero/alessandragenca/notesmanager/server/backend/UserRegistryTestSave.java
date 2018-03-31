@@ -15,7 +15,7 @@ public class UserRegistryTestSave {
 
     @Before
     public void setUp() throws Exception {
-        userreg.getRealm();
+        //userreg.getRealm();
         System.out.print("Dimensioni prima dell'add e del save:"+userreg.size()+"\n");
         userreg.add(u);
 
@@ -25,7 +25,7 @@ public class UserRegistryTestSave {
     }
 
     @Test
-    public void TestSave1() {
+    public void testSave1() {
         System.out.print("Dimensioni dopo dell'add:"+userreg.size()+"\n");
 
         try{

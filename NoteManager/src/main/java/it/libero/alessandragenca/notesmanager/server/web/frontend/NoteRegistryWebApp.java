@@ -26,7 +26,7 @@ import java.util.Scanner;
 public class NoteRegistryWebApp extends Application{
 	
 	
-public static MemoryRealm realm;
+private static MemoryRealm realm;
 	
 	/* Creo la classe relative alle impostazioni del server */
 	
@@ -98,7 +98,7 @@ public static MemoryRealm realm;
 		{
 			System.out.print(new File("").getAbsolutePath());
 			System.out.print("stampa:"+System.getProperty("user.dir"));
-			Scanner scanner = new Scanner(new File ("src/main/resources/settings.json"));
+			Scanner scanner = new Scanner(new File ("src/main/resources/settings.json"),"UTF-8");
 			settings = gson.fromJson(scanner.nextLine(), Settings.class);
 			scanner.close();
 			System.err.println("Loading settings from file");

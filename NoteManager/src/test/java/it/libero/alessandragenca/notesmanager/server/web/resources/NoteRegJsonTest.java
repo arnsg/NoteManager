@@ -37,11 +37,15 @@ public class NoteRegJsonTest {
     public static void tearDownAfterClass() {
         File file = new File("src/main/resources/storage");
         if(file.exists()){
-            for(File f:file.listFiles()) {
-              //System.out.println(f.getName());
-             if (f.getName().startsWith("Test")) {
-                 f.deleteOnExit();
-              }
+            File[] listFiles=file.listFiles();
+
+            if(listFiles!=null){
+                for(File f:listFiles) {
+                    //System.out.println(f.getName());
+                    if (f.getName().startsWith("Test")) {
+                        f.deleteOnExit();
+                    }
+                }
             }
         }
 
@@ -57,7 +61,7 @@ public class NoteRegJsonTest {
         try
         {
 
-            Scanner scanner = new Scanner(new File ("src/main/resources/settings.json"));
+            Scanner scanner = new Scanner(new File ("src/main/resources/settings.json"),"UTF-8");
             settings = gson.fromJson(scanner.nextLine(),NoteRegJsonTest.Settings.class);
             scanner.close();
             //System.err.println("Loading settings from file");
