@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <FindBugsFilter>
-    <!-- Probable bug - an apparent coding mistake resulting in code that was 
-        probably not what the developer intended. We strive for a low false positive 
-        rate. -->
-    <Match>
-        <Bug category="CORRECTNESS" />
-    </Match>
+   
 
     <!-- Bogus random noise: intended to be useful as a control in data mining 
         experiments, not in finding actual bugs in software. -->
