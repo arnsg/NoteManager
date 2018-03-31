@@ -27,7 +27,6 @@ public class NoteTest {
 
     @Test
     public void getTitle() {
-        n.getTitle();
         Assert.assertEquals(" Errore Test del get Title", n.getTitle(), "titolo test");
 
 
@@ -74,7 +73,7 @@ public class NoteTest {
     }
 
     @Test
-    public void TestToString() {
+    public void testToString() {
        String test= "Note [Title=" + n.getTitle()+ ", Text=" + n.getText() + ", Date=" + n.getDate().toString() + "]";
 
         Assert.assertEquals("Errore nel ToString",  n.toString(), test);
