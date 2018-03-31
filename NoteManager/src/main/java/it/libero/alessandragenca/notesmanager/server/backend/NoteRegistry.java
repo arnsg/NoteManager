@@ -87,8 +87,8 @@ public class NoteRegistry {
 			out.close();
 			fileOut.close();
 		}catch (IOException e){
-			if(fileOut!=null)fileOut.close();
 			if(out!=null)out.close();
+			if(fileOut!=null)fileOut.close();
 	    	throw e;
 		}
 	}

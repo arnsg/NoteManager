@@ -3,13 +3,12 @@ package it.libero.alessandragenca.notesmanager.server.backend;
 import it.libero.alessandragenca.notesmanager.commons.InvalidUsernameException;
 import it.libero.alessandragenca.notesmanager.commons.User1;
 import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.type.TypeReference;
 import org.restlet.security.MemoryRealm;
 import org.restlet.security.User;
 
 import java.io.*;
 import java.util.ArrayList;
-
+import java.util.Arrays;
 
 
 public class UserRegistry {
@@ -67,9 +66,11 @@ public class UserRegistry {
 	public void save(String fileOutName) throws IOException{
 		FileOutputStream fileOut=null;
 		Writer out=null;
+		OutputStreamWriter out1=null;
 		try{
 			fileOut = new FileOutputStream(fileOutName);
-			out = new BufferedWriter(new OutputStreamWriter(fileOut,"UTF-8"));
+			out1=new OutputStreamWriter(fileOut,"UTF-8");
+			out = new BufferedWriter(out1);
 
 			ArrayList<User1> userList = new ArrayList<User1>();
 			ObjectMapper objectMapper = new ObjectMapper(); // Classe della libreria JACKSON per la memorizzazione della lista di utenti con codifica JSON
@@ -86,6 +87,7 @@ public class UserRegistry {
 		} catch (IOException e){
 			if(fileOut!=null)fileOut.close();
 			if(out!=null)out.close();
+			if(out1!=null)out1.close();
 	    	throw e;
 		}
 
@@ -100,7 +102,9 @@ public class UserRegistry {
 			ArrayList<User1> userList;    // = new ArrayList<User1>();
 			ObjectMapper mapper = new ObjectMapper();
 			// Tramite la funzione readValue riottengo la lista degli utenti a partire dalla stringa con codifica JSON
-			userList = mapper.readValue(fileIn, new TypeReference<ArrayList<User1>>() {});
+			//userList = mapper.readValue(fileIn, new TypeReference<ArrayList<User1>>());
+			User1[] array = mapper.readValue(fileIn, User1[].class);
+			userList=new ArrayList<>(Arrays.asList(array));
 			for(User1 userWrapped : userList) // Per ogni utente nella lista, riottengo l'oggetto User, andando a ripopolare il Realm (ripristino)
 			{
 				User user = new User(userWrapped.getIdentifier(), userWrapped.getSecret());
