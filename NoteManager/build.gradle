@@ -21,6 +21,10 @@ repositories {
 findbugs {
     ignoreFailures = true
     sourceSets = [sourceSets.main]
+    reportsDir = file("$project.buildDir/findbugsReports")
+    effort = "max"
+    reportLevel = "low"
+    includeFilter = file("$rootProject.projectDir/config/findbugs/includeFilter.xml")
 }
 
 tasks.withType(FindBugs) {
@@ -30,10 +34,7 @@ tasks.withType(FindBugs) {
     }
 }
 
-checkstyle {
-    configFile = new File(rootDir, "config/checkstyle/checkstyle.xml")
-    toolVersion = '6.17'
-}
+
 
 dependencies {
 
