@@ -86,8 +86,10 @@ public class NoteRegistry {
 			out.close();
 			fileOut.close();
 		}catch (Exception e){
-			if(fileOut!=null)fileOut.close();
 	    	throw e;
+		}
+		finally {
+			if(fileOut!=null)fileOut.close();
 		}
 	}
 	
@@ -100,8 +102,10 @@ public class NoteRegistry {
 			in.close();
 			fileIn.close();
 		}catch (Exception e){
-			if(fileIn!=null)fileIn.close();
 			throw e;
+		}
+		finally {
+			if(fileIn!=null)fileIn.close();
 		}
 	}
 	

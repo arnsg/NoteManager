@@ -77,8 +77,10 @@ public class UserRegistry {
 			out.close();
 			fileOut.close();
 		} catch (Exception e){
-			if(fileOut!=null)fileOut.close();
 	    	throw e;
+		}
+		finally {
+			if(fileOut!=null)fileOut.close();
 		}
 	}
 	
@@ -99,8 +101,10 @@ public class UserRegistry {
 			}
 			fileIn.close();
 		} catch (Exception e){
-			if(fileIn!=null)fileIn.close();
 	    	throw e;
+		}
+		finally {
+			if(fileIn!=null)fileIn.close();
 		}
 	} 
 	
