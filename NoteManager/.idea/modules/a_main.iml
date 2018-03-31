@@ -12,7 +12,6 @@
     <orderEntry type="library" name="Gradle: org.restlet.jse:org.restlet:3.0-M1" level="project" />
     <orderEntry type="library" name="Gradle: org.restlet.jee:org.restlet.ext.jackson:3.0-M1" level="project" />
     <orderEntry type="library" name="Gradle: org.restlet.jee:org.restlet:3.0-M1" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.code.findbugs:annotations:3.0.1" level="project" />
     <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.8.2" level="project" />
     <orderEntry type="library" name="Gradle: com.fasterxml.jackson.dataformat:jackson-dataformat-csv:2.4.4" level="project" />
     <orderEntry type="library" name="Gradle: com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.4.4" level="project" />
@@ -24,8 +23,6 @@
     <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.9.4" level="project" />
     <orderEntry type="library" name="Gradle: org.codehaus.jackson:jackson-mapper-asl:1.9.13" level="project" />
     <orderEntry type="library" name="Gradle: org.codehaus.jackson:jackson-core-asl:1.9.13" level="project" />
-    <orderEntry type="library" name="Gradle: net.jcip:jcip-annotations:1.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.code.findbugs:jsr305:3.0.1" level="project" />
     <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.4.4" level="project" />
     <orderEntry type="library" name="Gradle: org.codehaus.woodstox:woodstox-core-asl:4.3.0" level="project" />
     <orderEntry type="library" name="Gradle: org.codehaus.woodstox:stax2-api:3.1.4" level="project" />

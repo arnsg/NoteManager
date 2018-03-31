@@ -2,9 +2,6 @@ group 'a'
 version '1.0'
 
 apply plugin: 'java'
-//Apply findbugs inspection plugin
-apply plugin: 'findbugs'
-
 
 sourceCompatibility = 1.8
 
@@ -16,25 +13,6 @@ repositories {
 
 }
 
-
-findbugs {
-    ignoreFailures = true
-    sourceSets = [sourceSets.main]
-    reportsDir = file("$project.buildDir/findbugsReports")
-    effort = "max"
-    reportLevel = "low"
-    includeFilter = file("$rootProject.projectDir/config/findbugs/includeFilter.xml")
-}
-
-tasks.withType(FindBugs) {
-    reports {
-        xml.enabled = false
-        html.enabled = true
-    }
-}
-
-
-
 dependencies {
 
    testCompile group: 'junit', name: 'junit', version: '4.12'
@@ -45,7 +23,7 @@ dependencies {
 
     compile "org.restlet.jee:org.restlet:${2.3}"
 
-    compile 'com.google.code.findbugs:annotations:3+' //3.0.1
+
 
     // https://mvnrepository.com/artifact/com.google.code.gson/gson
     compile group: 'com.google.code.gson', name: 'gson', version: '2.8.2'
