@@ -83,11 +83,12 @@ public class UserRegistry {
 			String json = objectMapper.writeValueAsString(userList); // Ottengo la stringa (con codifica JSON) rappresentante la lista di utenti
 			out.write(json); // Scrivo su file (con codifica JSON) l'intera lista di utenti
 			out.close();
+			out1.close();
 			fileOut.close();
 		} catch (IOException e){
-			if(fileOut!=null)fileOut.close();
 			if(out!=null)out.close();
 			if(out1!=null)out1.close();
+			if(fileOut!=null)fileOut.close();
 	    	throw e;
 		}
 
