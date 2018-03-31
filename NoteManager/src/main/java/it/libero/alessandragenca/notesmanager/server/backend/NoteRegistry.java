@@ -77,40 +77,27 @@ public class NoteRegistry {
 	}
 	
 
-	public void save(String fileOutName){
+	public void save(String fileOutName) throws IOException {
 	    FileOutputStream fileOut=null;
 	    ObjectOutputStream out=null;
 	    try {
 			fileOut = new FileOutputStream(fileOutName);
 			out = new ObjectOutputStream(fileOut);
 			out.writeObject(reg);
+			fileOut.close();
+			out.close();
 		}
 		catch(IOException e){
 			e.printStackTrace();
+			fileOut.close();
+			out.close();
 
 		}
 
-		finally {
-			try {
-				if (out!= null) {
-					out.close();
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			try {
-				if (out!= null) {
-					out.close();
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 
-
-		}
 	}
 	
-	public void load(String fileName) throws  ClassNotFoundException , ClassCastException{
+	public void load(String fileName) throws ClassNotFoundException, ClassCastException, IOException {
 
 	    FileInputStream fileIn= null;
 	    ObjectInputStream in=null ;
@@ -118,28 +105,17 @@ public class NoteRegistry {
 			fileIn = new FileInputStream(fileName);
 			in = new ObjectInputStream(fileIn);
 			reg = (HashMap<String, Note>) in.readObject();
+
+			fileIn.close();
+			in.close();
 		}
 		catch (IOException e){
 	    	e.printStackTrace();
-		}
-		finally {
-			try {
-				if (in != null) {
-					in.close();
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			try {
-				if (fileIn != null) {
-					fileIn.close();
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+	    	in.close();
+	    	fileIn.close();
 
 
-		}
+	    }
 	}
 	
 	

@@ -5,6 +5,7 @@ import it.libero.alessandragenca.notesmanager.commons.Note;
 import it.libero.alessandragenca.notesmanager.server.backend.NoteRegistry;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Date;
 
 public class NoteRegistryAPI {
@@ -113,8 +114,7 @@ public class NoteRegistryAPI {
 		
 		// Effettuo il recupero delle informazioni degli utenti (restore)
 		
-		public synchronized void restore()
-		{
+		public synchronized void restore() throws IOException {
 			int extension = buildStorageFileExtension();
 			if (extension == -1){
 				System.err.println("No data to load - starting a new registry");

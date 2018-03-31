@@ -18,7 +18,6 @@ import org.restlet.security.ChallengeAuthenticator;
 import org.restlet.security.MemoryRealm;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -88,7 +87,7 @@ public static MemoryRealm realm;
         return guard;
     }
     
-	public static void main(String[] args) {
+	public static void main(String[] args)  {
 		
 		Gson gson = new Gson();
 		Settings settings = null;
@@ -104,11 +103,7 @@ public static MemoryRealm realm;
 			scanner.close();
 			System.err.println("Loading settings from file");
 		}
-		catch (FileNotFoundException e)
-		{
-			System.err.println("Settings file not found");
 
-		}
 		catch (IOException e)
 		{
 			System.err.println("Settings file not found");
@@ -124,8 +119,12 @@ public static MemoryRealm realm;
 		
 		NoteRegistryAPI nrapi = NoteRegistryAPI.instance();
 		nrapi.setStorageFiles(System.getProperty("user.dir") +"/src/main/resources/"+ settings.storage_base_dir + "\\", settings.storage_base_file); // Imposto i file di storage
-		nrapi.restore();
-		
+		try {
+			nrapi.restore();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 		UserRegistryAPI urapi = UserRegistryAPI.instance();
 		urapi.setStorageFiles(System.getProperty("user.dir") + "/src/main/resources/" + settings.users_storage_base_dir + "\\", settings.users_storage_base_file); // Imposto i file di storage
 		realm = urapi.getRealm();
