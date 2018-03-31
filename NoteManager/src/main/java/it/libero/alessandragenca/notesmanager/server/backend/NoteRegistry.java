@@ -77,20 +77,32 @@ public class NoteRegistry {
 	}
 	
 
-	public void save(String fileOutName) throws IOException{		
-	    FileOutputStream fileOut = new FileOutputStream(fileOutName);
-	    ObjectOutputStream out = new ObjectOutputStream(fileOut);
-	    out.writeObject(reg);
-	    out.close();
-	    fileOut.close();
+	public void save(String fileOutName) throws IOException{
+		FileOutputStream fileOut=null;
+	    try{
+			fileOut = new FileOutputStream(fileOutName);
+			ObjectOutputStream out = new ObjectOutputStream(fileOut);
+			out.writeObject(reg);
+			out.close();
+			fileOut.close();
+		}catch (Exception e){
+			if(fileOut!=null)fileOut.close();
+	    	throw e;
+		}
 	}
 	
 	public void load(String fileName) throws IOException, ClassNotFoundException{
-	    FileInputStream fileIn = new FileInputStream(fileName);
-	    ObjectInputStream in = new ObjectInputStream(fileIn);
-	    reg = (HashMap<String,Note>) in.readObject();
-	    in.close();
-	    fileIn.close();
+		FileInputStream fileIn=null;
+		try{
+			fileIn = new FileInputStream(fileName);
+			ObjectInputStream in = new ObjectInputStream(fileIn);
+			reg = (HashMap<String,Note>) in.readObject();
+			in.close();
+			fileIn.close();
+		}catch (Exception e){
+			if(fileIn!=null)fileIn.close();
+			throw e;
+		}
 	}
 	
 	

@@ -49,8 +49,10 @@ public class NoteRegistryAPI {
 		commit();
 	}
 			
-	protected NoteRegistryAPI(){
+	private NoteRegistryAPI(){
 		nr = new NoteRegistry();
+		baseStorageFile=null;
+		rootDirForStorageFile=null;
 	}
 	
 	
@@ -96,7 +98,7 @@ public class NoteRegistryAPI {
 		
 		// Effettuo il salvataggio (commit) delle modifiche su file
 		
-		public synchronized void commit()
+		private synchronized void commit()
 		{
 			int extension = buildStorageFileExtension();
 			String fileName = rootDirForStorageFile + baseStorageFile + "." + (extension + 1);
@@ -107,8 +109,8 @@ public class NoteRegistryAPI {
 			}
 			catch (IOException e)
 			{
-				System.err.println("Commit filed " + e.getMessage() + " " + e.getCause());
-			}		
+				System.err.println("Commit failed " + e.getMessage() + " " + e.getCause());
+			}
 		}
 		
 		// Effettuo il recupero delle informazioni degli utenti (restore)

@@ -58,38 +58,50 @@ public class UserRegistry {
 	}
 
 		
-	public void save(String fileOutName) throws IOException{		
-	    FileOutputStream fileOut = new FileOutputStream(fileOutName);
-		Writer out = new BufferedWriter(new OutputStreamWriter(fileOut,"UTF-8"));
-	   
-	    ArrayList<User1> userList = new ArrayList<User1>();
-	    ObjectMapper objectMapper = new ObjectMapper(); // Classe della libreria JACKSON per la memorizzazione della lista di utenti con codifica JSON
-	    for(User user : realm.getUsers())
-	    {
-	    	
-	    		
-	    		userList.add(new User1(user.getIdentifier(), user.getSecret()));
-	    }
-	    String json = objectMapper.writeValueAsString(userList); // Ottengo la stringa (con codifica JSON) rappresentante la lista di utenti
-	    out.write(json); // Scrivo su file (con codifica JSON) l'intera lista di utenti
-	    out.close();
-	    fileOut.close();
+	public void save(String fileOutName) throws IOException{
+		FileOutputStream fileOut=null;
+		try{
+			fileOut = new FileOutputStream(fileOutName);
+			Writer out = new BufferedWriter(new OutputStreamWriter(fileOut,"UTF-8"));
+
+			ArrayList<User1> userList = new ArrayList<User1>();
+			ObjectMapper objectMapper = new ObjectMapper(); // Classe della libreria JACKSON per la memorizzazione della lista di utenti con codifica JSON
+			for(User user : realm.getUsers())
+			{
+
+
+				userList.add(new User1(user.getIdentifier(), user.getSecret()));
+			}
+			String json = objectMapper.writeValueAsString(userList); // Ottengo la stringa (con codifica JSON) rappresentante la lista di utenti
+			out.write(json); // Scrivo su file (con codifica JSON) l'intera lista di utenti
+			out.close();
+			fileOut.close();
+		} catch (Exception e){
+			if(fileOut!=null)fileOut.close();
+	    	throw e;
+		}
 	}
 	
 	// Caricamento della lista utenti da file 
 	
 	public void load(String fileName) throws IOException, ClassNotFoundException{
-	    FileInputStream fileIn = new FileInputStream(fileName);
-	    ArrayList<User1> userList;    // = new ArrayList<User1>();
-	    ObjectMapper mapper = new ObjectMapper();
-	    // Tramite la funzione readValue riottengo la lista degli utenti a partire dalla stringa con codifica JSON
-	    userList = mapper.readValue(fileIn, new TypeReference<ArrayList<User1>>() {});
-	    for(User1 userWrapped : userList) // Per ogni utente nella lista, riottengo l'oggetto User, andando a ripopolare il Realm (ripristino)
-	    {
-	    	User user = new User(userWrapped.getIdentifier(), userWrapped.getSecret());
-	    	realm.getUsers().add(user); // Aggiungo l'utente alla lista
-	     }
-	    fileIn.close();
+		FileInputStream fileIn=null;
+	    try {
+			fileIn = new FileInputStream(fileName);
+			ArrayList<User1> userList;    // = new ArrayList<User1>();
+			ObjectMapper mapper = new ObjectMapper();
+			// Tramite la funzione readValue riottengo la lista degli utenti a partire dalla stringa con codifica JSON
+			userList = mapper.readValue(fileIn, new TypeReference<ArrayList<User1>>() {});
+			for(User1 userWrapped : userList) // Per ogni utente nella lista, riottengo l'oggetto User, andando a ripopolare il Realm (ripristino)
+			{
+				User user = new User(userWrapped.getIdentifier(), userWrapped.getSecret());
+				realm.getUsers().add(user); // Aggiungo l'utente alla lista
+			}
+			fileIn.close();
+		} catch (Exception e){
+			if(fileIn!=null)fileIn.close();
+	    	throw e;
+		}
 	} 
 	
 	
